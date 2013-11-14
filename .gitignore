@@ -1,0 +1,7 @@
+*.log
+*._log
+*.synctex.gz
+*.tex.project.vim
+*.aux
+*._aux
+
