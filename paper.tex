@@ -1,23 +1,40 @@
-\documentclass[10pt,final,journal]{IEEEtran}
+\documentclass[journal, a4paper]{IEEEtran}
+
+\usepackage{cite}
+\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{url}
 
-\title{Scaling of Electrode-Electrolyte Interface Model Parameters In Phosphate Buffered Saline}
-\author{Mark~H.~Jones,~Jonathan~Scott,~\IEEEmembership{Senior Member,~IEEE}}
 \begin{document}
+
+\title{Scaling of Electrode-Electrolyte Interface Model Parameters In Phosphate Buffered Saline}
+
+\author{Mark~H.~Jones,~Jonathan~Scott,~\IEEEmembership{Senior Member,~IEEE}
+
+\thanks{Mark~H.~Jones is with the School of Electronic Engineering, University of Waikato, New Zealand, e-mail: markjones112358@gmail.com.}%
+
+\thanks{Jonathan Scott is with the School of Electronic Engineering, University of Waikato, New Zealand, e-mail: jonathanscott@iee.org.}
+
+}
+
+\markboth{Transactions on Biomedical Circuits and Systems}
+{Jones \MakeLowercase{\textit{et al.}}: Scaling of Electrode-Electrolyte Interface Model Parameters in Phosphate Buffered Saline\...}
 \maketitle
 
 \begin{abstract}
-We report how the impedance presented by a platinum electrode scales with the concentration of phosphate buffered saline (PBS). 
-We find that the constant phase element of the model scales with approximately the log of concentration, whereas the resistivity is inversely proportional. 
-Using a novel DC measurement technique we show that the Faradaic response of a platinum electrode, and thus the safe exposure limit, does not scale with concentration below 900\thinspace mV overpotential across a pair of electrodes. 
-We comment upon the appropriateness of PBS as a substitute for the spinal cavity of a sheep.
+We report how the impedance presented by a platinum electrode scales with the concentration of phosphate buffered saline (PBS).
+We find that the constant phase element of the model scales with approximately the log of concentration, whereas the resistivity is inversely proportional.
+Using a novel DC measurement technique we show that the Faradaic response of a platinum electrode, and thus the safe exposure limit, does not scale with concentration below 900\thinspace mV overpotential across a pair of electrodes.
+We compare objective measurements made in saline to those made in the spinal cavity of live sheep. We comment upon the appropriateness of using PBS as a substitute for living sheep.
 \end{abstract}
 
+\begin{IEEEkeywords}
+    Electrical stimulation, Bioelectric phenomena, Biophysics, Bioimpedance, Biomedical electrodes, Biomedical measurements, Implantable biomedical devices
+\end{IEEEkeywords}
 
 \section{Introduction}
-There is considerable interest in the electrical modelling of electrodes. \cite{Cogan2008,Troy2006}
+\IEEEPARstart{T}{here} is considerable interest in the electrical modelling of electrodes. \cite{Cogan2008,Troy2006}
 In \cite{Franks2005} a linearised model was presented, and in \cite{ScottSingle2013} a non-linear model
 suitable for use with the SPICE circuit simulator was presented. The SPICE model usefully characterises an electrode in a given electrolyte with a small number of parameters.
 One major reason for the interest in the electrical impedance of electrodes concerns the design of electronics intended for integration into pacemakers, cochlear implants, spinal cord stimulators, etc. The design of successful circuits depends upon a good understanding of external load impedance, while maximisation of battery life is linked to the use of electrodes whose impedance is well understood.
@@ -40,7 +57,7 @@ The electrical interface model of \cite{Franks2005} and \cite{ScottSingle2013} h
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=230pt]{graphics/interfaceSchematic_noMemristive.eps}
+        \includegraphics[width=230pt]{graphics/interfaceSchematic_noMemristive}
     \end{center}
     \caption{Electrical schematic of the electrode-interface impedance model used in this work. $D_{a}$ and $D_{b}$ represent diodes; $CPE$ and $R_{s}$ represent the constant phase element and series resistance respectively.}
     \label{fig:schematic}
@@ -48,8 +65,8 @@ The electrical interface model of \cite{Franks2005} and \cite{ScottSingle2013} h
 
 \section{Resistive Network}
 The ingredients of the stock solution of PBS used in this study are given in table~\ref{tab:PBSrecipe}.
-Six solutions ranging from 1.0X to 0.025X the concentration of this stock solution have been examined. 
-The stock solution had a pH of 7.4 and no pH adjustments were made to the derived solutions. 
+Six solutions ranging from 1.0X to 0.025X the concentration of this stock solution have been examined.
+The stock solution had a pH of 7.4 and no pH adjustments were made to the derived solutions.
 
 \begin{table}
     \begin{center}
@@ -66,7 +83,7 @@ The stock solution had a pH of 7.4 and no pH adjustments were made to the derive
     \label{tab:PBSrecipe}
 \end{table}
 
-The electrical impedance between two electrodes in an electrolyte arises from two interface impedances in series with the resistance due to the bulk of the electrolyte itself. To quantify the impedance presented by a single interface we first need to understand the inter-electrode resistances presented by the electrolyte bulk. As there are always two interface impedances between any two electrodes, inter-electrode resistances cannot be measured in isolation. 
+The electrical impedance between two electrodes in an electrolyte arises from two interface impedances in series with the resistance due to the bulk of the electrolyte itself. To quantify the impedance presented by a single interface we first need to understand the inter-electrode resistances presented by the electrolyte bulk. As there are always two interface impedances between any two electrodes, inter-electrode resistances cannot be measured in isolation.
 In \cite{ScottSingle2013}, a series of transresistance measurements were used in conjunction with a physical description of the electrode geometry to build up a representative network of resistors. Repeating this work, we can then produce a resistor network that connects each of the 8 electrodes, replicating the resistances due to the solution bulk. Transimpedance measurements were taken at each concentration of PBS and the results are presented in figure~\ref{fig:transresistance}.
 A numerical fit was made to the two independent scaling parameters ($R_{eri}$ and $R_{sri}$).  The resulting fit and parameter values are presented in figure~\ref{fig:transresistance} and table~\ref{tab:RESparams} respectively.
 
@@ -74,9 +91,9 @@ A numerical fit was made to the two independent scaling parameters ($R_{eri}$ an
     \begin{center}
         \includegraphics{graphics/pbs_transimpedance_IEEE}
     \end{center}
-    \caption{Trans-resistance measurements (markers) used to generate the resistor mesh and the corresponding fit (lines). Red diamonds indicate results where a stimulus is placed across electrodes 1 and 2. Blue circles represent measurements where the stimulus is placed across electrodes 1 and 8. Each trace represents one of six concentrations of PBS, increasing in transresistance magnitude monotonically from 1.0X to 0.025X.}
+    \caption{Transresistance measurements (markers) used to generate the resistor mesh and the corresponding fit (lines). Red diamonds indicate results where a stimulus is placed across electrodes 1 and 2. Blue circles represent measurements where the stimulus is placed across electrodes 1 and 8. Each trace represents one of six concentrations of PBS, increasing in transresistance magnitude monotonically from 1.0X to 0.025X.}
     \label{fig:transresistance}
-\end{figure} 
+\end{figure}
 
 \begin{table}
     \begin{center}
@@ -96,15 +113,15 @@ A numerical fit was made to the two independent scaling parameters ($R_{eri}$ an
 
 \section{Displacement Parameters}
 The linear, or small-signal, part of an electrode-electrolyte interface is represented by a Constant Phase Element (CPE) or fractional capacitor. For simulation purposes this element is realised as an array of R-C branches.~\cite{ScottSingle2013,Morrison59,Elwakil10} Measurement of the CPE is made by sweeping the frequency of a sinusoidal stimulus across electrodes 2 and 7 of the Octrode while measuring the voltage between electrodes 2 and 3. The numbering pattern used to identify each of the electrodes on the Octrode is shown in figure~\ref{fig:octrode}.
-Measurements made using this configuration allow for the quantification of a single interface impedance in series with the resistance presented by the bulk solution. 
+Measurements made using this configuration allow for the quantification of a single interface impedance in series with the resistance presented by the bulk solution.
 Figures~\ref{fig:CPE_Magnitude} and~\ref{fig:CPE_Phase} show magnitude and phase measurements of the CPE at each concentration.
 
 As shown in the interface model schematic (figure~\ref{fig:schematic}), the interface contains its own internal series resistance ($R_{S}$). The resistance seen in series with the CPE will therefore be the sum of both the resistance due to the bulk resistivity of the fluid and $R_{S}$, to which we will refer as $R_{S+bulk}$.
 In figure~\ref{fig:CPE_Magnitude}, the slope and magnitude of the CPE are visible below 1\thinspace Hz whereas $R_{S+bulk}$  dominates above 1\thinspace kHz; it is clear that the two do not scale similarly.
 As the impedance of the CPE and $R_{S+bulk}$ are separable with frequency, these measurements can be used to determine the CPE parameters and $R_{S}$.
 
-Figure~\ref{fig:CPE_Scaling} shows measured data and the corresponding fits for both the CPE magnitude at 0.05\thinspace Hz and $R_{S+bulk}$. 
-The resulting model parameters $m$, $k$, and $|Z|\thinspace @\thinspace 1Hz$ are shown in table~\ref{tab:CPEparams}. Here we express the CPE offset parameter as $|Z|\thinspace @ \thinspace 1Hz$, but the fits used $|Z|\thinspace @ \thinspace 0.05Hz$, as data points at this frequency are outside the transitional zone where the impedance of the CPE and that of $R_{S+bulk}$ overlap. 
+Figure~\ref{fig:CPE_Scaling} shows measured data and the corresponding fits for both the CPE magnitude at 0.05\thinspace Hz and $R_{S+bulk}$.
+The resulting model parameters $m$, $k$, and $|Z|\thinspace @\thinspace 1Hz$ are shown in table~\ref{tab:CPEparams}. Here we express the CPE offset parameter as $|Z|\thinspace @ \thinspace 1Hz$, but the fits used $|Z|\thinspace @ \thinspace 0.05Hz$, as data points at this frequency are outside the transitional zone where the impedance of the CPE and that of $R_{S+bulk}$ overlap.
 
 From the results shown in figure~\ref{fig:CPE_Magnitude} we observe that the salinity of the electrolyte does not affect the slope of the CPE's impedance and the magnitude shifts relatively little. This suggests that the CPE does not rely on the added ions but they do have an effect, implying that its behaviour is a property of platinum and $H_{2}O$.
 
@@ -157,7 +174,7 @@ where $V_{T}$ is the thermal voltage and is approximately 25\thinspace mV at a t
 Faradaic measurements were made using an Agilent E5270B Precision Measurement Mainframe producing a stepped DC voltage stimulus across electrodes 2 and 6 whilst continuously measuring the output current. We commenced with 1.0X concentration of the stock solution (table~\ref{tab:PBSrecipe}). This solution was progressively diluted in factors of two between each measurement. The solution was mixed continuously by inductive stirrer and the electrode remained submerged throughout the entire process.
 A single measurement run involved stepping the voltage across electrodes 2 and 7 from 0.5\thinspace V to 1.2\thinspace V in increments of 0.05\thinspace V; this range was previously determined to capture the onset of Faradaic conduction.
 
-In \cite{Cogan2008} it has been noted that results obtained using cyclic voltammetry are dependant on, among other factors, the measurement sweep rate. This indicates a lack of isolation between displacement and Faradaic mechanisms. Our measurements were repeated using wait-times of 4, 16, 32 and 64 seconds between voltage increments, allowing us to determine the effect of sweep rate. From these measurements and a separate investigation\footnote{A separate measurement of the response of the CPE to voltage increments is shown in figure~\ref{fig:CPE_currentVsTime}. We concluded that the measurement rate did not significantly affect results when using a wait-time of 64 seconds or greater when the applied voltage across both interfaces is beyond 0.7\thinspace V. These measurements were made in still solution and we expect that stirring will cause the CPE to come to equilibrium sooner. The wait time used between increments for this data was 10,000 seconds, of which only the first 250 seconds are shown. We believe these results give confidence to our assumption that a wait-time of 64 seconds is ``long enough''.} we concluded that a wait-time of 64 seconds was sufficient.  
+In \cite{Cogan2008} it has been noted that results obtained using cyclic voltammetry are dependant on, among other factors, the measurement sweep rate. This indicates a lack of isolation between displacement and Faradaic mechanisms. Our measurements were repeated using wait-times of 4, 16, 32 and 64 seconds between voltage increments, allowing us to determine the effect of sweep rate. From these measurements and a separate investigation\footnote{A separate measurement of the response of the CPE to voltage increments is shown in figure~\ref{fig:CPE_currentVsTime}. We concluded that the measurement rate did not significantly affect results when using a wait-time of 64 seconds or greater when the applied voltage across both interfaces is beyond 0.7\thinspace V. These measurements were made in still solution and we expect that stirring will cause the CPE to come to equilibrium sooner. The wait time used between increments for this data was 10,000 seconds, of which only the first 250 seconds are shown. We believe these results give confidence to our assumption that a wait-time of 64 seconds is ``long enough''.} we concluded that a wait-time of 64 seconds was sufficient.
 \begin{figure}
     \begin{center}
         \includegraphics{graphics/CPE_currentVsTime}
@@ -166,7 +183,7 @@ In \cite{Cogan2008} it has been noted that results obtained using cyclic voltamm
     \label{fig:CPE_currentVsTime}
 \end{figure}
 
-In figure~\ref{fig:StepResponse_Faradaic}, electrical current measurements are plotted against time (solid lines). Each spike marks the point at which the voltage is incremented. We expect the peak current to be much higher than is shown since each measurement point is the average of 300 samples taken over 1 second. Note that the amount of charge absorbed by the CPE increases with concentration of PBS, but the current for each concentration converges to approximately the same value. Dotted lines have been added that link the electrical current measurements taken 10 seconds after each increment for 0.125X PBS (lower trace) and 1.0X PBS (upper trace). These dotted traces show results typical of cyclic methods, where the electrode overpotential is never constant. This illustrates the benefit of using DC measurements when measuring Faradaic currents. 
+In figure~\ref{fig:StepResponse_Faradaic}, electrical current measurements are plotted against time (solid lines). Each spike marks the point at which the voltage is incremented. We expect the peak current to be much higher than is shown since each measurement point is the average of 300 samples taken over 1 second. Note that the amount of charge absorbed by the CPE increases with concentration of PBS, but the current for each concentration converges to approximately the same value. Dotted lines have been added that link the electrical current measurements taken 10 seconds after each increment for 0.125X PBS (lower trace) and 1.0X PBS (upper trace). These dotted traces show results typical of cyclic methods, where the electrode overpotential is never constant. This illustrates the benefit of using DC measurements when measuring Faradaic currents.
 
 Figure~\ref{fig:faradaic_logCurrentVsVoltage} shows the settled currents plotted on a log scale, versus the voltage applied across the electrodes. This uses the same data as the previous figure but has been processed so that each point represents the average of the final 24 current measurements at each step. Below 0.9\thinspace V it appears that the concentration of the solution had no identifiable effect on Faradaic conduction as the traces are not monotonic with concentration in this region.  Between 0.9\thinspace V and 1.05\thinspace V (concentration dependent) a transition occurs which results in current conduction becoming dependent on solution concentration.
 Above 1.05\thinspace V the traces diverge showing clear dependence upon concentration.
@@ -180,9 +197,9 @@ Above 1.05\thinspace V the traces diverge showing clear dependence upon concentr
 \end{figure}
 
 We attribute the change in behaviour between 0.9\thinspace V and 1.05\thinspace V to a transition to diffusion-controlled conduction.
-We hypothesise that the charging of the CPE draws available ions to the electrode, creating a layer of high ionic concentration at the surface irrespective of that of the solution bulk. It is this layer that is subsequently consumed by the Faradaic reactions at a rate dependent on the log of the electrode overpotential.  The effect of bulk solution concentration while this layer has formed is negligible until the point at which the layer is consumed faster than it can be replenished. At this stage, and with increasing overpotential, the Faradaic conduction is governed by diffusion of ions from the bulk into the layer, the rate of which increases with the ion concentration in the bulk. We believe this explains the divergence of conduction with concentration between 0.9\thinspace V and 1.05\thinspace V and why there is no observable dependence on bulk ion concentration beforehand. 
+We hypothesise that the charging of the CPE draws available ions to the electrode, creating a layer of high ionic concentration at the surface irrespective of that of the solution bulk. It is this layer that is subsequently consumed by the Faradaic reactions at a rate dependent on the log of the electrode overpotential.  The effect of bulk solution concentration while this layer has formed is negligible until the point at which the layer is consumed faster than it can be replenished. At this stage, and with increasing overpotential, the Faradaic conduction is governed by diffusion of ions from the bulk into the layer, the rate of which increases with the ion concentration in the bulk. We believe this explains the divergence of conduction with concentration between 0.9\thinspace V and 1.05\thinspace V and why there is no observable dependence on bulk ion concentration beforehand.
 
-This hypothesis intimately links the Faradaic component to the CPE, where the latter is a precursor to the former. For the purposes of our model, we are content with placing a limit of 0.9\thinspace V across the pair of interfaces and using the assumption that Faradaic conduction does not change with concentration. Further investigation into modelling this relationship is needed. We hope to publish this in a follow-up paper. 
+This hypothesis intimately links the Faradaic component to the CPE, where the latter is a precursor to the former. For the purposes of our model, we are content with placing a limit of 0.9\thinspace V across the pair of interfaces and using the assumption that Faradaic conduction does not change with concentration. Further investigation into modelling this relationship is needed. We hope to publish this in a follow-up paper.
 
 \begin{figure}
     \begin{center}
@@ -220,13 +237,13 @@ This hypothesis intimately links the Faradaic component to the CPE, where the la
     \label{tab:FaradaicParams}
 \end{table}
 
-Parameter values for $i_{0}$ and $n$ are presented in table~\ref{tab:FaradaicParams}. These parameters were found by fitting the diode equation to the results shown in figure~\ref{fig:faradaic_currentVsVoltage}. 
+Parameter values for $i_{0}$ and $n$ are presented in table~\ref{tab:FaradaicParams}. These parameters were found by fitting the diode equation to the results shown in figure~\ref{fig:faradaic_currentVsVoltage}.
 
 \section{In-vivo measurements of sheep}
 
-We now test the claim that 0.1X PBS is a reasonable representation of cerebral spinal fluid (CSF).
-The displacement measurements were repeated in a live sheep. The sheep was prepared and anaesthetised using the procedures described in \cite{Parker2013}. The measurements are presented in figures~\ref{fig:displacement_sheepCPEMagnitude} and~\ref{fig:displacement_sheepCPEPhase} on top of the array of traces for saline taken from figures~\ref{fig:CPE_Magnitude}
-and~\ref{fig:CPE_Phase}. 
+We now test the claim that 0.1X PBS is a reasonable representation of the spine of a living sheep.
+The displacement measurements were repeated inside the spinal canal of a live sheep, just outside the dura containing CSF. The sheep were prepared and anaesthetised using the procedures described in \cite{Parker2013} under the Animal Care and Ethics Committee approval of the Royal North Shore Hospital. The study complied with the Australian Code of Practice for the Care and Use of Animals for Scientific Purposes. The measurements are presented in figures~\ref{fig:displacement_sheepCPEMagnitude} and~\ref{fig:displacement_sheepCPEPhase} on top of the array of traces for saline taken from figures~\ref{fig:CPE_Magnitude}
+and~\ref{fig:CPE_Phase}.
 Although it is clear that there are complications in vivo, a 0.25X PBS saline offers a good approximation to the resistive part of the trace.
 The reactive part would be better modelled by a solution of less than 0.025X concentration.
 
@@ -250,11 +267,13 @@ The reactive part would be better modelled by a solution of less than 0.025X con
 \section{Conclusion}
 
 We have used the parameters of a compact electrical model of an implantable electrode as a way of objectively comparing scenarios.
-We have measured how changing the concentration of PBS affects the parameters. 
-We have drawn direct relationships with concentration sufficient to predict interface characteristics at arbitrary dilutions of PBS. 
-We found that the CPE moves much more slowly with concentration whereas the resistance moved almost linearly. 
+We have measured how changing the concentration of PBS affects the parameters.
+We have drawn direct relationships with concentration sufficient to predict interface characteristics at arbitrary dilutions of PBS.
+We found that the CPE moves much more slowly with concentration whereas the resistance moved almost linearly.
 Using DC measurements we conclude that the salinity of the bulk does not affect Faradaic conduction until a threshold voltage is reached. We hypothesise that this is because the CPE is setting the effective concentration of ions in a localised volume surrounding each electrode. In-vivo measurements of the CPE in sheep spine showed that no single concentration of PBS matches both the CPE and the resistive characteristics at once. Nevertheless, 0.1X PBS is a good compromise.
 
+\section*{Acknowledgment}
+The authors wish to acknowledge the The University of Waikato for financial support and Saluda Medical for the use of facilities and equipment.
 
 \begin{thebibliography}{99}
 
@@ -311,7 +330,7 @@ IEEE Circuits and Systems Magazine, Fourth quarter, 2010, pp40--50.
 
 \bibitem{Parker2013}
 Parker J.L., Karantonis D.M., Single P.S., Obradovic M., Laird J., Gorman R.B., Ladd L.A., Cousins M.J.,
-``Electrically Evoked Compound Action Potentials Recorded From the Sheep Spinal Cord'', 
+``Electrically Evoked Compound Action Potentials Recorded From the Sheep Spinal Cord'',
 Neuromodulation 2013; 16: 295--303.
 
 
@@ -333,8 +352,8 @@ publications and holds a number of patents.
 
 
 \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{graphics/MarkJones-Aug13.jpg}}]{Mark Jones}
-graduated with a BSc in Physics and a Masters in Microwave Electronics from the University of Waikato in 2008 and 2009.
-He is currently studying towards his PhD.
+received the B.Sc. degree in Physics in 2008 and the M.E. degree in Microwave Electronics in 2009 from The University of Waikato, Hamilton, New Zealand.
+He is working towards a Ph.D. in Electrical Engineering, also at The University of Waikato.
 \end{IEEEbiography}
 
 

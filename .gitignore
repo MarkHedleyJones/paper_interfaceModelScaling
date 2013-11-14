@@ -5,3 +5,5 @@
 *.aux
 *._aux
 paper.pdf
+*.dvi
+*.fdb_latexmk
