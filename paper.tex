@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{url}
+\usepackage[usenames, dvipsnames]{color}
 
 \begin{document}
 
@@ -364,5 +365,136 @@ received the B.Sc. degree in Physics in 2008 and the M.E. degree in Microwave El
 He is working towards a Ph.D. in Electrical Engineering, also at The University of Waikato.
 \end{IEEEbiography}
 
+\section*{Reviewer Comments}
 
+\subsection*{Reviewer 1}
+
+{\color{blue}
+I am not very enthusiastic about his paper as it does not contain many novel or original ideas and finding. On the electrochemistry side it is superficial and falls back behind published state of the art and textbook knowledge.\\
+{\color{OliveGreen} Our response}\\
+
+1. The interface model as such is not new and has been published extensively.\\
+{\color{OliveGreen} Our response}\\
+
+2. The authors do not at all comment on interface polarization, which is particularly important under DC conditions. As soon as an electrode carries current, such phenomena become important and relevant.\\
+{\color{OliveGreen} Our response}\\
+
+3. To assess the resistivity or impedance of a material between two electrodes, one normally uses a 4-electrode setup with injection of current through the two outer electrodes, while measuring a voltage between the inner ones. This is particularly relevant for the measurements in Fig. 3 and the related and subsequent text.\\
+{\color{OliveGreen} Our response}\\
+
+4. The authors never mention the origin of any Faradaic contribution at the electrodes. What is the electro- or redox-chemistry that the authors assume to happen?? Gas formation at the electrodes, electrolysis of the saline, i.e., hydrogen and oxygen formation??\\
+{\color{OliveGreen} Our response}\\
+
+5. Figure 5 is not referenced anywhere in the text. Also the blue variations in the curves are hardly visible.\\
+{\color{OliveGreen} Our response}\\
+
+6. Since the electrode model includes two back-to-back diodes, I think it would be valuable to sweep the voltage from -1.2V to +1.2V.\\
+{\color{OliveGreen} Our response}\\
+
+7. There is a big difference between blue dots and red curve in Fig. 10, except for the "voltage increment time" and "64 seconds after increment".  This indicates to me that the CPE model is NOT that accurate, as the settling curve is highly correlated to the CPE parameters.\\
+{\color{OliveGreen} Our response}\\
+}
+
+\subsection*{Reviewer 2}
+
+{\color{blue}
+In this manuscript, the authors report how the non-linear electrode-electrolyte interface model parameters change as a function of saline solution concentration. This is a very interesting and important subject that could be potentially of great importance for readers of IEEE Transactions on Biomedical Circuits ans Systems. The manuscript is well written and adequately referenced. However, the reviewer would like to pose a few questions to the authors to clarify some  issues in the manuscript, which should be addressed.\\
+{\color{OliveGreen} Our response}\\
+
+page 2, in text/ table II. The scaling parameters and their meanings should be described more comprehensively. They remain somewhat unclear and meaningless to reader.\\
+{\color{OliveGreen} Our response}\\
+
+page 2 Measurement of the CPE. What was the current density used in EIS measurements?
+What is the effect of chosen current density on CPE impedance (Fig. 5)?
+In addition,  measurement apparatus information is fully lacking.\\
+{\color{OliveGreen} Our response}\\
+
+page 2, line 52. "the magnitude shifts relatively little". However, In Fig. 4, logaritmic scale is used, and the change from 1.0X to 0.025X is almost 50k at the lowest frequencies. 
+please clarify this point.\\
+{\color{OliveGreen} Our response}\\
+
+page 3, in text/ table III. The parameters (m, k..) and their meanings should be described more comprehensively, as well.\\
+{\color{OliveGreen} Our response}\\
+
+Figure 9 (page 4). There is a clear difference in behavior of faradic conduction between 0.25X (red curve) and 0.5X (green curve). Transient current occur at 0.95V (<0.25X PBS) changing to occur at 1.0 V (>0.5X PBS). This behavior has not discussed in manuscript at all. Please revise it.\\
+{\color{OliveGreen} Our response}\\
+
+page 4. Referencing (in the text) to the Fig. 10 is lacking (?).\\
+{\color{OliveGreen} Our response}\\
+
+Finally, and most importantly, the part of in vivo measurements are very limited since only one spinal channel measurement has been performed. My opinion is that this manuscript could be even better without this uncertain (n=1) result and thus I recommend to leave this part out.\\
+{\color{OliveGreen} Our response}\\
+}
+
+\subsection*{Reviewer 3}
+
+{\color{blue}
+Authors
+The aim of this paper, to find a SPICE model of implanted electrodes, is important and the results presented in the paper are interesting. However, as it stands the paper is not well written and must be revised. The weaknesses of the paper are an unclear structure, with results and discussion mixed, poor attention to detail and inaccurate use of words.\\
+{\color{OliveGreen} Our response}\\
+
+Concerning the experiments, I have two points to make.
+
+1. You do not explain how the impedance measurements have been made (Figs 4, 5 13 & 14). I want to know how much charge was being applied to these electrodes at low frequencies (e.g. 0.05 Hz): what potential excursion occurred was it really a ``small signal''?\\
+{\color{OliveGreen} Our response}\\
+
+2. I think that the classical view of the electrochemistry of Pt in saline (as, for example, expressed in your ref 1), is that the electrolysis reactions (oxygen and hydrogen evolution) start with a potential difference of about 1.4V. Below this p.d., the likeliest reaction is reduction of oxygen at the cathode which could accompany oxygen evolution from water at the anode. Your paper lacks any consideration of the chemistry but this is a important fault in the stepped-current experiment. Was the solution in equilibrium with air before the experiment? If this is a model for electrodes in vivo, should not the PBS have been in equilibrium with gas with the in vivo partial pressure of oxygen? I suggest that you repeat this experiment, at least (i) under air, (ii) under nitrogen, & perhaps (iii) under in vivo partial pressure of oxygen. The stirring arrangements ought to be exactly described too because liquid flow may be critical.\\
+{\color{OliveGreen} Our response}\\
+
+Other points
+
+1. P1, top RH col. ``0.1X'' ought to be explained when you first use this form.\\
+{\color{OliveGreen} Our response}\\
+
+2. Should the resistor model of the volume conductor from [4] be shown in this paper? It would make the paper easier to understand for your reader if you showed the model. If you are not going to do so, you might help them by saying something like ``Readers are advised to see [4] to understand the meaning of the parameters in Table II''.\\
+{\color{OliveGreen} Our response}\\
+
+3. You say (p2 line 43) that there are 2 independent scaling factors. Is Rli independent or not? If not, why input it in Table II?\\
+{\color{OliveGreen} Our response}\\
+
+4. In the legend of Fig 4 and in paragraph below, you say this is magnitude of the CPE. But surely it is not since the sloping lines become horizontal. It is the CPE in series with something. But what is this something? Is it the total series resistance or have you already subtracted the volume resistance (found in section II)?\\
+{\color{OliveGreen} Our response}\\
+
+5. The previous point is complicated by your statement that Rs (Fig 2) is an addition to the volume resistance (p2 RH col). Why is Rs necessary? Is it because the resistance values at high frequencies in Fig 4 are not consistent with the values from the resistor network found in section II? If so, this would be very interesting and I would like you to bring this out.\\
+{\color{OliveGreen} Our response}\\
+
+6. P2, col 2, line 24: why 2 & 7?\\
+{\color{OliveGreen} Our response}\\
+
+7. P2, col 2, line 53: ``implying that its behaviour is a property of Pt and water''. Previous authors have thought this showed that the CPE depended on the geometry (surface roughness) of the electrode. Did you mean that, or were you thinking of the electrochemical properties of Pt. Please make clearer.\\
+{\color{OliveGreen} Our response}\\
+
+8. You do not explain why, in eq 1, you want to use this form. Why nVt? I suppose it isso you can use a standard SPICE form rather than this suits the data. Is that right?\\
+{\color{OliveGreen} Our response}\\
+
+9. P3, col 2, line 31: why 2 and 6?\\
+{\color{OliveGreen} Our response}\\
+
+10. P3, col 2, line 36. I guess you mean what is usually called a Magnetic Stirrer. Not ``inductive'' surely?\\
+{\color{OliveGreen} Our response}\\
+
+11. P3 footnote. ``The response of the CPE'': this is confusing! Surely this is the response of a pair of electrodes? The CPE is an element of your model.\\
+{\color{OliveGreen} Our response}\\
+
+12. Fig 11 legend ``Simulated and measured response of the interface model''. Surely you mean ``Simulated response of the interface model compared to measurement from the electrodes''?\\
+{\color{OliveGreen} Our response}\\
+
+13. P5, col 2, line 46 ``the CPE is setting''. Again, you are confusing an element of your model with reality.\\
+{\color{OliveGreen} Our response}\\
+
+14. P5, col 1, line 49 ``a 0.25X PBS is a good model''.  This seems a very feeble comment on an interesting result. The series resistance part of the in vivo magnitude is a good fit to the 0.25X curve and the slope of the CPS is very similar (though you have exaggerated this by extrapolating nearly 2 decades in frequency below the lowest-frequency measurement). But the impedance at low frequencies is about three times too high. How do you explain that? It cannot be because of the bone and other high-resistivity structures around the electrodes (which would have an effect on the high frequency asymptote). So what is it? Did you measure the electrodes again in PBS after removing from the sheep? Troyk published an interesting paper with measurement from electrodes in brain of zebra finches which showed that anomalous characteristics in vivo vanished as soon as the electrodes were returned to PBS, implying that the phenomenon was not due to some biofilm deposited on the electrodes.\\
+{\color{OliveGreen} Our response}\\
+}
+
+\subsection*{Reviewer 4}
+{\color{blue}
+In this manuscript, the authors studied the impedance of a commercial electrode array as a function of concentration of phosphate buffered saline (PBS), both through simulation and empirical measurements, and compared those results to the impedance measured when the electrode array was implanted into a sheep's spinal cavity. From this comparison, they concluded that the current practice of testing spinal cord stimulator in 0.1x of physiologically normal saline is adequate but suggest that no single concentration of PBS captures the frequency dependence of the in vivo measured impedance.\\
+{\color{OliveGreen} Our response}\\
+
+Overall, the paper was brief and to the point, which in this case is actually a determent instead of a benefit. Much of the underlying theory and development of parameters appear without informing the reader of their purpose or how they were calculated and/or measured. For example, the parameters in Table 2 (and reported to be in Figure 3) are not explained and what their relationship to the remainder of the manuscript is not provided. To make this manuscript more approachable to a wider audience, I recommend the authors more fully develop Sections II, III, and IV. Further, they should explain their testing in terms of standard electrochemical characterization, detailing their counter, working, and reference electrodes used in measuring impedance. As part of this expansion, the references should be increased beyond the present ten references. Although their current references include clearly important electrode characterization references (Cogan, Merrill et. al, & Kane et. al), the information contained in these references are not effectively used to support the authors’ work.\\
+{\color{OliveGreen} Our response}\\
+
+Technically, I found one issue with this paper. In Figure 11, the x-axis labels should have 2 digits after the decimal. As presently shown, each of the labels 0.6, 0.7, ..., 1.0 are repeated twice on the axis. Presumably, the second version of the labels should be 0.65, 0.75, ..., 1.05.\\
+{\color{OliveGreen} Our response}\\
+}
 \end{document}
