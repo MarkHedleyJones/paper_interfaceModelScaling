@@ -114,15 +114,14 @@ A numerical fit was made to the two independent scaling parameters ($R_{eri}$ an
 
 \section{Displacement Parameters}
 The linear, or small-signal, part of an electrode-electrolyte interface is represented by a Constant Phase Element (CPE) or fractional capacitor. For simulation purposes this element is realised as an array of R-C branches.~\cite{ScottSingle2013,Morrison59,Elwakil10} Measurement of the CPE is made by sweeping the frequency of a sinusoidal stimulus across electrodes 2 and 7 of the Octrode while measuring the voltage between electrodes 2 and 3. The numbering pattern used to identify each of the electrodes on the Octrode is shown in figure~\ref{fig:octrode}.
-Measurements made using this configuration allow for the quantification of a single interface impedance in series with the resistance presented by the bulk solution.
+Measurements made using this configuration allow for the quantification of a single interface impedance in series with the resistance presented by the bulk solution. Current density during measurements peaked at $11.5\thinspace A/m^{2}$ at 10\thinspace kHz in 1.0X PBS and fell as low as $0.0141\thinspace A/m^{2}$ at 50\thinspace mHz in 0.025X PBS. 
 Figure~\ref{fig:CPE_Magnitude} shows the magnitude of the measured response of each of the six PBS concentrations accompanied by simulation results. Figure~\ref{fig:CPE_Phase} shows the phase response for the same measurements, again with the simulated response at each concentration. The simulated responses are generated using the optimised parameter values presented in Table~\ref{tab:CPEparams}. Those values were chosen as they give the closest match to the measured data. 
 
 As shown in the interface model schematic (figure~\ref{fig:schematic}), the interface contains its own internal series resistance ($R_{S}$). The resistance seen in series with the CPE will therefore be the sum of both the resistance due to the bulk resistivity of the fluid and $R_{S}$, to which we will refer as $R_{S+bulk}$.
 In figure~\ref{fig:CPE_Magnitude}, the slope and magnitude of the CPE are visible below 1\thinspace Hz whereas $R_{S+bulk}$  dominates above 1\thinspace kHz; it is clear that the two do not scale similarly.
 As the impedance of the CPE and $R_{S+bulk}$ are separable with frequency, these measurements can be used to determine the CPE parameters and $R_{S}$.
 
-Figure~\ref{fig:CPE_Scaling} shows measured data and the corresponding fits for both the CPE magnitude at 0.05\thinspace Hz and $R_{S+bulk}$.
-The resulting model parameters $m$, $k$, and $|Z|\thinspace @\thinspace 1Hz$ are shown in table~\ref{tab:CPEparams}. Here we express the CPE offset parameter as $|Z|\thinspace @ \thinspace 1Hz$, but the fits used $|Z|\thinspace @ \thinspace 0.05Hz$, as data points at this frequency are outside the transitional zone where the impedance of the CPE and that of $R_{S+bulk}$ overlap.
+Figure~\ref{fig:CPE_Scaling} shows measured data and the corresponding fits for both the CPE magnitude at 0.05\thinspace Hz and $R_{S+bulk}$. The resulting model parameters $m$, $k$, and $|Z|\thinspace @\thinspace 1Hz$ are shown in table~\ref{tab:CPEparams}. Here we express the CPE offset parameter as $|Z|\thinspace @ \thinspace 1Hz$, but the fits used $|Z|\thinspace @ \thinspace 0.05Hz$, as data points at this frequency are outside the transitional zone where the impedance of the CPE and that of $R_{S+bulk}$ overlap.
 
 From the results shown in figure~\ref{fig:CPE_Magnitude} we observe that the salinity of the electrolyte does not affect the slope of the CPE's impedance and the magnitude shifts relatively little. This suggests that the CPE does not rely on the added ions but they do have an effect, implying that its behaviour is a property of platinum and $H_{2}O$.
 
@@ -342,6 +341,18 @@ Parker J.L., Karantonis D.M., Single P.S., Obradovic M., Laird J., Gorman R.B., 
 ``Electrically Evoked Compound Action Potentials Recorded From the Sheep Spinal Cord'',
 Neuromodulation 2013; 16: 295--303.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Check that these are in the right order!!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibitem{Weiland2000}
+Weiland~James~D. and Anderson~David~J.,
+``Chronic Neural Stimulation with Thin-Film, Iridium Oxide Electrodes'',
+{\em IEEE Transactions on Biomedical Circuits and Systems},
+vol.~47 no.~7, July 2000, pp911--918
+
+
+
 
 \end{thebibliography}
 
@@ -444,7 +455,7 @@ What is the effect of chosen current density on CPE impedance (Fig. 5)?
 {\color{OliveGreen}
     Item 10\\
     {\color{Red} Estimate current density and investigate possible effects}
-    No response yet.
+    Maximum and minimum current density figures added. No comment on effect formed yet. No response yet.
 }
 
 In addition,  measurement apparatus information is fully lacking.\\
