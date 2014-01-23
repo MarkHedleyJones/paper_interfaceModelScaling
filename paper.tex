@@ -85,8 +85,11 @@ The stock solution had a pH of 7.4 and no pH adjustments were made to the derive
 \end{table}
 
 The electrical impedance between two electrodes in an electrolyte arises from two interface impedances in series with the resistance due to the bulk of the electrolyte itself. To quantify the impedance presented by a single interface we first need to understand the inter-electrode resistances presented by the electrolyte bulk. As there are always two interface impedances between any two electrodes, inter-electrode resistances cannot be measured in isolation.
-In \cite{ScottSingle2013}, a series of transresistance measurements were used in conjunction with a physical description of the electrode geometry to build up a representative network of resistors. Repeating this work, we can then produce a resistor network that connects each of the 8 electrodes, replicating the resistances due to the solution bulk. Transimpedance measurements were taken at each concentration of PBS and the results are presented in figure~\ref{fig:transresistance}.
-A numerical fit was made to the two independent scaling parameters ($R_{eri}$ and $R_{sri}$).  The resulting fit and parameter values are presented in figure~\ref{fig:transresistance} and table~\ref{tab:RESparams} respectively.
+
+In \cite{ScottSingle2013}, a series of transresistance measurements were used in conjunction with a physical description of the electrode geometry to build up a representative network of resistors. The network in that paper was defined using five parameters: $R_{eri}$, $R_{lri}$, $R_{li}$, mesh depth, and edge depth. Readers are advised to read that paper to understand the interpretation of these model parameters. Repeating that work, a resistor network that connects each of the eight   electrodes is has been constructed, mimicking the resistances due to the solution bulk. The mesh depth and padding values of five columns and three rows, respectively, has been taken directly from \cite{ScottSingle2013}.
+A numerical fit was made to the two independent scaling parameters $R_{eri}$ and $R_{li}$
+\footnote{The values of $R_{eri}$ and $R_{sri}$ are defined by the lengths of the electrode and inter-electrode spacers respectively as described in \cite{ScottSingle2013}. The two parameters are proportional to each other by the ratio of their lengths. Hence, we define $R_{sri}$ to be 3/4 that of $R_{eri}$ making it a dependant parameter.}.
+The resulting fit and parameter values are presented in figure~\ref{fig:transresistance} and table~\ref{tab:RESparams} respectively.
 
 \begin{figure}
     \begin{center}
@@ -101,8 +104,8 @@ A numerical fit was made to the two independent scaling parameters ($R_{eri}$ an
         \begin{tabular}{|r|l|}
             \hline
             $R_{eri}$ & 0.407 / $\sigma$ \\ \hline
-            $R_{sri}$ & 3.71 / $\sigma$ \\ \hline
-            $R_{li}$ & $R_{eri}$ $3/4$ \\ \hline
+            $R_{sri}$ & $R_{eri}$ $3/4$ \\ \hline
+            $R_{li}$ & 3.71 / $\sigma$ \\ \hline
             Depth & 5 layers \\ \hline
             Padding & 3 layers \\ \hline
         \end{tabular}
@@ -114,7 +117,7 @@ A numerical fit was made to the two independent scaling parameters ($R_{eri}$ an
 
 \section{Displacement Parameters}
 The linear, or small-signal, part of an electrode-electrolyte interface is represented by a Constant Phase Element (CPE) or fractional capacitor. For simulation purposes this element is realised as an array of R-C branches.~\cite{ScottSingle2013,Morrison59,Elwakil10} Measurement of the CPE is made by sweeping the frequency of a sinusoidal stimulus across electrodes 2 and 7 of the Octrode while measuring the voltage between electrodes 2 and 3. The numbering pattern used to identify each of the electrodes on the Octrode is shown in figure~\ref{fig:octrode}.
-Measurements made using this configuration allow for the quantification of a single interface impedance in series with the resistance presented by the bulk solution. Current density during measurements peaked at $11.5\thinspace A/m^{2}$ at 10\thinspace kHz in 1.0X PBS and fell as low as $0.0141\thinspace A/m^{2}$ at 50\thinspace mHz in 0.025X PBS. 
+Measurements made using this configuration allow for the quantification of a single interface impedance in series with the resistance presented by the bulk solution. Current density during measurements peaked at $11.5\thinspace A/m^{2}$ at 10\thinspace kHz in 1.0X PBS and fell as low as $0.0141\thinspace A/m^{2}$ at 50\thinspace mHz in 0.025X PBS. The stimulus waveform was set at 300\thinspace mV (peak) at each measurement point.
 Figure~\ref{fig:CPE_Magnitude} shows the magnitude of the measured response of each of the six PBS concentrations accompanied by simulation results. Figure~\ref{fig:CPE_Phase} shows the phase response for the same measurements, again with the simulated response at each concentration. The simulated responses are generated using the optimised parameter values presented in Table~\ref{tab:CPEparams}. Those values were chosen as they give the closest match to the measured data. 
 
 As shown in the interface model schematic (figure~\ref{fig:schematic}), the interface contains its own internal series resistance ($R_{S}$). The resistance seen in series with the CPE will therefore be the sum of both the resistance due to the bulk resistivity of the fluid and $R_{S}$, to which we will refer as $R_{S+bulk}$.
@@ -455,7 +458,7 @@ What is the effect of chosen current density on CPE impedance (Fig. 5)?
 {\color{OliveGreen}
     Item 10\\
     {\color{Red} Estimate current density and investigate possible effects}
-    Maximum and minimum current density figures added. No comment on effect formed yet. No response yet.
+    Maximum and minimum current density during displacement current measurement added. No comment on effect formed yet. No response yet.
 }
 
 In addition,  measurement apparatus information is fully lacking.\\
@@ -519,7 +522,7 @@ Concerning the experiments, I have two points to make.
 {\color{OliveGreen}
     Item 18\\
     {\color{Red} Estimate the amount of charge being injected in each of the measurements (fits with the current density)}
-    No response yet.
+    Added current density and peak stimulus voltage information to displacement current measurement. Still needs total charge transfer for both CPE and Faradaic.
 }\\
 
 2. I think that the classical view of the electrochemistry of Pt in saline (as, for example, expressed in your ref 1), is that the electrolysis reactions (oxygen and hydrogen evolution) start with a potential difference of about 1.4V. Below this p.d., the likeliest reaction is reduction of oxygen at the cathode which could accompany oxygen evolution from water at the anode. Your paper lacks any consideration of the chemistry but this is a important fault in the stepped-current experiment. Was the solution in equilibrium with air before the experiment? If this is a model for electrodes in vivo, should not the PBS have been in equilibrium with gas with the in vivo partial pressure of oxygen? I suggest that you repeat this experiment, at least (i) under air, (ii) under nitrogen, & perhaps (iii) under in vivo partial pressure of oxygen. The stirring arrangements ought to be exactly described too because liquid flow may be critical.\\
