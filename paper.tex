@@ -48,6 +48,8 @@ In this manuscript we report how the parameters of the non-linear model change a
 The electrode used in this work is a commercial linear array of eight platinum electrodes intended for SCS implantation called an ``Octrode''.~\cite{StJudeOctrode} A picture of an Octrode is presented in figure~\ref{fig:octrode}.
 The electrical interface model of \cite{Franks2005} and \cite{ScottSingle2013} has two parts, a displacement branch and a Faradaic branch.
 
+It has been suggested that the primary coupling mechanism between platinum electrodes and phisiological saline is the reversable evolution of gas, probably oxygen, at the platinum surface, which dissolves without bubble formation.\cite{Greatbatch1969} Understanding exact mechanism of displacement or Faradaic charge transfer at the electrode surface is beyond the scope of this work, instead we wish to characterise the electrode/electrolyte system in terms of an electrical model. The model separates the Faradaic and displacement characteristics into separate circuit elements, namely the diode and CPE, however we do not suggest that these conduction mechanisims are physically separate.
+
 \begin{figure}
     \begin{center}
     \includegraphics{graphics/StJudeOctrodeDiagram}
@@ -65,9 +67,9 @@ The electrical interface model of \cite{Franks2005} and \cite{ScottSingle2013} h
 \end{figure}
 
 \section{Resistive Network}
-The ingredients of the stock solution of PBS used in this study are given in table~\ref{tab:PBSrecipe}.
-Six solutions ranging from 1.0X to 0.025X the concentration of this stock solution have been examined.
-The pH of the stock solution was measured (EDT Instruments BA-350) and was found to have pH of 7.4. No pH adjustments were made to the derived solutions.
+Six solutions ranging from 1.0X to 0.025X the concentration of a stock PBS solution have been examined.
+The ingredients of that stock solution are given in table~\ref{tab:PBSrecipe}.
+The pH level of the stock was measured, using a calibrated EDT Instruments BA-350 pH meter, to have a pH of 7.4. No pH adjustments were made to the derived solutions.
 
 \begin{table}
     \begin{center}
@@ -168,16 +170,19 @@ From the results shown in figure~\ref{fig:CPE_Magnitude} we observe that the sal
 
 \section{Faradaic Parameters}
 
-With parameters fitted for the scaling of both the CPE and $R_{S}$ with PBS concentration, we evaluate Faradaic conduction. The interface model uses two reverse connected diodes to reproduce the exponential behaviour of Faradaic current conduction, implied by the Butler-Volmer equation. We wish to measure this conduction by separating it from the displacement behaviour of the CPE. By using a DC measurement technique, as opposed to cyclic measurements, we are able to separate the effects in time. Like a conventional capacitor, when the voltage across the CPE changes, it responds by absorbing or ejecting charge, causing a spike in current. The CPE will draw negligible current once it has settled and in the case of our model we assume the remaining current conduction to be the result of Faradaic processes. The equation governing current conduction in a diode where the forward voltage across the diode, $V_{D}$, is small is
+With parameters fitted for the scaling of both the CPE and $R_{S}$ with PBS concentration, we evaluate Faradaic conduction. The interface model uses two reverse connected diodes to reproduce the exponential behaviour of Faradaic current conduction, implied by the Butler-Volmer equation. We wish to measure this conduction by separating it from the displacement behaviour of the CPE. By using a DC measurement technique, as opposed to cyclic measurements, we are able to separate the effects in time. 
+Like a conventional capacitor, when the voltage across the CPE changes, it responds by absorbing or ejecting charge, causing a spike in current. The CPE will draw negligible current once it has settled and in the case of our model we assume the remaining current conduction to be the result of Faradaic processes. 
+{\color{blue} In \cite{Greatbatch1969} it is shown that the stirring of an air-saturated solution of physiological saline reduces the settling time of platinum electrodes to stimulus transients; with both situations eventually settling to the same impedance.}
+The equation governing current conduction in a diode where the forward voltage across the diode, $V_{D}$, is small is
 \begin{equation}
     I = i_{0}  e^{V_{D} / n V_{T}}
 \end{equation}
 where $V_{T}$ is the thermal voltage and is approximately 25\thinspace mV at a temperature of 300\thinspace K. We wish to find how the saturation current ($i_{0}$) and the ideality factor ($n$) scale as the solution salinity is varied.
 
-Faradaic measurements were made using an Agilent E5270B Precision Measurement Mainframe producing a stepped DC voltage stimulus across electrodes [TODO: Item 28] 2 and 6 whilst continuously measuring the output current. We commenced with 1.0X concentration of the stock solution (table~\ref{tab:PBSrecipe}). This solution was progressively diluted in factors of two between each measurement. The solution was mixed continuously using a standard laborotary grade magnetic stirrer and the electrode remained submerged throughout the entire process.
+Faradaic measurements were made using an Agilent E5270B Precision Measurement Mainframe producing a stepped DC voltage stimulus across electrodes [TODO: Item 28] 2 and 6 whilst continuously measuring the output current. We commenced with 1.0X concentration of the stock solution (table~\ref{tab:PBSrecipe}). This solution was progressively diluted in factors of two between each measurement. The solution was mixed continuously using a standard laborotary grade magnetic stirrer. The solution was in equlibriumm with air prior to and during measurement and the electrodes remained submerged at all times.
 A single measurement run involved stepping the voltage across electrodes 2 and 7 from 0.5\thinspace V to 1.2\thinspace V in increments of 0.05\thinspace V; this range was previously determined to capture the onset of Faradaic conduction.
 
-In \cite{Cogan2008} it has been noted that results obtained using cyclic voltammetry are dependant on, among other factors, the measurement sweep rate. This indicates a lack of isolation between displacement and Faradaic mechanisms. Our measurements were repeated using wait-times of 4, 16, 32 and 64 seconds between voltage increments, allowing us to determine the effect of sweep rate. From these measurements and those of a separate investigation\footnote{We took measurements of the interface's response to voltage steps when left to settle for 10 000 seconds, of which the first 250\thinspace seconds are shown in figure~\ref{fig:CPE_currentVsTime}. Those measurements show a trend of decreasing current stabalisation time as the overpotential steps increase. Sixty four seconds after stepping from 0.64\thinspace V to 0.72\thinspace V, the current has stabalised to $95\%$ of its value at 10\,000 seconds. At overpotential steps for higher voltages, the settling time is further reduced. These measurements were made in still solution and we expect that stirring will reduce the time to equilibrium.} we concluded that a wait-time of 64 seconds was sufficient.
+In \cite{Cogan2008} it has been noted that results obtained using cyclic voltammetry are dependant on, among other factors, the measurement sweep rate. This indicates a lack of isolation between displacement and Faradaic mechanisms. Our measurements were repeated using wait-times of 4, 16, 32 and 64 seconds between voltage increments, allowing us to determine the effect of sweep rate. From these measurements and those of a separate investigation\footnote{We took measurements of the interface's response to voltage steps when left to settle for 10 000 seconds, of which the first 250\thinspace seconds are shown in figure~\ref{fig:CPE_currentVsTime}. Those measurements show a trend of decreasing current stabalisation time as the overpotential steps increase. Sixty four seconds after stepping from 0.64\thinspace V to 0.72\thinspace V, the current has stabalised to $95\%$ of its value at 10\,000 seconds. At overpotential steps for higher voltages, the settling time is further reduced. These measurements were made in still solution and we expect stirring will further reduce settling time.} we concluded that a wait-time of 64 seconds was sufficient.
 \begin{figure}
     \begin{center}
         \includegraphics{graphics/CPE_currentVsTime}
@@ -312,6 +317,7 @@ to be published in
 {\em IEEE Transactions on Biomedical Circuits and Systems},
 DOI: 10.1109/TBCAS.2013.2270179, 2013.
 
+
 \bibitem{Kane13}
 Sheryl~R.~Kane, Stuart~F.~Cogan, Julia~Ehrlich, Timothy~D.~Plante, Douglas~B.~McCreery and Philip~R.~Troyk,
 ``Electrical Performance of Penetrating Microelectrodes Chronically Implanted in Cat Cortex``,
@@ -327,6 +333,12 @@ Journal of Neuroscience Methods 141 (2005), pp171--198.
 St.~Jude Medical, Octrode Percutaneous Lead for Neuromodulation,
 \url{http://www.sjmneuropro.com/Products/US/Percutaneous-Leads.aspx},
 retrieved December 2012.
+
+\bibitem{Greatbatch1969}
+W.~Greatbatch, B.~Piersma, F.~D.~Shannon, and S.W.~Calhoon, S. W.
+``Polarization phenomena relating to physiological electrodes'',
+Annals of the New York Academy of Sciences,
+167(2), 1969 pp722-744.
 
 \bibitem{Morrison59}
 Ralph Morrison,
@@ -522,7 +534,7 @@ Concerning the experiments, I have two points to make.
 {\color{OliveGreen}
     Item 18\\
     {\color{Red} Estimate the amount of charge being injected in each of the measurements (fits with the current density)}
-    Added current density and peak stimulus voltage information to displacement current measurement. Still needs total charge transfer for both CPE and Faradaic.
+    Instrumentation for CPE measurements have been added. I have also added current density and peak stimulus voltage information to displacement current measurement. [TODO: Calculate and add total charge transfer for both CPE and Faradaic].
 }\\
 
 2. I think that the classical view of the electrochemistry of Pt in saline (as, for example, expressed in your ref 1), is that the electrolysis reactions (oxygen and hydrogen evolution) start with a potential difference of about 1.4V. Below this p.d., the likeliest reaction is reduction of oxygen at the cathode which could accompany oxygen evolution from water at the anode. Your paper lacks any consideration of the chemistry but this is a important fault in the stepped-current experiment. Was the solution in equilibrium with air before the experiment? If this is a model for electrodes in vivo, should not the PBS have been in equilibrium with gas with the in vivo partial pressure of oxygen? I suggest that you repeat this experiment, at least (i) under air, (ii) under nitrogen, & perhaps (iii) under in vivo partial pressure of oxygen. The stirring arrangements ought to be exactly described too because liquid flow may be critical.\\
