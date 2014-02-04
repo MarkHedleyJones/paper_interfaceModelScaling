@@ -67,7 +67,7 @@ The electrical interface model of \cite{Franks2005} and \cite{ScottSingle2013} h
 \section{Resistive Network}
 The ingredients of the stock solution of PBS used in this study are given in table~\ref{tab:PBSrecipe}.
 Six solutions ranging from 1.0X to 0.025X the concentration of this stock solution have been examined.
-The stock solution had a pH of 7.4 and no pH adjustments were made to the derived solutions.
+The pH of the stock solution was measured (EDT Instruments BA-350) and was found to have pH of 7.4. No pH adjustments were made to the derived solutions.
 
 \begin{table}
     \begin{center}
@@ -86,10 +86,10 @@ The stock solution had a pH of 7.4 and no pH adjustments were made to the derive
 
 The electrical impedance between two electrodes in an electrolyte arises from two interface impedances in series with the resistance due to the bulk of the electrolyte itself. To quantify the impedance presented by a single interface we first need to understand the inter-electrode resistances presented by the electrolyte bulk. As there are always two interface impedances between any two electrodes, inter-electrode resistances cannot be measured in isolation.
 
-In \cite{ScottSingle2013}, a series of transresistance measurements were used in conjunction with a physical description of the electrode geometry to build up a representative network of resistors. The network in that paper was defined using five parameters: $R_{eri}$, $R_{lri}$, $R_{li}$, mesh depth, and edge depth. Readers are advised to read that paper to understand the interpretation of these model parameters. Repeating that work, a resistor network that connects each of the eight   electrodes is has been constructed, mimicking the resistances due to the solution bulk. The mesh depth and padding values of five columns and three rows, respectively, has been taken directly from \cite{ScottSingle2013}.
+In \cite{ScottSingle2013}, a series of transresistance measurements were used in conjunction with a physical description of the electrode geometry to build up a representative network of resistors. The network in that paper was defined using five parameters: $R_{eri}$, $R_{lri}$, $R_{li}$, mesh depth, and edge depth. Readers are advised to read that paper to understand the interpretation of these model parameters. Repeating that work, a resistor network that connects each of the eight electrodes is constructed, mimicking the resistances due to the solution bulk. The mesh depth and padding values of five columns and three rows, respectively, has been taken directly from \cite{ScottSingle2013}.
 A numerical fit was made to the two independent scaling parameters $R_{eri}$ and $R_{li}$
 \footnote{The values of $R_{eri}$ and $R_{sri}$ are defined by the lengths of the electrode and inter-electrode spacers respectively as described in \cite{ScottSingle2013}. The two parameters are proportional to each other by the ratio of their lengths. Hence, we define $R_{sri}$ to be 3/4 that of $R_{eri}$ making it a dependant parameter.}.
-The resulting fit and parameter values are presented in figure~\ref{fig:transresistance} and table~\ref{tab:RESparams} respectively.
+The resulting fit and parameter values are presented in figure~\ref{fig:transresistance} and table~\ref{tab:RESparams} respectively. Measurements of the inter-electrode impedance were made using a Tektronix TPS2014 DSO with four fully isolated and floating channels; an Agilent 33220A Function Generator; and a desktop PC controlling the instruments via Python 2.7.
 
 \begin{figure}
     \begin{center}
@@ -117,7 +117,7 @@ The resulting fit and parameter values are presented in figure~\ref{fig:transres
 
 \section{Displacement Parameters}
 The linear, or small-signal, part of an electrode-electrolyte interface is represented by a Constant Phase Element (CPE) or fractional capacitor. For simulation purposes this element is realised as an array of R-C branches.~\cite{ScottSingle2013,Morrison59,Elwakil10} Measurement of the CPE is made by sweeping the frequency of a sinusoidal stimulus across electrodes 2 and 7 of the Octrode while measuring the voltage between electrodes 2 and 3. The numbering pattern used to identify each of the electrodes on the Octrode is shown in figure~\ref{fig:octrode}.
-Measurements made using this configuration allow for the quantification of a single interface impedance in series with the resistance presented by the bulk solution. Current density during measurements peaked at $11.5\thinspace A/m^{2}$ at 10\thinspace kHz in 1.0X PBS and fell as low as $0.0141\thinspace A/m^{2}$ at 50\thinspace mHz in 0.025X PBS. The stimulus waveform was set at 300\thinspace mV (peak) at each measurement point.
+Measurements made using this configuration allow for the quantification of a single interface impedance in series with the resistance presented by the bulk solution. Current density during measurements peaked at $11.5\thinspace A/m^{2}$ at 10\thinspace kHz in 1.0X PBS and fell as low as $0.0141\thinspace A/m^{2}$ at 50\thinspace mHz in 0.025X PBS. The stimulus waveform was set at 300\thinspace mV (peak) at each measurement point. The measurement insturments used are the same as those used to measure the inter-electrode resistance.
 Figure~\ref{fig:CPE_Magnitude} shows the magnitude of the measured response of each of the six PBS concentrations accompanied by simulation results. Figure~\ref{fig:CPE_Phase} shows the phase response for the same measurements, again with the simulated response at each concentration. The simulated responses are generated using the optimised parameter values presented in Table~\ref{tab:CPEparams}. Those values were chosen as they give the closest match to the measured data. 
 
 As shown in the interface model schematic (figure~\ref{fig:schematic}), the interface contains its own internal series resistance ($R_{S}$). The resistance seen in series with the CPE will therefore be the sum of both the resistance due to the bulk resistivity of the fluid and $R_{S}$, to which we will refer as $R_{S+bulk}$.
@@ -174,7 +174,7 @@ With parameters fitted for the scaling of both the CPE and $R_{S}$ with PBS conc
 \end{equation}
 where $V_{T}$ is the thermal voltage and is approximately 25\thinspace mV at a temperature of 300\thinspace K. We wish to find how the saturation current ($i_{0}$) and the ideality factor ($n$) scale as the solution salinity is varied.
 
-Faradaic measurements were made using an Agilent E5270B Precision Measurement Mainframe producing a stepped DC voltage stimulus across electrodes 2 and 6 whilst continuously measuring the output current. We commenced with 1.0X concentration of the stock solution (table~\ref{tab:PBSrecipe}). This solution was progressively diluted in factors of two between each measurement. The solution was mixed continuously using a standard laborotary grade magnetic stirrer and the electrode remained submerged throughout the entire process.
+Faradaic measurements were made using an Agilent E5270B Precision Measurement Mainframe producing a stepped DC voltage stimulus across electrodes [TODO: Item 28] 2 and 6 whilst continuously measuring the output current. We commenced with 1.0X concentration of the stock solution (table~\ref{tab:PBSrecipe}). This solution was progressively diluted in factors of two between each measurement. The solution was mixed continuously using a standard laborotary grade magnetic stirrer and the electrode remained submerged throughout the entire process.
 A single measurement run involved stepping the voltage across electrodes 2 and 7 from 0.5\thinspace V to 1.2\thinspace V in increments of 0.05\thinspace V; this range was previously determined to capture the onset of Faradaic conduction.
 
 In \cite{Cogan2008} it has been noted that results obtained using cyclic voltammetry are dependant on, among other factors, the measurement sweep rate. This indicates a lack of isolation between displacement and Faradaic mechanisms. Our measurements were repeated using wait-times of 4, 16, 32 and 64 seconds between voltage increments, allowing us to determine the effect of sweep rate. From these measurements and those of a separate investigation\footnote{We took measurements of the interface's response to voltage steps when left to settle for 10 000 seconds, of which the first 250\thinspace seconds are shown in figure~\ref{fig:CPE_currentVsTime}. Those measurements show a trend of decreasing current stabalisation time as the overpotential steps increase. Sixty four seconds after stepping from 0.64\thinspace V to 0.72\thinspace V, the current has stabalised to $95\%$ of its value at 10\,000 seconds. At overpotential steps for higher voltages, the settling time is further reduced. These measurements were made in still solution and we expect that stirring will reduce the time to equilibrium.} we concluded that a wait-time of 64 seconds was sufficient.
@@ -465,7 +465,7 @@ In addition,  measurement apparatus information is fully lacking.\\
 {\color{OliveGreen}
     Item 11\\
     {\color{Red} Describe instruments used in measurements or make reference to Jonathans paper}
-    No response yet.
+    Added details of the instruments used to conduct inter-electrode resistance measurements and clarified thier reuse for displacement measurements.
 }\\
 
 page 2, line 52. "the magnitude shifts relatively little". However, In Fig. 4, logaritmic scale is used, and the change from 1.0X to 0.025X is almost 50k at the lowest frequencies. 
