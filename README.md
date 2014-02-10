@@ -9,3 +9,4 @@ On Windows we need to run:
 *  git remote add origin 'git@github.com:markjones112358/paper_interfaceModelScaling.git'
 
 To add the SSH address for the repository (apparently - not sure if you'll have SSH)
+Then is should ask for your git username and password.
