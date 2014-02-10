@@ -27,7 +27,7 @@
 We report how the impedance presented by a platinum electrode scales with the concentration of phosphate buffered saline (PBS).
 We find that the constant phase element of the model scales with approximately the log of concentration, whereas the resistivity is inversely proportional.
 Using a novel DC measurement technique we show that the Faradaic response of a platinum electrode, and thus the safe exposure limit, does not scale with concentration below 900\thinspace mV overpotential across a pair of electrodes.
-We compare objective measurements made in saline to those made in the spinal cavity of live sheep. We comment upon the appropriateness of using PBS as a substitute for living sheep.
+We compare objective measurements made in saline to those made in the spinal cavity of live sheep. We comment upon the appropriateness of using PBS as a substitute for in-vivo measurements.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -54,7 +54,7 @@ The electrical interface model of \cite{Franks2005} and \cite{ScottSingle2013} h
 
 {
     \color{blue}
-It has been suggested that the primary coupling mechanism between platinum electrodes and physiological saline is the reversible evolution of gas, probably oxygen, at the platinum surface, which dissolves without bubble formation.\cite{Greatbatch1969} Understanding exact mechanism of displacement or Faradaic charge transfer at the electrode surface is beyond the scope of this work, instead we wish to characterise the electrode/electrolyte system in terms of parameters that may be fed into an electrical model. 
+It has been suggested that the primary coupling mechanism between platinum electrodes and physiological saline is the reversible evolution of gas, probably oxygen, at the platinum surface, which dissolves without bubble formation.\cite{Greatbatch1969} Understanding the exact mechanism of displacement or Faradaic charge transfer at the electrode surface is beyond the scope of this work. Rather we wish to characterise the electrode/electrolyte system in terms of parameters that may be fed into an electrical model. 
 }
 
 \begin{figure}
@@ -98,7 +98,7 @@ The ingredients of that stock solution are given in table~\ref{tab:PBSrecipe}.
 
 The electrical impedance between two electrodes in an electrolyte arises from two interface impedances in series with the resistance due to the bulk of the electrolyte itself. To quantify the impedance presented by a single interface we first need to understand the inter-electrode resistances presented by the electrolyte bulk. As there are always two interface impedances between any two electrodes, inter-electrode resistances cannot be measured in isolation.
 
-In \cite{ScottSingle2013}, a series of transresistance measurements were used in conjunction with a physical description of the electrode geometry to build up a representative network of resistors. The network in that paper was defined using five parameters: $R_{eri}$, $R_{lri}$, $R_{li}$, mesh depth, and edge depth. Readers are advised to read that paper to understand the interpretation of these model parameters. Repeating that work, a resistor network that connects each of the eight electrodes is constructed, mimicking the resistances due to the solution bulk.
+In \cite{ScottSingle2013}, a series of transresistance measurements were used in conjunction with a physical description of the electrode geometry to build up a representative network of resistors. The network in that paper was defined using five parameters: $R_{eri}$, $R_{lri}$, $R_{li}$, mesh depth, and edge depth. Readers are referred to \cite{ScottSingle2013} for the interpretation of these model parameters. Repeating that work, a resistor network that connects each of the eight electrodes is constructed, mimicking the resistances due to the solution bulk.
 {
     \color{blue}
 The mesh depth and padding values of five columns and three rows, respectively, has been taken directly from \cite{ScottSingle2013}.
@@ -135,7 +135,7 @@ Measurements of the inter-electrode impedance were made using a Tektronix TPS201
     \label{tab:RESparams}
 \end{table}
 
-
+\pagebreak
 \section{Displacement Parameters}
 {
     % Identifying reactions
@@ -155,7 +155,7 @@ This behaviour is modelled by way of a Constant Phase Element (CPE); also known 
 }
 {
     \color{blue}
-For simulation purposes this element is realised as an array of R-C branches.~\cite{ScottSingle2013,Morrison59,Elwakil10} where the value of each R-C pair is chosen to set the slope of impedance relative to frequency. The placement of R-C pairs within the CPE is determined by the parameters $m$ and $k$, where $k$ determines the spacing, or density, of R-C branches and $m$ determines the resulting slope.
+For simulation purposes this element is realised as an array of R-C branches.~\cite{ScottSingle2013,Morrison59,Elwakil10} where the value of each R-C pair is chosen to set the slope of impedance relative to frequency. The placement of R-C pairs within the CPE is determined by Morrison's parameters $m$ and $k$, where $k$ determines the spacing, or density, of R-C branches and $m$ determines the resulting slope.
 }
 We measure displacement currents by sweeping the frequency of a sinusoidal stimulus across electrodes 2 and 7 of the Octrode while measuring the voltage between electrodes 2 and 3 (numbering shown in Fig.~\ref{fig:octrode}). 
 This allows for the measurement of a single interface impedance in series with the resistance presented by the bulk solution. 
@@ -168,11 +168,12 @@ This allows for the measurement of a single interface impedance in series with t
 \end{figure}
 {
     \color{blue}
-Current density during measurements peaked at $11.5\thinspace A/m^{2}$ at 10\thinspace kHz in 1.0X PBS and fell as low as $0.0141\thinspace A/m^{2}$ at 50\thinspace mHz in 0.025X PBS. The stimulus waveform was set at 300\thinspace mV (peak) at each measurement point. The measurement instruments used are the same as those used to measure the inter-electrode resistance.
+Current density during measurements peaked at $11.5\thinspace A/m^{2}$ at 10\thinspace kHz in 1.0X PBS and fell as low as $0.0141\thinspace A/m^{2}$ at 50\thinspace mHz in 0.025X PBS. The charge injected is shown in figure~\ref{fig:chargeInjectionVsFrequency}. 
+The stimulus waveform was set at 300\thinspace mV (peak) at each measurement point. The measurement instruments used are the same as those used to measure the inter-electrode resistance.
 }
 {
-    \color{blue)
-        {\color{red} something weird going on here} Figure~\ref{fig:CPE_Magnitude} shows the magnitude of the measured response of each of the six PBS concentrations accompanied by simulation results. Figure~\ref{fig:CPE_Phase} shows the phase response for the same measurements, again with the simulated response at each concentration. The simulated responses are generated using the optimised parameter values presented in Table~\ref{tab:CPEparams}. Those values were chosen as they give the closest match to the measured data. 
+    \color{blue}
+Figure~\ref{fig:CPE_Magnitude} shows the magnitude of the measured response of each of the six PBS concentrations accompanied by simulation results. Figure~\ref{fig:CPE_Phase} shows the phase response for the same measurements, again with the simulated response at each concentration. The simulated responses are generated using the optimised parameter values presented in Table~\ref{tab:CPEparams}. Those values were chosen as they give the closest match to the measured data.
 }
 As shown in the interface model schematic (figure~\ref{fig:schematic}), the interface contains its own internal series resistance ($R_{S}$). The resistance seen in series with the CPE will therefore be the sum of both the resistance due to the bulk resistivity of the fluid and $R_{S}$, to which we will refer as $R_{S+bulk}$.
 In figure~\ref{fig:CPE_Magnitude}, the slope and magnitude of the CPE are visible below 1\thinspace Hz whereas $R_{S+bulk}$  dominates above 1\thinspace kHz; it is clear that the two do not scale similarly.
@@ -180,7 +181,8 @@ As the impedance of the CPE and $R_{S+bulk}$ are separable with frequency, these
 
 Figure~\ref{fig:CPE_Scaling} shows measured data and the corresponding fits for both the CPE magnitude at 0.05\thinspace Hz and $R_{S+bulk}$. The resulting model parameters $m$, $k$, and $|Z|\thinspace @\thinspace 1Hz$ are shown in table~\ref{tab:CPEparams}. Here we express the CPE offset parameter as $|Z|\thinspace @ \thinspace 1Hz$, but the fits used $|Z|\thinspace @ \thinspace 0.05Hz$, as data points at this frequency are outside the transitional zone where the impedance of the CPE and that of $R_{S+bulk}$ overlap.
 {
-    \color{blue} Results presented in Fig.~\ref{fig:CPE_Magnitude} show an linear shift with salinity at higher frequencies, where we are seeing the resistive component of the solution bulk. At lower frequencies the $|Z|$ shifts relatively little compared to the nearly 2 orders of magnitude seen in the resistive region. Here we are seeing what appears to be more like a log relationship. 
+    \color{blue} The data presented in Fig.~\ref{fig:CPE_Magnitude} show a large, linear, relative shift of $|Z|$ with salinity at higher frequencies, where the resistive component of the solution dominates.
+Conversely, at lower frequencies where the $|Z|$ changes with frequency, the relative change is closer to logarithmic. This region is modeled by the CPE. 
 }
 This suggests that the CPE does not rely on the added ions but they do have an effect, implying that its behaviour is a property of platinum and $H_{2}O$.
 
@@ -605,13 +607,13 @@ The aim of this paper, to find a SPICE model of implanted electrodes, is importa
 
 Concerning the experiments, I have two points to make.
 
-1. You do not explain how the impedance measurements have been made (Figs 4, 5 13 & 14). I want to know how much charge was being applied to these electrodes at low frequencies (e.g. 0.05 Hz): what potential excursion occurred was it really a ``small signal''?\\
+1. You do not explain how the impedance measurements have been made (Figs 4, 5 13 \& 14). I want to know how much charge was being applied to these electrodes at low frequencies (e.g. 0.05 Hz): what potential excursion occurred was it really a ``small signal''?\\
 {\color{OliveGreen}
     Item 18\\
     Instrumentation for CPE measurements have been added. I have also added current density and peak stimulus voltage information to displacement current measurement. [TODO: Calculate and add total charge transfer for both CPE and Faradaic].
 }\\
 
-2. I think that the classical view of the electrochemistry of Pt in saline (as, for example, expressed in your ref 1), is that the electrolysis reactions (oxygen and hydrogen evolution) start with a potential difference of about 1.4V. Below this p.d., the likeliest reaction is reduction of oxygen at the cathode which could accompany oxygen evolution from water at the anode. Your paper lacks any consideration of the chemistry but this is a important fault in the stepped-current experiment. Was the solution in equilibrium with air before the experiment? If this is a model for electrodes in vivo, should not the PBS have been in equilibrium with gas with the in vivo partial pressure of oxygen? I suggest that you repeat this experiment, at least (i) under air, (ii) under nitrogen, & perhaps (iii) under in vivo partial pressure of oxygen. The stirring arrangements ought to be exactly described too because liquid flow may be critical.\\
+2. I think that the classical view of the electrochemistry of Pt in saline (as, for example, expressed in your ref 1), is that the electrolysis reactions (oxygen and hydrogen evolution) start with a potential difference of about 1.4V. Below this p.d., the likeliest reaction is reduction of oxygen at the cathode which could accompany oxygen evolution from water at the anode. Your paper lacks any consideration of the chemistry but this is a important fault in the stepped-current experiment. Was the solution in equilibrium with air before the experiment? If this is a model for electrodes in vivo, should not the PBS have been in equilibrium with gas with the in vivo partial pressure of oxygen? I suggest that you repeat this experiment, at least (i) under air, (ii) under nitrogen, \& perhaps (iii) under in vivo partial pressure of oxygen. The stirring arrangements ought to be exactly described too because liquid flow may be critical.\\
 {\color{OliveGreen}
     Item 19\\
     {\color{Red} This represents a lot of work to redo the measurements. Perhaps we make it clear that we don't know the electrochemistry side, that it's simply out of our depth, and any hypothesis we draw based on electrochemistry may harm the validity of our work. If we explain more exactly the proceedure we took so as to be more repeatable and hint that we're not interested at this point on the electrochemistry, that we only wish to make the model behave like the solution.}
@@ -652,7 +654,7 @@ Other points
     No response yet.
 }\\
 
-6. P2, col 2, line 24: why 2 & 7?\\
+6. P2, col 2, line 24: why 2 \& 7?\\
 {\color{OliveGreen}
     Item 25\\
     {\color{Red} Explain more clearly why electrodes 2 and 7 were chosen (to avoid end effects)}
@@ -729,7 +731,7 @@ To make this manuscript more approachable to a wider audience, I recommend the a
     {\color{Red} Try to include any relevant electrochemical information, find out what that is first}
     No response yet.
 }
-As part of this expansion, the references should be increased beyond the present ten references. Although their current references include clearly important electrode characterization references (Cogan, Merrill et. al, & Kane et. al), the information contained in these references are not effectively used to support the authors’ work.\\
+As part of this expansion, the references should be increased beyond the present ten references. Although their current references include clearly important electrode characterization references (Cogan, Merrill et. al, \& Kane et. al), the information contained in these references are not effectively used to support the authors’ work.\\
 {\color{OliveGreen}
     Item 36\\
     {\color{Red} Perhaps Troyk could be added. A search for textbook knowledge and more published state of the art should uncover more references}
@@ -742,4 +744,5 @@ Technically, I found one issue with this paper. In Figure 11, the x-axis labels 
     Thank you very much. See updated figure (now figure~\ref{fig:faradaic_currentVsVoltage}).
 }\\
 }
+
 \end{document}
