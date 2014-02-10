@@ -152,9 +152,15 @@ Such reactions involving water and platinum, as identified in \cite{Horch2004}, 
 This displacement mechanism is capable of transferring charge between electrical and biological systems without damaging electrodes or tissue. \cite{Horch2004}
 This behaviour is modelled by way of a Constant Phase Element (CPE); also known as a fractional capacitor.
 }
-For simulation purposes this element is realised as an array of R-C branches.~\cite{ScottSingle2013,Morrison59,Elwakil10} We measured displacement currents by sweeping the frequency of a sinusoidal stimulus across electrodes 2 and 7 of the Octrode while measuring the voltage between electrodes 2 and 3. 
-The numbering pattern used to identify each of the electrodes on the Octrode is shown in figure~\ref{fig:octrode}.
-Measurements made using this configuration allow for the quantification of a single interface impedance in series with the resistance presented by the bulk solution.
+For simulation purposes this element is realised as an array of R-C branches.~\cite{ScottSingle2013,Morrison59,Elwakil10} We measure displacement currents by sweeping the frequency of a sinusoidal stimulus across electrodes 2 and 7 of the Octrode while measuring the voltage between electrodes 2 and 3 (numbering shown in Fig.~\ref{fig:octrode}). 
+This allows for the measurement of a single interface impedance in series with the resistance presented by the bulk solution. 
+\begin{figure}
+    \begin{center}
+        \includegraphics{graphics/chargeInjectionVsFrequency.pdf}
+    \end{center}
+    \caption{\color{blue} Charge injected during CPE measurment for each of the six concentrations of PBS. Calculated using an effective surface area of 14\thinspace mm$^{2}$}
+    \label{fig:chargeInjectionVsFrequency}
+\end{figure}
 {
     \color{blue}
 Current density during measurements peaked at $11.5\thinspace A/m^{2}$ at 10\thinspace kHz in 1.0X PBS and fell as low as $0.0141\thinspace A/m^{2}$ at 50\thinspace mHz in 0.025X PBS. The stimulus waveform was set at 300\thinspace mV (peak) at each measurement point. The measurement insturments used are the same as those used to measure the inter-electrode resistance.
@@ -169,8 +175,10 @@ In figure~\ref{fig:CPE_Magnitude}, the slope and magnitude of the CPE are visibl
 As the impedance of the CPE and $R_{S+bulk}$ are separable with frequency, these measurements can be used to determine the CPE parameters and $R_{S}$.
 
 Figure~\ref{fig:CPE_Scaling} shows measured data and the corresponding fits for both the CPE magnitude at 0.05\thinspace Hz and $R_{S+bulk}$. The resulting model parameters $m$, $k$, and $|Z|\thinspace @\thinspace 1Hz$ are shown in table~\ref{tab:CPEparams}. Here we express the CPE offset parameter as $|Z|\thinspace @ \thinspace 1Hz$, but the fits used $|Z|\thinspace @ \thinspace 0.05Hz$, as data points at this frequency are outside the transitional zone where the impedance of the CPE and that of $R_{S+bulk}$ overlap.
-
-From the results shown in figure~\ref{fig:CPE_Magnitude} we observe that the salinity of the electrolyte does not affect the slope of the CPE's impedance and the magnitude shifts relatively little. This suggests that the CPE does not rely on the added ions but they do have an effect, implying that its behaviour is a property of platinum and $H_{2}O$.
+{
+    \color{blue} Results presented in Fig.~\ref{fig:CPE_Magnitude} show an linear shift with salinity at higher frequencies, where we are seeing the resistive component of the solution bulk. At lower frequencies the $|Z|$ shifts relatively little compared to the nearly 2 orders of magnitude seen in the resistive region. Here we are seeing what appears to be more like a log relationship. 
+}
+This suggests that the CPE does not rely on the added ions but they do have an effect, implying that its behaviour is a property of platinum and $H_{2}O$.
 
 \begin{figure}
     \begin{center}
@@ -516,14 +524,14 @@ What is the effect of chosen current density on CPE impedance (Fig. 5)?
 {\color{OliveGreen}
     Item 10\\
     {\color{Red} Estimate current density and investigate possible effects}
-    Maximum and minimum current density during displacement current measurement added. No comment on effect formed yet. No response yet.
+    Have added a new figure to show the current density during CPE measurement.
 }
 
 In addition,  measurement apparatus information is fully lacking.\\
 {\color{OliveGreen}
     Item 11\\
     {\color{Red} Describe instruments used in measurements or make reference to Jonathans paper}
-    Added details of the instruments used to conduct inter-electrode resistance measurements and clarified thier reuse for displacement measurements.
+    Added missing details of instrumentation used to conduct inter-electrode resistance measurements and clarified thier reuse for displacement measurements.
 }\\
 
 page 2, line 52. "the magnitude shifts relatively little". However, In Fig. 4, logaritmic scale is used, and the change from 1.0X to 0.025X is almost 50k at the lowest frequencies. 
