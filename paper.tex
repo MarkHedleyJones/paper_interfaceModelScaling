@@ -45,10 +45,10 @@ suitable for use with the SPICE circuit simulator was presented. The SPICE model
 One major reason for the interest in the electrical impedance of electrodes concerns the design of electronics intended for integration into pacemakers, cochlear implants, spinal cord stimulators, etc. The design of successful circuits depends upon a good understanding of external load impedance, while maximisation of battery life is linked to the use of electrodes whose impedance is well understood.
 Having a compact model of an electrode in the appropriate electrolyte allows circuit designers to simulate their designs with valid loads. Knowing the effect upon the model of changes in the electrode or electrolyte would allow designers to anticipate circumstances that will affect the load seen by their circuits. Another appeal of a compact model stems from the fact that electrode characteristics are succinctly and objectively represented by the model parameters. These enable direct comparison of different electrodes, or the change in electrode properties over time. For example, in \cite{Kane13} changes in chronically-implanted electrodes are observed but there is no standard quantitative way of presenting the changes. Similarly, while there is a good understanding of what represents safe exposure, a compact model with parameters permits the prediction of the safety of any given stimulus regime.~\cite{Merrill05}
 
-Electrodes in the laboratory are typically tested in a saline solution selected to mimic the circumstances in which they will operate when implanted.
-{\color{red} In an implanted setting there is no reference electrode and many of the well established electrochemical measurement regiemes do not apply. In this manuscript we measure the behaviour an electrode/electrolyte situation as it would be seen from an implant device.}
+{\color{blue} Electrodes in the laboratory are typically tested in a saline solution selected to mimic the circumstances in which they will operate when implanted.
+In an implanted setting there is no reference electrode and many of the well established electrochemical measurement regimes do not apply. In this manuscript we measure the behaviour an electrode/electrolyte situation as it would be seen from an implant device.
 
-{\color{blue} A solution of Phosphate Buffered Saline (PBS) diluted to one-tenth concentration (0.1X) is common in the case of Spinal Cord Stimulators (SCS), while full concentration (1.0X) PBS is considered more representative of the situation in blood.}
+A solution of Phosphate Buffered Saline (PBS) diluted to one-tenth concentration (0.1X) is common in the case of Spinal Cord Stimulators (SCS), while full concentration (1.0X) PBS is considered more representative of the situation in blood.}
 
 In this manuscript we report how the parameters of a non-linear model change as the concentration of saline is varied. {\color{blue} We refine a series of measurements compatible with commercially available medical electrodes in physiological saline that allow us to describe the impedance with minimal parameters.} We place these parameters in context with a biological measurement made in the spinal cavity of a live sheep.
 
@@ -167,7 +167,7 @@ This allows for the measurement of a single interface impedance in series with t
 \end{figure}
 {
     \color{blue}
-    The geometric current density during measurements peaked at 22.59\thinspace mA/cm$^{2}$ at 10000\thinspace kHz in 1.0X PBS and fell as low as 27.66\thinspace $\mu$A/cm$^{2}$ at 50\thinspace mHz in 0.025X PBS. Charge injection per phase is shown in figure~\ref{fig:chargeInjectionVsFrequency} for each solution.
+    The geometric current density during measurements peaked at 22.6\thinspace mA/cm$^{2}$ at 10000\thinspace kHz in 1.0X PBS and fell as low as 27.6\thinspace $\mu$A/cm$^{2}$ at 50\thinspace mHz in 0.025X PBS. Charge injection per phase is shown in figure~\ref{fig:chargeInjectionVsFrequency} for each solution.
 The stimulus waveform was set at 300\thinspace mV (peak) at each measurement point. The measurement instruments used are the same as those used to measure the inter-electrode resistance.
 }
 {
@@ -330,7 +330,8 @@ For the purposes of our model, we are content with placing a limit of 0.9\thinsp
 {
     \color{blue}
     Figure~\ref{fig:faradaic_currentVsTime} shows a subset of the data used in Fig.~\ref{fig:StepResponse_Faradaic} (the 1.0X PBS trace) to show the fit between simulated and measured data in the time domain. Here the simulation contains fitted diode parameters, shown in table~\ref{tab:FaradaicParams}, which give rise to the exponentially increasing steady state current.
-It is apparent from this trace that the temporal response of the CPE does not match the transient decay curves seen in the Faradaic measurements, something the CPE should predict. These transient decay curves appear to have time-constant that decreases with each subsequent measurement. This variable time-constant phenomena is especially clear when looking back at figure~\ref{fig:CPE_currentVsTime}. Although the Faradaic response transients appear to approach the time-constant predicted by the CPE, there is still behaviour not completely described by the CPE.
+It is apparent from this trace that the temporal response of the CPE does not match the transient decay curves seen in the Faradaic measurements, something the CPE should predict. These transient decay curves appear to have a time-constant\footnote{We use the term ``time-constant'' although a CPE does not have a simple exponential time-domain response.} that decreases with each subsequent measurement. This variable time-constant phenomena is especially clear when looking back at figure~\ref{fig:CPE_currentVsTime}. Although the Faradaic response transients appear to approach the time-constant predicted by the CPE, there is still behaviour not completely described by the CPE.
+
 The match between fitted diode parameters ($n$ and $i_{0}$) and the measurement data 64 seconds after each voltage increment has been plotted in figure~\ref{fig:faradaic_currentVsVoltage}.
 
 In future we hope to extend this model into a diffusion controlled conduction scenario and extend the CPE element to better reproduce the time domain response.
@@ -495,12 +496,13 @@ He is working towards a Ph.D. in Electrical Engineering, also at The University 
 {\color{blue}
 I am not very enthusiastic about his paper as it does not contain many novel or original ideas and finding. On the electrochemistry side it is superficial and falls back behind published state of the art and textbook knowledge.\\
 {\color{OliveGreen}
-    This response has concerned us and we have subsequently invested considerable effort in broadening our search of published state-of-the-art. Where possible we have included references to electrochemistry literature from any areas we are dealing with in this revision. During this expansion we were unable to find anything that subtracts from the novelty of this work. That said, our work is concerned primarily with the electrical side of an interface impedance and more specifically with that of an implanted electrode. Our intention is to be able to encapsulate the electrical aspect of the interface and surrounding electrolyte in an equivalent electrical circuit, regardless of the chemistry at play.
+    This response has concerned us and we subsequently invested considerable effort in broadening our search of the literature. We have included some new references to the electrochemistry literature. This work is concerned primarily with the electrical side of an interface and more specifically with that of an implanted electrode. Our intention is to be able to encapsulate the electrical aspect of the interface and surrounding electrolyte in an equivalent electrical circuit, regardless of the chemistry at play.
+Nevertheless, we were unable to find anything that subtracts from the novelty of this work that lies in the relationship between impedance and electrolytes. 
 }\\
 
 1. The interface model as such is not new and has been published extensively.\\
 {\color{OliveGreen}
-    Correct, there are many published interfacial models. This model differentiates itself from those by being compact. Compact in the sense that it can be entered into any common electronic circuit simulator and used to make predictions about impedance. This is especially important for elecronic engineers designing medical impalant devices.
+    There are many published interfacial models. This model differentiates itself from all previous models by being compact, in the mathematical-modeling meaning of that word, implying that it can be entered into any common electronic circuit simulator and used to make predictions about impedance. This is especially important for elecronic engineers designing medical implant devices.
 }\\
 
 2. The authors do not at all comment on interface polarization, which is particularly important under DC conditions. As soon as an electrode carries current, such phenomena become important and relevant.\\
@@ -515,7 +517,7 @@ I am not very enthusiastic about his paper as it does not contain many novel or 
 
 4. The authors never mention the origin of any Faradaic contribution at the electrodes. What is the electro- or redox-chemistry that the authors assume to happen?? Gas formation at the electrodes, electrolysis of the saline, i.e., hydrogen and oxygen formation??\\
 {\color{OliveGreen}
-    Relevant Faradaic reactions, both reversible and irreversible, have been added both to the displacement/polarisation and Faradaic sections.
+    As a matter of interest, relevant Faradaic reactions, both reversible and irreversible, have been added both to the displacement/polarisation and Faradaic sections. Nevertheless, we do not need to understand any specific reactions that occur, as we confine our attention to the electrical impedance properties. We have added, as the second paragraph of the introduction, a clarification of the goals of the work.
 }\\
 
 5. Figure 5 is not referenced anywhere in the text. Also the blue variations in the curves are hardly visible.\\
@@ -525,7 +527,8 @@ I am not very enthusiastic about his paper as it does not contain many novel or 
 
 6. Since the electrode model includes two back-to-back diodes, I think it would be valuable to sweep the voltage from -1.2V to +1.2V.\\
 {\color{OliveGreen}
-    The measurements involving the back-to-back diodes are those measuring the contribution from irreversible Faradaic reactions. These measurements involve two active electrodes while the remaining electrodes and the electrolyte have a floating potentials. Sweeping the voltage from -1.2V to +1.2V in this case would be the equivalent of swapping the terminals halfway through the sweep. Physically this would not be the same as polarisation effects would linger, however we are only interested in the steady state Faradaic conduction where we assume polarisation and displacement effects are negligible.
+Measurements were made up to 1.2V, refer to figure 10 for example. The results are naturally symmetrical.
+%The measurements involving the back-to-back diodes are those measuring the contribution from irreversible Faradaic reactions. These measurements involve two active electrodes while the remaining electrodes and the electrolyte have a floating potential. Sweeping the voltage from -1.2V to +1.2V in this case would be the equivalent of swapping the terminals halfway through the sweep. Physically this would not be the same as polarisation effects would linger, however we are only interested in the steady state Faradaic conduction where we assume polarisation and displacement effects are negligible.
 }\\
 
 7. There is a big difference between blue dots and red curve in Fig. 10, except for the "voltage increment time" and "64 seconds after increment".  This indicates to me that the CPE model is NOT that accurate, as the settling curve is highly correlated to the CPE parameters.\\
@@ -578,7 +581,7 @@ page 4. Referencing (in the text) to the Fig. 10 is lacking (?).\\
 
 Finally, and most importantly, the part of in vivo measurements are very limited since only one spinal channel measurement has been performed. My opinion is that this manuscript could be even better without this uncertain (n=1) result and thus I recommend to leave this part out.\\
 {\color{OliveGreen}
-    Graph of sheep response to displacement stimulus has been updated to include four separate measurements taken on the second day of sheep measurement. The first day gave results typical of these but we ran into connection problems leading to intermittent data hence they have been omitted.
+    Graph of sheep response to displacement stimulus has been updated to include four separate measurements taken on the second day of sheep measurement. 
 }\\
 }
 
@@ -588,12 +591,12 @@ Finally, and most importantly, the part of in vivo measurements are very limited
 \subsection*{Reviewer 3}
 
 {\color{blue} The aim of this paper, to find a SPICE model of implanted electrodes, is important and the results presented in the paper are interesting. However, as it stands the paper is not well written and must be revised. The weaknesses of the paper are an unclear structure, with results and discussion mixed, poor attention to detail and inaccurate use of words.\\
-{\color{OliveGreen}With respect to the comment on poor attention to detail and innaccurate use of words, we have revised the manuscript to include more detail both in regards to experimental setup, the electrochemistry and model elements. We have chosen to mix the discussion with results as the model parameters are derived along with the measurments, which are required before moving to each subsiquent step.}\\
+{\color{OliveGreen}With respect to the comment on poor attention to detail and innaccurate use of words, we have revised the manuscript to include more detail both in regards to experimental setup, the electrochemistry and model elements. We have chosen to mix the discussion with results as the model parameters are derived along with the measurments, which are required before moving to each subsequent step. This arrangement is common in modeling papers in EE.}\\
 
 Concerning the experiments, I have two points to make.
 
 1. You do not explain how the impedance measurements have been made (Figs 4, 5 13 \& 14). I want to know how much charge was being applied to these electrodes at low frequencies (e.g. 0.05 Hz): what potential excursion occurred was it really a ``small signal''?\\
-{\color{OliveGreen}We have added maximum and minimum current density calculations, peak stimulus voltage information and added a plot showing the amount of charge injected during measurment of displacement currents.}\\
+{\color{OliveGreen}We have fully addressed this issue. We have added maximum and minimum current density calculations, peak stimulus voltage information and added a plot showing the amount of charge injected during measurment of displacement currents.}\\
 
 
 2. I think that the classical view of the electrochemistry of Pt in saline (as, for example, expressed in your ref 1), is that the electrolysis reactions (oxygen and hydrogen evolution) start with a potential difference of about 1.4V. Below this p.d., the likeliest reaction is reduction of oxygen at the cathode which could accompany oxygen evolution from water at the anode. Your paper lacks any consideration of the chemistry but this is a important fault in the stepped-current experiment. Was the solution in equilibrium with air before the experiment? If this is a model for electrodes in vivo, should not the PBS have been in equilibrium with gas with the in vivo partial pressure of oxygen? I suggest that you repeat this experiment, at least (i) under air, (ii) under nitrogen, \& perhaps (iii) under in vivo partial pressure of oxygen. The stirring arrangements ought to be exactly described too because liquid flow may be critical.\\
@@ -607,7 +610,7 @@ Other points
 
 
 2. Should the resistor model of the volume conductor from [4] be shown in this paper? It would make the paper easier to understand for your reader if you showed the model. If you are not going to do so, you might help them by saying something like ``Readers are advised to see [4] to understand the meaning of the parameters in Table II''.\\
-{\color{OliveGreen}Unfortunately there is little room in the manuscript as it stands for extra figures. We have advised the reader to read ScottSingle2013 to understand the interpretation of the mesh generation parameters, where they would find the radial volume model.}\\
+{\color{OliveGreen}We agree absolutely. Unfortunately there is little room in the manuscript as it stands for extra figures. We have advised the reader to read ScottSingle2013 to understand the interpretation of the mesh generation parameters, where they would find the radial volume model.}\\
 
 
 3. You say (p2 line 43) that there are 2 independent scaling factors. Is Rli independent or not? If not, why input it in Table II?\\
@@ -669,13 +672,13 @@ Other points
 
 Overall, the paper was brief and to the point, which in this case is actually a determent instead of a benefit. Much of the underlying theory and development of parameters appear without informing the reader of their purpose or how they were calculated and/or measured.
 For example, the parameters in Table 2 (and reported to be in Figure 3) are not explained and what their relationship to the remainder of the manuscript is not provided.\\
-{\color{OliveGreen} We have expanded the explanation in the manuscript, and referred interested readers to the source.}\\
+{\color{OliveGreen} We have greatly expanded the explanation in the manuscript, and referred interested readers to the source.}\\
 
 To make this manuscript more approachable to a wider audience, I recommend the authors more fully develop Sections II, III, and IV. Further, they should explain their testing in terms of standard electrochemical characterization, detailing their counter, working, and reference electrodes used in measuring impedance.\\
-{\color{OliveGreen} Our approach arises from the fact that reference electrodes are not possible in an implanted scenario and that implant electrode arrays such as is used in this work do not have specifically designed counter or working electrodes. We have added a statement to this effect in the introduction. We feel that many of the questions or concerns arrising from the reviewers stems from the fact that we are operating in a scenario far from traditional electrochemistry labs.}\\
+{\color{OliveGreen} Our approach arises from the fact that reference electrodes are not possible in an implanted scenario and that implant electrode arrays such as is used in this work do not have specifically designed counter and working electrodes. We have added a statement to this effect in the introduction. We feel that many of the questions or concerns arrising from the reviewers stems from the fact that we are operating in a scenario far from traditional electrochemistry labs.}\\
 
 As part of this expansion, the references should be increased beyond the present ten references. Although their current references include clearly important electrode characterization references (Cogan, Merrill et. al, \& Kane et. al), the information contained in these references are not effectively used to support the authors’ work.\\
-{\color{red} Find places for Merrill and Kane. Jonathan: Cogan, where can we use it? I don't have access  to this paper.}
+%{\color{red} Find places for Merrill and Kane. Jonathan: Cogan, where can we use it? I don't have access  to this paper.}
 {\color{OliveGreen} In response the numerous reviewee comments we have added more citations. We hope we have more thorough pointers to the literature where appropriate in our literature.}\\
 
 Technically, I found one issue with this paper. In Figure 11, the x-axis labels should have 2 digits after the decimal. As presently shown, each of the labels 0.6, 0.7, ..., 1.0 are repeated twice on the axis. Presumably, the second version of the labels should be 0.65, 0.75, ..., 1.05.\\
