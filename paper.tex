@@ -110,6 +110,9 @@ The resulting fit and parameter values are presented in figure~\ref{fig:transres
     \color{blue}
     % Item 11
 Measurements of the inter-electrode impedance were made using a Tektronix TPS2014 DSO with four fully isolated and floating channels; an Agilent 33220A Function Generator; and a desktop PC controlling the instruments via Python 2.7.
+
+
+It should be noted that the resistive mesh created in this step models only the restitivity of the solution bulk. This means that no resistive contribution from the electrode/electrolyte interface is included in these measurements as voltage measurements are always across pairs of non-driven electrodes. We determine the fixed resistance of a single inteface, $R_{S}$, when fitting parameters to the displacement component.
 }
 
 \begin{figure}
@@ -135,7 +138,7 @@ Measurements of the inter-electrode impedance were made using a Tektronix TPS201
     \label{tab:RESparams}
 \end{table}
 
-\pagebreak
+%\pagebreak
 \section{Displacement Parameters}
 {
     % Identifying reactions
@@ -193,7 +196,7 @@ Instead, the constant-phase charge effect must arise from phenonema not associat
     \begin{center}
         \includegraphics{graphics/displacement_impedanceVsFrequency_magnitude}
     \end{center}
-    \caption{Magnitude of interfacial impedance between electrodes 2 and 7 against the frequency of a sine wave stimulus for six concentrations of PBS. The slope of the CPE is visible the left, whereas the resistance due to the solution bulk appears on the right. Traces represent simulated data while markers represent measured values.}
+    \caption{Magnitude of interfacial impedance between electrodes 2 and 7 against the frequency of a sine wave stimulus for six concentrations of PBS. The slope of the CPE is visible the left, whereas the resistance due to $R_{S+bulk}$ appears on the right. Traces represent simulated data while markers represent measured values.}
     \label{fig:CPE_Magnitude}
 \end{figure}
 
@@ -495,49 +498,41 @@ He is working towards a Ph.D. in Electrical Engineering, also at The University 
 {\color{blue}
 I am not very enthusiastic about his paper as it does not contain many novel or original ideas and finding. On the electrochemistry side it is superficial and falls back behind published state of the art and textbook knowledge.\\
 {\color{OliveGreen}
-    Item 1\\
     This response has concerned us and we have subsequently invested considerable effort in broadening our search of published state-of-the-art. Where possible we have included references to electrochemistry literature from any areas we are dealing with in this revision. During this expansion we were unable to find anything that subtracts from the novelty of this work. That said, our work is concerned primarily with the electrical side of an interface impedance and more specifically with that of an implanted electrode. Our intention is to be able to encapsulate the electrical aspect of the interface and surrounding electrolyte in an equivalent electrical circuit, regardless of the chemistry at play.
 }\\
 
 1. The interface model as such is not new and has been published extensively.\\
 {\color{OliveGreen}
-    Item 2\\
     Correct, there are many published interfacial models. This model differentiates itself from those by being compact. Compact in the sense that it can be entered into any common electronic circuit simulator and used to make predictions about impedance. This is especially important for elecronic engineers designing medical impalant devices.
 }\\
 
 2. The authors do not at all comment on interface polarization, which is particularly important under DC conditions. As soon as an electrode carries current, such phenomena become important and relevant.\\
 {\color{OliveGreen}
-    Item 3\\
     We have lumped the effects of polarisation into the response of the displacement element in the model (CPE). The introduction to the Displacement Parameters section has been updated to include mention of polarisation. Our technique for measuring Faradaic reactions, namely to apply a DC voltage and wait until current transients settle before making a measurement, has been choosen to minimise any contribution from polarisation effects.
 }\\
 
 3. To assess the resistivity or impedance of a material between two electrodes, one normally uses a 4-electrode setup with injection of current through the two outer electrodes, while measuring a voltage between the inner ones. This is particularly relevant for the measurements in Fig. 3 and the related and subsequent text.\\
 {\color{OliveGreen} 
-    Item 4\\
     We are not so much interested in knowing the resistivity of the solution as we are in knowing the resistance between any pair of electrodes for the specific electrode array. The difference being that we expect the geometry of the electrode array, being comprised of 8 cylindrical coaxially placed electrodes as shown in Fig.~1, to determine the resistance in a non-trivial way. Using the transimedance measurements we can construct a mesh that represents the geometry of the electrodes and the resistivity of the solution. Another benefit in the method chosen is that it does not rely on knowing the electrode geometry and is therefore more versatile.
 }\\
 
 4. The authors never mention the origin of any Faradaic contribution at the electrodes. What is the electro- or redox-chemistry that the authors assume to happen?? Gas formation at the electrodes, electrolysis of the saline, i.e., hydrogen and oxygen formation??\\
 {\color{OliveGreen}
-    Item 5\\
     Relevant Faradaic reactions, both reversible and irreversible, have been added both to the displacement/polarisation and Faradaic sections.
 }\\
 
 5. Figure 5 is not referenced anywhere in the text. Also the blue variations in the curves are hardly visible.\\
 {\color{OliveGreen} 
-    Item 6\\
     Graphs redrawn with a wider range of shading to help identify traces and referenced on page 3 (now figure \ref{fig:CPE_Phase}).
 }\\
 
 6. Since the electrode model includes two back-to-back diodes, I think it would be valuable to sweep the voltage from -1.2V to +1.2V.\\
 {\color{OliveGreen}
-    Item 7\\
     The measurements involving the back-to-back diodes are those measuring the contribution from irreversible Faradaic reactions. These measurements involve two active electrodes while the remaining electrodes and the electrolyte have a floating potentials. Sweeping the voltage from -1.2V to +1.2V in this case would be the equivalent of swapping the terminals halfway through the sweep. Physically this would not be the same as polarisation effects would linger, however we are only interested in the steady state Faradaic conduction where we assume polarisation and displacement effects are negligible.
 }\\
 
 7. There is a big difference between blue dots and red curve in Fig. 10, except for the "voltage increment time" and "64 seconds after increment".  This indicates to me that the CPE model is NOT that accurate, as the settling curve is highly correlated to the CPE parameters.\\
 {\color{OliveGreen}
-    Item 8\\
     We have addressed this discrepancy on page 5. The frequency response of the CPE is still valid, which is what we had fitted the parameters. We agree that the time-domain response of the CPE may need further work. Thank you for your time and critique. 
 }\\
 }
@@ -549,53 +544,44 @@ In this manuscript, the authors report how the non-linear electrode-electrolyte 
 
 page 2, in text/ table II. The scaling parameters and their meanings should be described more comprehensively. They remain somewhat unclear and meaningless to reader.\\
 {\color{OliveGreen}
-    Item 9\\
     We have encouraged the reader to review ScottSingle2013 in order to understand the interpretation of the given parameters. 
 }\\
 
 page 2 Measurement of the CPE. What was the current density used in EIS measurements?
 What is the effect of chosen current density on CPE impedance (Fig. 5)?
 {\color{OliveGreen}
-    Item 10\\
     Added a new figure to show the current density during CPE measurement.
 }
 
 In addition,  measurement apparatus information is fully lacking.\\
 {\color{OliveGreen}
-    Item 11\\
     Added missing details of instrumentation used to conduct inter-electrode resistance measurements and clarified their reuse for displacement measurements.
 }\\
 
 page 2, line 52. "the magnitude shifts relatively little". However, In Fig. 4, logaritmic scale is used, and the change from 1.0X to 0.025X is almost 50k at the lowest frequencies. 
 please clarify this point.\\
 {\color{OliveGreen}
-    Item 12\\
-    Have reworded this slightly to convey that the shift in the CPE response is small relative to the shift in the resistance in the solution bulk. We are referring to a relative difference, a gain in conductivity as a factor of the current conductivity.
-    {\color{red} Help! I don't know how better to explain this, The difference between 9 000 000 and 1 000 000 000 is small compared to the difference between 20 and 2000}
+    This has been reworded to convey that the shift in the CPE response is small relative to the shift in the resistance in the solution bulk. We are referring to a relative difference, a gain in conductivity as a factor of the current conductivity.
 }\\
 
 page 3, in text/ table III. The parameters (m, k..) and their meanings should be described more comprehensively, as well.\\
 {\color{OliveGreen} 
-    Item 13\\
     Sure, we have added a quick interpretation for the parameters $m$ and $k$ in the text.
 }\\
 
 Figure 9 (page 4). There is a clear difference in behavior of faradic conduction between 0.25X (red curve) and 0.5X (green curve). Transient current occur at 0.95V (<0.25X PBS) changing to occur at 1.0 V (>0.5X PBS). This behavior has not discussed in manuscript at all. Please revise it.\\
 {\color{OliveGreen}
-    Item 14\\
     {\color{Red} Should be easy to do, perhaps I make a second graph that shows more of the time data}
     No response yet.
 }\\
 
 page 4. Referencing (in the text) to the Fig. 10 is lacking (?).\\
 {\color{OliveGreen}
-    Item 15\\
     Thank you, we have updated discussion of Faradaic Parameters to include the results from what is now figure~\ref{fig:faradaic_currentVsTime}.
 }\\
 
 Finally, and most importantly, the part of in vivo measurements are very limited since only one spinal channel measurement has been performed. My opinion is that this manuscript could be even better without this uncertain (n=1) result and thus I recommend to leave this part out.\\
 {\color{OliveGreen}
-    Item 16\\ 
     Graph of sheep response to displacement stimulus has been updated to include four separate measurements taken on the second day of sheep measurement. The first day gave results typical of these but we ran into connection problems leading to intermittent data hence they have been omitted.
 }\\
 }
@@ -606,31 +592,26 @@ Finally, and most importantly, the part of in vivo measurements are very limited
 Authors
 The aim of this paper, to find a SPICE model of implanted electrodes, is important and the results presented in the paper are interesting. However, as it stands the paper is not well written and must be revised. The weaknesses of the paper are an unclear structure, with results and discussion mixed, poor attention to detail and inaccurate use of words.\\
 {\color{OliveGreen}
-    Item 17\\
-    {\color{Red} Revise poor use of words (perhaps relating to model elements/physical elements). Perhaps separate the results and discussion sections.} 
-    No response yet.
+    With respect to the comment on poor attention to detail and innaccurate use of words, we have revised the manuscript to include more detail both in regards to experimental setup, the electrochemistry and model elements. We have chosen to mix the discussion with results as the model parameters are derived along with the measurments, which are required before moving to each subsiquent step.
 }\\
 
 Concerning the experiments, I have two points to make.
 
 1. You do not explain how the impedance measurements have been made (Figs 4, 5 13 \& 14). I want to know how much charge was being applied to these electrodes at low frequencies (e.g. 0.05 Hz): what potential excursion occurred was it really a ``small signal''?\\
 {\color{OliveGreen}
-    Item 18\\
-    Instrumentation for CPE measurements have been added. I have also added current density and peak stimulus voltage information to displacement current measurement. [TODO: Calculate and add total charge transfer for both CPE and Faradaic].
+    We have added maximum and minimum current density calculations, peak stimulus voltage information and added a plot showing the amount of charge injected during measurment of displacement currents.
 }\\
 
 2. I think that the classical view of the electrochemistry of Pt in saline (as, for example, expressed in your ref 1), is that the electrolysis reactions (oxygen and hydrogen evolution) start with a potential difference of about 1.4V. Below this p.d., the likeliest reaction is reduction of oxygen at the cathode which could accompany oxygen evolution from water at the anode. Your paper lacks any consideration of the chemistry but this is a important fault in the stepped-current experiment. Was the solution in equilibrium with air before the experiment? If this is a model for electrodes in vivo, should not the PBS have been in equilibrium with gas with the in vivo partial pressure of oxygen? I suggest that you repeat this experiment, at least (i) under air, (ii) under nitrogen, \& perhaps (iii) under in vivo partial pressure of oxygen. The stirring arrangements ought to be exactly described too because liquid flow may be critical.\\
 {\color{OliveGreen}
     Item 19\\
-    {\color{Red} This represents a lot of work to redo the measurements. Perhaps we make it clear that we don't know the electrochemistry side, that it's simply out of our depth, and any hypothesis we draw based on electrochemistry may harm the validity of our work. If we explain more exactly the proceedure we took so as to be more repeatable and hint that we're not interested at this point on the electrochemistry, that we only wish to make the model behave like the solution.}
-    No response yet.
+    This manuscript is primarily concerned with modelling the behaviour of electrodes in a bath of saline. Phisiological solutions of saline are routinely used to mimic the impedances seen by an implant by designers in order to verify their designs and test any control logic. In spinal cord stimulation 0.1X PBS is used but there is no way to tell how accurate a phantom such a solution is for the a real spinal column. This paper seeks to answer that question in a way that allows implant designers to broadly compare the behavior of their in-vitro experiments with in-vivo behavior. While controlling the partial pressure of oxygen in the PBS bath definitely appears to be of importance to the general field of in-vivo electrode modelling, we feel the results within this manuscript are of importance to those using solutions of PBS to verify electrical designs and models.
 }
 
 Other points
 
 1. P1, top RH col. ``0.1X'' ought to be explained when you first use this form.\\
 {\color{OliveGreen}
-    Item 20\\
     Fixed.
 }\\
 
@@ -643,73 +624,56 @@ Other points
 
 3. You say (p2 line 43) that there are 2 independent scaling factors. Is Rli independent or not? If not, why input it in Table II?\\
 {\color{OliveGreen}
-    Item 22\\
     Footnote added to sentence in question that describes our defining of $R_{sri}$ in terms of $R_{eri}$. 
 }\\
 
 4. In the legend of Fig 4 and in paragraph below, you say this is magnitude of the CPE. But surely it is not since the sloping lines become horizontal. It is the CPE in series with something. But what is this something? Is it the total series resistance or have you already subtracted the volume resistance (found in section II)?\\
 {\color{OliveGreen}
-    Item 23\\
-    Thank you, have reworded the caption in Figure 4 to more accurately describe the situation.
+    The caption in Figure 4 has been reworded to more accurately describe the situation. Yes this graph is showing the CPE in series with both the inter-electrode resistance and $R_{S}$.
 }\\
 
 5. The previous point is complicated by your statement that Rs (Fig 2) is an addition to the volume resistance (p2 RH col). Why is Rs necessary? Is it because the resistance values at high frequencies in Fig 4 are not consistent with the values from the resistor network found in section II? If so, this would be very interesting and I would like you to bring this out.\\
 {\color{OliveGreen} 
-    Item 24\\
-    {\color{Red} His reasoning is correct, it is because the impedance does not match at high freq. I had the graph with dotted lines to show the difference that Rs made. Jonathan, you thought this was too messy and it was removed, should it be added back in again?}
-% No sadly not interesting just related to the fact that interface has its own internal resitance.
-    No response yet.
+    The requirement of $R_{S}$ has been clarified at the end of Section II. This was not made very clear in our original submission, thank you for pointing this out.
 }\\
 
 6. P2, col 2, line 24: why 2 \& 7?\\
 {\color{OliveGreen}
-    Item 25\\
-% Because consistent with prev pub plus it doesnt matter which STRESS THIS.
-    {\color{Red} Explain more clearly why electrodes 2 and 7 were chosen (to avoid end effects)}
-    No response yet.
+    The choice of electrodes was arbitrary. We felt that electrodes 2 and 7 were a good compromise between good separation and avoiding any end effects. This was the same pair as used by Scott \& Single 2013 from which we have based our measurements.
 }\\
 
 7. P2, col 2, line 53: ``implying that its behaviour is a property of Pt and water''. Previous authors have thought this showed that the CPE depended on the geometry (surface roughness) of the electrode. Did you mean that, or were you thinking of the electrochemical properties of Pt. Please make clearer.\\
 {\color{OliveGreen}
-    Item 26\\
-    {\color{Red} We aren't sure of either but further work into the surface area of the electrode via ottonisation should reveal whether surface area is a factor - read: followup publication}
-    No response yet.
+    We have cleaned this statement up. See end of section III.
 }\\
 
 8. You do not explain why, in eq 1, you want to use this form. Why nVt? I suppose it isso you can use a standard SPICE form rather than this suits the data. Is that right?\\
 {\color{OliveGreen} 
-    Item 27\\
-    {\color{Red} Investigate other forms, comment on why this has been chosen}
-    No response yet.
+    That is correct. This equation is the standard diode equation found in any electronic engineering textbook.
 }\\
 
 9. P3, col 2, line 31: why 2 and 6?\\
 {\color{OliveGreen}
-    Item 28\\
-    The mention of the use of electrodes 2 and 6 was a mistake. We actually used electrodes 3 and 7 due to damage to the electrode array we were using. See updated explination on page 4.
+    Again a totally arbitrary choice, we fit the model to whichever pair we use. We actually used electrodes 7 and 3, the mention of electrodes 2 and 6 was a mistake. Thank you for bringing that to our attention. 
 }\\
 
 10. P3, col 2, line 36. I guess you mean what is usually called a Magnetic Stirrer. Not ``inductive'' surely?\\
 {\color{OliveGreen} 
-    Item 29\\
     Changed mention of inductive stirrer to magnetic stirrer.
 }\\
 
 11. P3 footnote. ``The response of the CPE'': this is confusing! Surely this is the response of a pair of electrodes? The CPE is an element of your model.\\
 {\color{OliveGreen} 
-    Item 30\\
     Removed reference to the CPE element and have better quantified the settling period in that footnote.
 }\\
 
 12. Fig 11 legend ``Simulated and measured response of the interface model''. Surely you mean ``Simulated response of the interface model compared to measurement from the electrodes''?\\
 {\color{OliveGreen}
-    Item 31\\
     Yes, that is better - thank you.
 }\\
 
 13. P5, col 2, line 46 ``the CPE is setting''. Again, you are confusing an element of your model with reality.\\
 {\color{OliveGreen}
-    Item 32\\
     Changed references to the CPE model element in the conclusion to the electrical double layer.
 }\\
 
@@ -717,7 +681,7 @@ Other points
 {\color{OliveGreen}
     Item 33\\
 % We can dial up shift in cpe and bulk resistance to create a better match using available chemical reagenre. we hope to synth a superior phantom through combos of saline solvets and hydrolysed cellulose. we anticipate crateing a superios phantom using. one of the goals of one of our industrial partners.
-    {\color{Red} True, a feeble comment on PBS match. It may be worth noting the phase of measured data in sheep indicating that the sheep itself was reactive. There may be data at those lower points (to justify extrapolating), check. Have we measured the electrodes again since inserting into the sheep, I think we have but check.  Read the paper by Troyk, comment on applicability. Maybe there is test data between sheep in saline showing the electrodes returning to normal, check.}.
+    
     No response yet.
 }\\
 }
