@@ -147,6 +147,7 @@ Such reactions involving water and platinum, as identified in \cite{Horch2004,Mo
     Pt + H^{+} & \Leftrightarrow & Pt-H\\
     Pt + H_{2}O + e^{-} &\Leftrightarrow& Pt-H+OH^{-}
 \end{eqnarray}
+
 This displacement mechanism is capable of transferring charge between electrical and biological systems without damaging electrodes or tissue.\cite{Horch2004}
 This behaviour is modelled by way of a Constant Phase Element (CPE); also known as a fractional capacitor.
 For simulation purposes this element is realised as an array of R-C branches.~\cite{ScottSingle2013,Morrison59,Elwakil10} where the value of each R-C pair is chosen to set the slope of impedance relative to frequency. The placement of R-C pairs within the CPE is determined by Morrison's parameters $m$ and $k$, where $k$ determines the spacing, or density, of R-C branches and $m$ determines the resulting slope.
@@ -223,13 +224,19 @@ With parameters fitted for the scaling of both the CPE and $R_{S}$ with PBS conc
 
 Our model uses two reverse connected diodes to represent Faradaic current conduction between electrode and electrolyte. Specifically we use the diodes to model irreversible Faradaic reactions. (Any reversible reactions, those producing reactants bound to the surface of the electrode, are encapsulated by the displacement branch (CPE) of the model.)
 Possible irreversible Faradaic reactions for platinum electrodes in saline are:
-\begin{eqnarray}
-    Pt + 4Cl^{-} &\Rightarrow& [PtCl_{4}]^{2-} + 2 e^{-}\\
-    2H_{2}O + 2 e^{-} &\Rightarrow& H_{2}\uparrow + 2OH^{-}\\
-    2H_{2}O &\Rightarrow& O_{2}\uparrow + 4H^{+} + 4e^{-}\\
-    2Cl^{-} &\Rightarrow& Cl_{2}\uparrow + 2e^{-}\\
-    Cl^{-} + H_{2}O &\Rightarrow& ClO^{-} + 2H^{+} + 2e^{-}
-\end{eqnarray}
+
+\begin{align}
+    Pt + 4Cl^{-} &\Rightarrow& [PtCl_{4}]^{2-} + 2 e^{-} \label{eqn:ptCl}\\
+    2H_{2}O + 2 e^{-} &\Rightarrow& H_{2}\uparrow + 2OH^{-} \label{eqn:H20}\\
+    2H_{2}O &\Rightarrow& O_{2}\uparrow + 4H^{+} + 4e^{-} \label{eqn:2H20}\\
+    2Cl^{-} &\Rightarrow& Cl_{2}\uparrow + 2e^{-} \label{eqn:Cl} \\
+    Cl^{-} + H_{2}O &\Rightarrow& ClO^{-} + 2H^{+} + 2e^{-} \label{eqn:ClH20}
+\end{align}
+
+{
+    \color{blue}
+    It should be noted that each of these reactions (\ref{eqn:ptCl}, \ref{eqn:H20}, \ref{eqn:2H20}, \ref{eqn:Cl} and \ref{eqn:ClH20}) have different reaction potentials. It is expected that the situation in-vivo will be much more complex.
+}
 
 The interface model uses the diodes to reproduce the exponential behaviour of Faradaic current conduction implied by the Butler-Volmer equation. We wish to measure this conduction by separating it from the displacement behaviour of the CPE. By using a DC measurement technique, as opposed to cyclic measurements, we are able to separate the effects in time.
 Like a conventional capacitor, when the voltage across the CPE changes, it responds by absorbing or ejecting charge, causing a spike in current. The CPE will draw negligible current once it has settled and in the case of our model we assume the remaining current conduction to be the result of Faradaic processes.
@@ -518,13 +525,44 @@ Comments to the Author
 
     I am sorry to say that the revised version of the paper is still quite unsatisfactory. You have added electrochemical reactions (5)-(9) but do not acknowledge that these all have different reaction potentials, will have different charge transfer coefficients ( alpha in the Butler Volmer equation http://en.wikipedia.org/wiki/Butler\%E2\%80\%93Volmer\_equation), and will by limited by mass transfer to different extents. Therefore the use of diodes in the model is not obviously appropriate.
 
+    {
+        \color{Blue}
+        The diodes are there to model the change in current attributed to the first biologically damaging reaction that occurs at the electrode/electrolyte interface. Whatever reaction occurs first in the relevant electrolyte is the reaction that diode aims to mimic. We observe that the current increases near exponentially around this point so we use a diode to mimic that. We expect this reaction may not be the same in-vivo as it is in-vivo but the properties of a diode can be altered to match where this occurs.
+
+        If there are secondary reactions occurring at higher potentials then we could add a second pair of diodes with the properties of that specific reaction. The problem here is that we would then need to include memristors (as used in ScottSingle2013) to account for reactant depletion. We don't account for reactant depletion for the same reason we don't account for reactions other than the very first Faradaic reaction to occur. The reason is that we never want biologically damaging reactions to occur due to an implant, so if they happen then something has gone wrong.
+
+        Think of our attempt to model Faradaic reactions as a ``you've pushed this too far'' indicator for an electrical engineer.
+
+        I think you're essentially right with you're argument, we're not up-front about this and we probably portray more capability in the Faradaic modelling aspect than we are able or aim to achieve.
+    }
+
     My interpretation of your data in Fig 10 is this. Above 1.05V, the electrolysis reactions (6) and (7) are occurring and the current will partly depend on the conductivity (therefore concentration) of the electrolyte. Below about 1.05V, the direct current may indeed be due to oxygen reduction at the cathode and oxygen evolution at the anode, which you cite (page 1, col 2, line 53) from ref 10 (c.f. Clark Oxygen Electrode). In that case, dissolved oxygen will have to diffuse to the cathode because it is not charged, so this will be diffusion-limited, which explains why the current is independent of concentration. Maybe you disagree with me but it is unsatisfactory that this is speculative and no doubt you will say that you did not want to get involved in electrochemistry, you just wanted to construct a model.
+
+    {
+        \color{Blue}
+        Correct, we do not wish to determine exactly what is happening at the electrode surface - we want to create a flexible model that can be used to simulate impedance.
+
+    }
+
 
     Even as a model, however, your case is not very convincing.
 
     1. You state in the Introduction that you aim for a model suitable for stimulation yet there are no results comparing the model with experiment when the electrodes are used in this way. All the results are with sinusoidal excitation (which are of low amplitude at high frequencies), or DC with steps.
 
+    {
+        \color{Blue}
+        This is a good point. ScottSingle2013 compare the model prediction to stimulus waveforms. Our aim is to see what changes in that model as the concentration of PBS is varied and to compare those measurements to in-vivo measurements using a live sheep. Were doing this because 0.1X PBS is commonly used as a phantom for real spine. There hasn't been an objective way of determining how accurate that assumption was until we used this model to make that comparison.
+    }
+
     2. Your model of the interface (Fig 2) has a series resistor Rs. I do not see why you need this and how you can measure it: how do you separate it from the volume resistance (``Resistive Network'')? (You mention this on p3 col 1, line 55 without casting any light.)
+
+    {
+        \color{Blue}
+        We need this because it represents the resistance of the interface itself, separate from that of the fluid.
+        We measure the impedance magnitude of the displacement currents at high frequency (flattened part of Fig. 5). For each concentration the impedance magnitude at 10kHz is higher than is predicted by the transimpedance measurements made in Fig. 3. The transimpedance measurments do not measure impedance across an interface that is passing current and therefore any voltage drop across an interface due to $R_{S}$ would vanish. The displacement measurements take the voltage across interfaces that are passing stimulus currents. These measurements see the potential drop across the interface due to the current flow via Ohms law.
+
+        The transimpedance measurements give us an interelectrode resistance. The displacement measurements at high frequency give us an interelectrode impedance plus an interface impedance. Subtracting one from the other gives us a value of resistance that only appears as we pass current through an interface, which we include as $R_{S}$.
+    }
 
     3. The maximum charge limit for Pt was given by Brummer \& Turner (IEEE Trans BME, 24, 436-9, 1977) as 320 microcoulombs per cm\^2, and later authors revised this downward. If you really applied the charge density that you show in Fig 4, you exceeded this limit at frequencies below ~50Hz and I would expect that your electrodes would have been gassing. In that case it is surprising that the impedance curves in Figs 5 \& 6 do not show a deviation from pure CPE behaviour. This is an important anomaly.
 

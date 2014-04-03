@@ -9,3 +9,4 @@ paper.pdf
 *.fdb_latexmk
 paper_aux
 paper_marsden.pdf
+*.fls
