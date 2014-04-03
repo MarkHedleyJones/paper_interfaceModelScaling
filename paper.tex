@@ -315,7 +315,7 @@ The point at which this transition occurs is determined by the concentration of 
 %Parameter values for $i_{0}$ and $n$ are presented in table~\ref{tab:FaradaicParams}. These parameters were found by fitting the diode equation to the results shown in figure~\ref{fig:faradaic_currentVsVoltage}.
 
 We attribute the change in behaviour between 0.9\thinspace V and 1.05\thinspace V to a transition to diffusion-controlled conduction.
-We hypothesise that the charging of the CPE draws available ions to the electrode, creating a layer of high ionic concentration at the surface irrespective of that of the solution bulk. It is this layer that is subsequently consumed by the Faradaic reactions at a rate dependent on the log of the electrode overpotential.  The effect of bulk solution concentration while this layer has formed is negligible until the point at which the layer is consumed faster than it can be replenished. At this stage, and with increasing overpotential, the Faradaic conduction is governed by diffusion of ions from the bulk into the layer, the rate of which increases with the ion concentration in the bulk. We believe this explains the divergence of conduction with concentration between 0.9\thinspace V and 1.05\thinspace V and why there is no observable dependence on bulk ion concentration beforehand.
+We hypothesise that the charging of the CPE draws available ions to the electrode, creating a layer of high ionic concentration at the surface irrespective of that of the solution bulk. It is this layer that is subsequently consumed by the Faradaic reactions at a {\color{blue} rate that increases exponentially with} electrode overpotential.  The effect of bulk solution concentration while this layer has formed is negligible until the point at which the layer is consumed faster than it can be replenished. At this stage, and with increasing overpotential, the Faradaic conduction is governed by diffusion of ions from the bulk into the layer, the rate of which increases with the ion concentration in the bulk. We believe this explains the divergence of conduction with concentration between 0.9\thinspace V and 1.05\thinspace V and why there is no observable dependence on bulk ion concentration beforehand.
 For the purposes of our model, we are content with placing a limit of 0.9\thinspace V across the pair of interfaces and using the assumption that Faradaic conduction does not change with concentration.
 
 
@@ -520,13 +520,10 @@ Comments to the Author
 
 Comments to the Author
 
-{
-    \color{OliveGreen}
-
+{\color{OliveGreen}
     I am sorry to say that the revised version of the paper is still quite unsatisfactory. You have added electrochemical reactions (5)-(9) but do not acknowledge that these all have different reaction potentials, will have different charge transfer coefficients ( alpha in the Butler Volmer equation http://en.wikipedia.org/wiki/Butler\%E2\%80\%93Volmer\_equation), and will by limited by mass transfer to different extents. Therefore the use of diodes in the model is not obviously appropriate.
 
-    {
-        \color{Blue}
+    {\color{blue}
         The diodes are there to model the change in current attributed to the first biologically damaging reaction that occurs at the electrode/electrolyte interface. Whatever reaction occurs first in the relevant electrolyte is the reaction that diode aims to mimic. We observe that the current increases near exponentially around this point so we use a diode to mimic that. We expect this reaction may not be the same in-vivo as it is in-vivo but the properties of a diode can be altered to match where this occurs.
 
         If there are secondary reactions occurring at higher potentials then we could add a second pair of diodes with the properties of that specific reaction. The problem here is that we would then need to include memristors (as used in ScottSingle2013) to account for reactant depletion. We don't account for reactant depletion for the same reason we don't account for reactions other than the very first Faradaic reaction to occur. The reason is that we never want biologically damaging reactions to occur due to an implant, so if they happen then something has gone wrong.
@@ -539,7 +536,7 @@ Comments to the Author
     My interpretation of your data in Fig 10 is this. Above 1.05V, the electrolysis reactions (6) and (7) are occurring and the current will partly depend on the conductivity (therefore concentration) of the electrolyte. Below about 1.05V, the direct current may indeed be due to oxygen reduction at the cathode and oxygen evolution at the anode, which you cite (page 1, col 2, line 53) from ref 10 (c.f. Clark Oxygen Electrode). In that case, dissolved oxygen will have to diffuse to the cathode because it is not charged, so this will be diffusion-limited, which explains why the current is independent of concentration. Maybe you disagree with me but it is unsatisfactory that this is speculative and no doubt you will say that you did not want to get involved in electrochemistry, you just wanted to construct a model.
 
     {
-        \color{Blue}
+        \color{blue}
         Correct, we do not wish to determine exactly what is happening at the electrode surface - we want to create a flexible model that can be used to simulate impedance.
 
     }
@@ -550,7 +547,7 @@ Comments to the Author
     1. You state in the Introduction that you aim for a model suitable for stimulation yet there are no results comparing the model with experiment when the electrodes are used in this way. All the results are with sinusoidal excitation (which are of low amplitude at high frequencies), or DC with steps.
 
     {
-        \color{Blue}
+        \color{blue}
         This is a good point. ScottSingle2013 compare the model prediction to stimulus waveforms. Our aim is to see what changes in that model as the concentration of PBS is varied and to compare those measurements to in-vivo measurements using a live sheep. Were doing this because 0.1X PBS is commonly used as a phantom for real spine. There hasn't been an objective way of determining how accurate that assumption was until we used this model to make that comparison.
     }
 
@@ -569,6 +566,10 @@ Comments to the Author
     4. The time constants seen in Figs 8, 9 \& 11 are interesting. Fig 11 shows that the model does not fit well because its time constant is too short. But is this surprising? Your impedance spectra go down to 0.05Hz (Figs 4-6) and I suppose that you chose RC pairs for your CPE model that go down to that frequency. But that is only to a time constant of ~3s (1/2*pi*f) which is much less that the 250s in Fig 8. It would be interesting to know whether, if you extended the spectrum far enough down, the time constants from step changes to the RC network that approximates the CPE would be similar to those seen in Fig 8.
 
     5. p 6, col 1, line 11. ``rate dependent on the log'' should be ``rate varies exponentially''. i.e. Tafel equation.
+    {
+        \color{blue}
+        Correct, change made.
+    }
 
     6. Figs 14 \& 15 are intriguing. For reason given in 3 above, I discount the results below 50Hz, yet it does look as if the slope of the CPE is the same in vivo but with an offset that would correspond to a very weak solution of PBS. As far as I know, there is no satisfactory explanation yet for the CPE so perhaps this is a significant clue.
 }
