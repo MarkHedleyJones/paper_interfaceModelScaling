@@ -24,7 +24,7 @@
 
 \begin{abstract}
 
-    We report how the impedance presented by a platinum electrode scales with the concentration of phosphate buffered saline (PBS).
+We report how the impedance presented by a platinum electrode scales with the concentration of phosphate buffered saline (PBS).
 We find that the constant phase element of the model scales with approximately the log of concentration, whereas the resistivity is inversely proportional.
 Using a novel DC measurement technique we show that the Faradaic response of a platinum electrode, and thus the safe exposure limit, does not scale with concentration below 900\thinspace mV overpotential across a pair of electrodes.
 We compare objective measurements made in saline to those made in the spinal cavity of live sheep. We comment upon the appropriateness of using PBS as a substitute for in-vivo measurements.
@@ -477,6 +477,90 @@ publications and holds a number of patents.
 received the B.Sc. degree in Physics in 2008 and the M.E. degree in Microwave Electronics in 2009 from The University of Waikato, Hamilton, New Zealand.
 He is working towards a Ph.D. in Electrical Engineering, also at The University of Waikato.
 \end{IEEEbiography}
+
+\section*{Reviewers' Comments to the Authors:}
+
+\subsection*{Reviewer: 1}
+
+Comments to the Author
+
+{
+    \color{OliveGreen}
+    My comments have been sufficiently addressed.
+}
+
+{
+    \color{blue}
+    Thank you.
+}
+
+
+\subsection*{Reviewer: 2}
+
+Comments to the Author
+
+{
+    \color{OliveGreen}
+    Required modification done and manuscript now significantly improved.
+}
+
+{
+    \color{blue}
+    Thank you.
+}
+
+\subsection*{Reviewer: 3}
+
+Comments to the Author
+
+{
+    \color{OliveGreen}
+
+    I am sorry to say that the revised version of the paper is still quite unsatisfactory. You have added electrochemical reactions (5)-(9) but do not acknowledge that these all have different reaction potentials, will have different charge transfer coefficients ( alpha in the Butler Volmer equation http://en.wikipedia.org/wiki/Butler\%E2\%80\%93Volmer\_equation), and will by limited by mass transfer to different extents. Therefore the use of diodes in the model is not obviously appropriate.
+
+    My interpretation of your data in Fig 10 is this. Above 1.05V, the electrolysis reactions (6) and (7) are occurring and the current will partly depend on the conductivity (therefore concentration) of the electrolyte. Below about 1.05V, the direct current may indeed be due to oxygen reduction at the cathode and oxygen evolution at the anode, which you cite (page 1, col 2, line 53) from ref 10 (c.f. Clark Oxygen Electrode). In that case, dissolved oxygen will have to diffuse to the cathode because it is not charged, so this will be diffusion-limited, which explains why the current is independent of concentration. Maybe you disagree with me but it is unsatisfactory that this is speculative and no doubt you will say that you did not want to get involved in electrochemistry, you just wanted to construct a model.
+
+    Even as a model, however, your case is not very convincing.
+
+    1. You state in the Introduction that you aim for a model suitable for stimulation yet there are no results comparing the model with experiment when the electrodes are used in this way. All the results are with sinusoidal excitation (which are of low amplitude at high frequencies), or DC with steps.
+
+    2. Your model of the interface (Fig 2) has a series resistor Rs. I do not see why you need this and how you can measure it: how do you separate it from the volume resistance (``Resistive Network'')? (You mention this on p3 col 1, line 55 without casting any light.)
+
+    3. The maximum charge limit for Pt was given by Brummer \& Turner (IEEE Trans BME, 24, 436-9, 1977) as 320 microcoulombs per cm\^2, and later authors revised this downward. If you really applied the charge density that you show in Fig 4, you exceeded this limit at frequencies below ~50Hz and I would expect that your electrodes would have been gassing. In that case it is surprising that the impedance curves in Figs 5 \& 6 do not show a deviation from pure CPE behaviour. This is an important anomaly.
+
+    4. The time constants seen in Figs 8, 9 \& 11 are interesting. Fig 11 shows that the model does not fit well because its time constant is too short. But is this surprising? Your impedance spectra go down to 0.05Hz (Figs 4-6) and I suppose that you chose RC pairs for your CPE model that go down to that frequency. But that is only to a time constant of ~3s (1/2*pi*f) which is much less that the 250s in Fig 8. It would be interesting to know whether, if you extended the spectrum far enough down, the time constants from step changes to the RC network that approximates the CPE would be similar to those seen in Fig 8.
+
+    5. p 6, col 1, line 11. ``rate dependent on the log'' should be ``rate varies exponentially''. i.e. Tafel equation.
+
+    6. Figs 14 \& 15 are intriguing. For reason given in 3 above, I discount the results below 50Hz, yet it does look as if the slope of the CPE is the same in vivo but with an offset that would correspond to a very weak solution of PBS. As far as I know, there is no satisfactory explanation yet for the CPE so perhaps this is a significant clue.
+}
+
+\subsection*{Reviewer: 4}
+
+Comments to the Author
+
+{
+    \color{OliveGreen}
+    In this manuscript, the authors studied the impedance of a commercial electrode array as a function of concentration of phosphate buffered saline (PBS), both through simulation and empirical measurements, and compared those results to the impedance measured when the electrode array was implanted into a sheep's spinal cavity. From this comparison, they concluded that the current practice of testing spinal cord stimulator in 0.1x of physiologically normal saline is adequate but suggest that no single concentration of PBS captures the frequency dependence of the in vivo measured impedance. Although not a very compelling conclusion, this manuscript does provide value to the field as a single source for creation of a compact, SPICE model of an electrode. Hence, my review is cast in the light of using this paper as a guide in developing a model of a different electrode.
+
+    1. As much of the paper involves development of the model, I recommend that the authors add some reference to modeling in the abstract.
+
+    2. Sections 2, 3, and 4 detail the measurement and simulation of measurements of parameters associated with the bulk solution, CPE and Rs, and the diodes of the model in Figure 2. I recommend that the authors expand the introduction to explain this organization to help the reader's understanding. Additionally, I propose that the authors expand the section headings to include this information.
+
+    3. The parameters provided in Table II include reference to an unexplained term sigma (σ). I presume this is the conductivity of saline (correct symbol and units for conductivity). For completeness, I recommend the authors explain this term, provide the numeric value (or values) that they used, provide how they adjusted this with concentration, and reference the source of their numeric data.
+
+    4. From the parameters provided in Table II, I can guess how many elements are in the SPICE model arising from these parameters but it would be much more valuable to the reader to have a clear statement of the true size of the associated SPICE model. I recommend the authors provide a clear statement at the end of this section of how many resistors are in their SPICE model as a result of this parameterization.
+
+    5. In Section 3, the authors state that the CPE is modeled as an array of R-C branches but at no time do they state the actual number of branches used in their model. I recommend the authors provide a clear statement at the end of this section of how many capacitors and resistors are in their SPICE model because of this parameterization.
+
+    6. The parameters provided in Table II include reference to `concentration'. As different readers will have different interpretations (mass concentration=0.9\%, molar concentration = 0.154M), I recommend the authors clearly explain the meaning of this term.
+
+    7. Given the authors details 3 different parts of their model in Sections 2, 3, and 4, I found it surprising that they only chose to characterize CPE in their in vivo experiment. In other words, if the complete model is important to performing simulation studies of a stimulation system, why did they not do such in their in vivo model and how valuable is their conclusion regarding the applicability of using 0.1xPBS as an in vitro of an animal. At minimum, I recommend the authors explain why they only characterized CPE in vivo.
+
+    8. In the conclusions, I recommend the authors provide details on the overall size of their SPICE model. Knowing this information, a reader can compare the compactness of the complete model to that of using a finite element model.
+
+    9. In their conclusions, I recommend the authors restate any limitations in their model that they mentioned earlier in the text (e.g., 0.9v limitation) and provide an honest discussion regarding the limits of their model.
+}
 
 
 
