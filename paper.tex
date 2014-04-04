@@ -565,7 +565,13 @@ Comments to the Author
 
     4. The time constants seen in Figs 8, 9 \& 11 are interesting. Fig 11 shows that the model does not fit well because its time constant is too short. But is this surprising? Your impedance spectra go down to 0.05Hz (Figs 4-6) and I suppose that you chose RC pairs for your CPE model that go down to that frequency. But that is only to a time constant of ~3s (1/2*pi*f) which is much less that the 250s in Fig 8. It would be interesting to know whether, if you extended the spectrum far enough down, the time constants from step changes to the RC network that approximates the CPE would be similar to those seen in Fig 8.
 
+    {
+        \color{blue}
+        The RC pairs are generated via a Python script for a given frequency range.
+    }
+
     5. p 6, col 1, line 11. ``rate dependent on the log'' should be ``rate varies exponentially''. i.e. Tafel equation.
+    
     {
         \color{blue}
         Correct, change made.
