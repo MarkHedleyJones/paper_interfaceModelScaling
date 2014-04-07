@@ -26,7 +26,7 @@
 We report how the impedance presented by a platinum electrode scales with the concentration of phosphate buffered saline (PBS).
 {
     \color{blue}
-    We measure this response in various solutions with an electrode array as is commonly used with spinal cord stimulation (SCS) implants. We match the parameters of a compact non-linear interface model to the measured response at each concentration.
+    We measure this response in various solutions with an electrode array as is commonly used with spinal cord stimulation (SCS) implants. We match the parameters of a compact non-linear electrode/electrolyte interface model to measured responses at various concentrations of PBS.
 }
 We find that the constant phase element of the model scales with approximately the log of concentration, whereas the resistivity is inversely proportional.
 Using a novel DC measurement technique we show that the Faradaic response of a platinum electrode, and thus the safe exposure limit, does not scale with concentration below 900\thinspace mV overpotential across a pair of electrodes.
@@ -51,24 +51,6 @@ Having a compact model of an electrode in the appropriate electrolyte allows cir
 
 Electrodes in the laboratory are typically tested in a saline solution selected to mimic the circumstances in which they will operate when implanted.
 
-In an implanted setting there is no reference electrode and many of the well established electrochemical measurement regimes do not apply. In this manuscript we measure the behaviour an electrode/electrolyte situation as it would be seen from an implant device.
-
-A solution of Phosphate Buffered Saline (PBS) diluted to one-tenth concentration (0.1X) is common in the case of Spinal Cord Stimulators (SCS), while full concentration (1.0X) PBS is considered more representative of the situation in blood.
-
-In this manuscript we report how the parameters of a non-linear model change as the concentration of saline is varied. We refine a series of measurements compatible with commercially available medical electrodes in physiological saline that allow us to describe the impedance with minimal parameters. We place these parameters in context with a biological measurement made in the spinal cavity of a live sheep.
-
-The electrode used in this work is a commercial linear array of eight platinum electrodes intended for SCS implantation called an ``Octrode''.~\cite{StJudeOctrode} A picture of an Octrode is presented in figure~\ref{fig:octrode}.
-
-The electrical interface model of \cite{Franks2005} and \cite{ScottSingle2013} has two parts, a displacement branch and a Faradaic branch. While Scott and Single \cite{ScottSingle2013} incorporate a memristor into their model, it has been omitted here for simplicity. Its contribution is limited to situations where diffusion limited Faradaic reactions come into play, a situation that stimulator implants are designed to avoid. {\color{blue} Modelling Faradaic current onset allows engineers to predict and avoid such situations in-vivo. For this reason the measurements and model fitting are mostly concerned with capturing only the onset of Faradaic conduction. The model is not intended to model the behaviour of an electrode array operating in a Faradaic conduction mode.}
-
-It has been suggested that the primary coupling mechanism between platinum electrodes and physiological saline is the reversible evolution of gas, probably oxygen, at the platinum surface, which dissolves without bubble formation.\cite{Greatbatch1969} Understanding the exact mechanism of displacement or Faradaic charge transfer at the electrode surface is beyond the scope of this work. Rather we wish to characterise the electrode/electrolyte system in terms of parameters that may be fed into an electrical model.
-
-{
-    \color{blue}
-    The remainder of this manuscript is broken into five sections. Section \ref{sect:resistorMesh} details the measurement of the inter-electrode resistances and the generation of a resistor network to replicate these resistances.
-    Sections \ref{sect:cpe} and \ref{sect:faradaic} are concerned with the measurement and parameter fitting of displacement currents and Faradaic currents, respectively, across the electrolyte interface.
-}
-
 \begin{figure}
     \begin{center}
     \includegraphics{graphics/StJudeOctrodeDiagram}
@@ -76,6 +58,24 @@ It has been suggested that the primary coupling mechanism between platinum elect
     \caption{St. Jude Medical Octrode lead comprised of eight coaxial cylindrical platinum electrodes (1mm in diameter, 3mm long) separated by 4mm insulating spacers.}
     \label{fig:octrode}
 \end{figure}
+
+In an implanted setting there is no reference electrode and many of the well established electrochemical measurement regimes do not apply. In this manuscript we measure the behaviour an electrode/electrolyte situation as it would be seen from an implant device.
+
+The electrode used in this work is a commercial linear array of eight platinum electrodes intended for SCS implantation called an ``Octrode''.~\cite{StJudeOctrode} A picture of an Octrode is presented in figure~\ref{fig:octrode}. A solution of Phosphate Buffered Saline (PBS) diluted to one-tenth concentration (0.1X) is common in the case of Spinal Cord Stimulators (SCS), while full concentration (1.0X) PBS is considered more representative of the situation in blood.
+
+% {
+%     \color{red}
+% In this manuscript we report how the parameters of a non-linear model change as the concentration of saline is varied. We refine a series of measurements compatible with commercially available medical electrodes in physiological saline that allow us to describe the impedance with minimal parameters. We place these parameters in context with a biological measurement made in the spinal cavity of a live sheep.
+
+%     THIS IS IN THE ABSTRACT
+% }
+
+Six solutions ranging from 1.0X to 0.025X the concentration of a stock PBS solution have been examined.
+The ingredients of that stock solution are given in table~\ref{tab:PBSrecipe}.
+
+{
+    \color{blue}
+\section{Compact Non-Linear Electrical Model}
 
 \begin{figure}
     \begin{center}
@@ -85,11 +85,31 @@ It has been suggested that the primary coupling mechanism between platinum elect
     \label{fig:schematic}
 \end{figure}
 
+This manuscript uses an adapted version of the compact non-linear model presented by Scott and Single \cite{ScottSingle2013}. The model is compact in that it is suitable for entering into SPICE, i.e., freely available electrical circuit simulation software. The schematic for the model used here is presented be seen in Figure \ref{fig:schematic}.
+}
+The electrical interface model of \cite{Franks2005} {\color{red} (is this true, I can't see a faradaic part in Franks)} and \cite{ScottSingle2013} has two parts, a displacement branch and a Faradaic branch. While Scott and Single \cite{ScottSingle2013} incorporate memristors into their model, they has been omitted here for simplicity. {
+    \color{blue}
+    The memristors in \cite{ScottSingle2013} are used to mimic a diffusion limited current conduction mode, i.e., their purpose is to throttle electrical current associated with Faradaic reactions. In an implanted setting an electrode should never be operated in a Faradaic counduction mode, and certainly never to the point of becoming diffusion limited. It is for this reason the memristors have been removed.
+}
+
+
+% Contribution from memristive elements is limited to situations where diffusion limited Faradaic reactions come into play, a situation that stimulator implants are designed to avoid.{
+%     \color{blue}
+%     Modelling Faradaic current onset allows engineers to predict and avoid such situations in-vivo. For this reason the measurements and model fitting are primarily concerned with capturing the onset of Faradaic conduction, as is modelled by diodes. The model used here is not intended to model the behaviour of an electrodes operating in a Faradaic conduction mode. It is for this reason we have removed the memristors and limit the model to a single pair of diodes, thus capturing only the beginning of the primary Faradaic component.
+% }
+
+
+It has been suggested that the primary coupling mechanism between platinum electrodes and physiological saline is the reversible evolution of gas, probably oxygen, at the platinum surface, which dissolves without bubble formation.\cite{Greatbatch1969} Understanding the exact mechanism of displacement or Faradaic charge transfer at the electrode surface is beyond the scope of this work. Rather we wish to characterise the electrode/electrolyte system in terms of a {\color{blue} small number of} parameters that may be fed into an electrical model.
+
+{
+    \color{blue}
+    The remainder of this manuscript is broken into five sections. Section \ref{sect:resistorMesh} details the measurement of the inter-electrode resistances and the generation of a resistor network to replicate these resistances.
+    Sections \ref{sect:cpe} and \ref{sect:faradaic} are concerned with the measurement and parameter fitting of displacement currents and Faradaic currents, respectively, across the electrolyte interface. Section \ref{sect:in-vivo} compares the results obtained in PBS with measurements in-vivo. Finally, in Section \ref{sect:conclusion} we summarise our findings and give concluding comments. {\color{red} Is this necessary? This is obvious.}
+}
+
+
 \section{{\color{blue}Bulk Resistivity / Resistor} Network }
 \label{sect:resistorMesh}
-Six solutions ranging from 1.0X to 0.025X the concentration of a stock PBS solution have been examined.
-The ingredients of that stock solution are given in table~\ref{tab:PBSrecipe}.
-The pH level of the stock was measured, using a calibrated EDT Instruments BA-350 pH meter, to have a pH of 7.4. No pH adjustments were made to the derived solutions.
 
 \begin{table}
     \begin{center}
@@ -118,6 +138,7 @@ The resulting fit and parameter values are presented in figure~\ref{fig:transres
 
 Measurements of the inter-electrode impedance were made using a Tektronix TPS2014 DSO with four fully isolated and floating channels; an Agilent 33220A Function Generator; and a desktop PC controlling the instruments via Python 2.7.
 
+The pH level of the stock was measured, using a calibrated EDT Instruments BA-350 pH meter, to have a pH of 7.4. No pH adjustments were made to the derived solutions.
 
 It should be noted that the resistive mesh created in this step models only the resistivity of the solution bulk. This means that no resistive contribution from the electrode/electrolyte interface is included in these measurements as voltage measurements are always across pairs of non-driven electrodes. We determine the fixed resistance of a single interface, $R_{S}$, when fitting parameters to the displacement component.
 
@@ -268,6 +289,7 @@ Measurements commenced with a 4.5 litre solution of 1.0X PBS which was progressi
 A single measurement run involved stepping the voltage across the electrodes from 0.5\thinspace V to 1.2\thinspace V in increments of 0.05\thinspace V; this range was previously determined to capture the onset of Faradaic conduction.
 
 In \cite{Cogan2008} it has been noted that results obtained using cyclic voltammetry are dependant on, among other factors, the measurement sweep rate. This indicates a lack of isolation between displacement and Faradaic mechanisms. Our measurements were repeated using wait-times of 4, 16, 32 and 64 seconds between voltage increments, allowing us to determine the effect of sweep rate. From these measurements and those of a separate investigation\footnote{We took measurements of the interface's response to voltage steps when left to settle for 10 000 seconds, of which the first 250\thinspace seconds are shown in figure~\ref{fig:CPE_currentVsTime}. Those measurements show a trend of decreasing current stabilisation time as the overpotential steps increase. Sixty four seconds after stepping from 0.64\thinspace V to 0.72\thinspace V, the current has stabilised to $95\%$ of its value at 10\,000 seconds. At overpotential steps for higher voltages, the settling time is further reduced. These measurements were made in still solution and we expect stirring will further reduce settling time.} we concluded that a wait-time of 64 seconds was sufficient.
+
 \begin{figure}
     \begin{center}
         \includegraphics{graphics/CPE_currentVsTime}
@@ -346,7 +368,7 @@ In future we hope to extend this model into a diffusion controlled conduction sc
 
 
 \section{In-vivo measurements of sheep}
-
+\label{sect:in-vivo}
 \begin{figure}
     \begin{center}
         \includegraphics{graphics/sheepSpine}
@@ -379,8 +401,13 @@ The reactive part would be better modelled by a solution of less than 0.025X con
     \label{fig:displacement_sheepCPEPhase}
 \end{figure}
 
-\section{Conclusion}
 
+
+
+
+\section{Conclusion}
+\label{sect:conclusion}
+\label{sect:faradaic}
 We have used the parameters of a compact electrical model of an implantable electrode as a way of objectively comparing scenarios.
 We have measured how changing the concentration of PBS affects the parameters of this model.
 We have drawn direct relationships with concentration sufficient to predict interface characteristics at arbitrary dilutions of PBS.
@@ -615,7 +642,7 @@ Comments to the Author
 
     {
         \color{blue}
-        Heading expanded slightly to include model elements.
+        An extra section explaining a bit about the model and the layout of the paper has been added and the section headings have been expanded slightly to include the names of relevant model elements.
     }
 
     3. The parameters provided in Table II include reference to an unexplained term sigma (σ). I presume this is the conductivity of saline (correct symbol and units for conductivity). For completeness, I recommend the authors explain this term, provide the numeric value (or values) that they used, provide how they adjusted this with concentration, and reference the source of their numeric data.
