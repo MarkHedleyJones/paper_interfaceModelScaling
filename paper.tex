@@ -87,9 +87,11 @@ The ingredients of that stock solution are given in table~\ref{tab:PBSrecipe}.
 
 This manuscript uses an adapted version of the compact non-linear model presented by Scott and Single \cite{ScottSingle2013}. The model is compact in that it is suitable for entering into SPICE, i.e., freely available electrical circuit simulation software. The schematic for the model used here is presented be seen in Figure \ref{fig:schematic}.
 }
-The electrical interface model of \cite{Franks2005} {\color{red} (is this true, I can't see a faradaic part in Franks)} and \cite{ScottSingle2013} has two parts, a displacement branch and a Faradaic branch. While Scott and Single \cite{ScottSingle2013} incorporate memristors into their model, they has been omitted here for simplicity. {
+The electrical interface model of \cite{Franks2005} {\color{red} (is this true, I can't see a faradaic part in Franks)} and \cite{ScottSingle2013} has two parts, a displacement branch and a Faradaic branch.
+
+Scott and Single \cite{ScottSingle2013} incorporate memristors into their model. {
     \color{blue}
-    The memristors in \cite{ScottSingle2013} are used to mimic a diffusion limited current conduction mode, i.e., their purpose is to throttle electrical current associated with Faradaic reactions. In an implanted setting an electrode should never be operated in a Faradaic counduction mode, and certainly never to the point of becoming diffusion limited. It is for this reason the memristors have been removed.
+    These memristors are used to mimic a diffusion limited current conduction mode, i.e., their purpose is to throttle electrical current associated with Faradaic reactions. In an implanted setting an electrode should never be operated in a Faradaic counduction mode and certainly never to the point of becoming diffusion limited; for this reason the memristors have been omitted.
 }
 
 
@@ -112,18 +114,19 @@ It has been suggested that the primary coupling mechanism between platinum elect
 \label{sect:resistorMesh}
 
 \begin{table}
-    \begin{center}
-        \begin{tabular}{|r|l|}
-            \hline
-            $NaCl$ & $8.0\thinspace g$ \\ \hline
-            $KCl$ & $0.2\thinspace g$ \\ \hline
-            $Na_{2}HPO_{4}$ & $1.44\thinspace g$ \\ \hline
-            $KH_{2}PO_{4}$ & $0.24\thinspace g$ \\ \hline
-            Distilled Water & $1.0$\thinspace L \\ \hline
-        \end{tabular}
-    \end{center}
     \caption{PBS stock solution ingredients}
     \label{tab:PBSrecipe}
+    \begin{center}
+        \begin{tabular}{r | l}
+            Ingredient & Quantity \\
+            \hline
+            $NaCl$ & $8.0\thinspace g$ \\
+            $KCl$ & $0.2\thinspace g$ \\
+            $Na_{2}HPO_{4}$ & $1.44\thinspace g$ \\
+            $KH_{2}PO_{4}$ & $0.24\thinspace g$ \\
+            Distilled Water & $1.0$\thinspace L \\
+        \end{tabular}
+    \end{center}
 \end{table}
 
 The electrical impedance between two electrodes in an electrolyte arises from two interface impedances in series with the resistance due to the bulk of the electrolyte itself. To quantify the impedance presented by a single interface we first need to understand the inter-electrode resistances presented by the electrolyte bulk. As there are always two interface impedances between any two electrodes, inter-electrode resistances cannot be measured in isolation.
@@ -138,10 +141,16 @@ The resulting fit and parameter values are presented in figure~\ref{fig:transres
 
 Measurements of the inter-electrode impedance were made using a Tektronix TPS2014 DSO with four fully isolated and floating channels; an Agilent 33220A Function Generator; and a desktop PC controlling the instruments via Python 2.7.
 
-The pH level of the stock was measured, using a calibrated EDT Instruments BA-350 pH meter, to have a pH of 7.4. No pH adjustments were made to the derived solutions.
+The pH level of the stock solution was measured, using a calibrated EDT Instruments BA-350 pH meter, to have a pH of 7.4. No pH adjustments were made to the derived solutions.
 
-It should be noted that the resistive mesh created in this step models only the resistivity of the solution bulk. This means that no resistive contribution from the electrode/electrolyte interface is included in these measurements as voltage measurements are always across pairs of non-driven electrodes. We determine the fixed resistance of a single interface, $R_{S}$, when fitting parameters to the displacement component.
 
+{
+    \color{blue}
+
+    In Table \ref{tab:RESparams}, $\sigma$ refers to the conductivity of the solution, measured in units of Siemens per centimeter. Solution conductivity was measured using an EDT instruments RE 388 TX Microprocessor Conductivity Meter.
+
+    It should be noted that the resistive mesh created in this step models only the resistivity of the solution bulk. This means that no resistive contribution from the electrode/electrolyte interface is included in these measurements as voltage measurements are always across pairs of non-driven electrodes. We determine the fixed resistance of a single interface, $R_{S}$, when fitting parameters to the displacement component.
+}
 
 \begin{figure}
     \begin{center}
@@ -152,20 +161,37 @@ It should be noted that the resistive mesh created in this step models only the 
 \end{figure}
 
 \begin{table}
+    \caption{Resistor mesh parameters.\\ Electrolyte conductivity ($\sigma$) is expressed in units of $S/cm$}
+    \label{tab:RESparams}
     \begin{center}
-        \begin{tabular}{|r|l|}
+        \begin{tabular}{r | l}
+            Parameter & Value \\
             \hline
-            $R_{eri}$ & 0.407 / $\sigma$ \\ \hline
-            $R_{sri}$ & $R_{eri}$ $3/4$ \\ \hline
-            $R_{li}$ & 3.71 / $\sigma$ \\ \hline
-            Depth & 5 layers \\ \hline
-            Padding & 3 layers \\ \hline
+            $R_{eri}$ ($\Omega$)& 0.407/$\sigma\\
+            $R_{sri}$ ($\Omega$)& $R_{eri}\times 3/4\\
+            $R_{li}$ ($\Omega$)& 3.71 / $\sigma$ \\
+            Depth (layers) & 5 \\
+            Padding (layers) & 3 \\
         \end{tabular}
     \end{center}
-    \caption{Resistor mesh parameters. $\sigma$ measured in units of $S/cm$}
-    \label{tab:RESparams}
 \end{table}
 
+
+\begin{table}
+    \caption{Measured conductivity of PBS solutions. {\color{red} Should I add this?}}
+    \label{tab:PBSconductivity}
+    \begin{center}
+        \begin{tabular}{r | l}
+            Concentration (X-PBS) & Conductivity ($\mu S/cm$)\\
+            \hline
+            1.0 & $15800$ \\
+            0.5 & $4360$\\
+            0.25 & $1860$\\
+            0.05 & $931$\\
+            0.025 & $492$\\
+        \end{tabular}
+    \end{center}
+\end{table}
 
 
 
@@ -238,17 +264,18 @@ Instead, the constant-phase charge effect must arise from phenomena not associat
 \end{figure}
 
 \begin{table}
-    \begin{center}
-        \begin{tabular}{|r|l|}
-            \hline
-            $m$ & $1.34$ \\ \hline
-            $k$ & $1.773$\\ \hline
-            $|Z|\: @\: 1Hz$& $3284 \times concentration^{-0.158}$ \\ \hline
-            $R_{S}$ & $13.38 \times concentration^{-0.8397} $\\ \hline
-        \end{tabular}
-    \end{center}
     \caption{Displacement parameter scaling}
     \label{tab:CPEparams}
+    \begin{center}
+        \begin{tabular}{r | l}
+            Parameter & Value \\
+            \hline
+            $m$ & $1.34$ \\
+            $k$ & $1.773$\\
+            $|Z|\: @\: 1Hz$ $(\Omega)$& $3284 \times concentration^{-0.158}$ \\
+            $R_{S}$ $(\Omega)$& $13.38 \times concentration^{-0.8397} $\\
+        \end{tabular}
+    \end{center}
 \end{table}
 
 
@@ -338,15 +365,16 @@ The point at which this transition occurs is determined by the concentration of 
 \end{figure}
 
 \begin{table}
-    \begin{center}
-        \begin{tabular}{|r|l|}
-            \hline
-            $i0$ & 2.757e-12\\ \hline
-            $n$ & 1.36\\ \hline
-        \end{tabular}
-    \end{center}
     \caption{Faradaic parameters}
     \label{tab:FaradaicParams}
+    \begin{center}
+        \begin{tabular}{r | l}
+            Parameter & Value \\
+            \hline
+            $i0$ & $2.757\thinspace pA$\\
+            $n$ & 1.36\\
+        \end{tabular}
+    \end{center}
 \end{table}
 
 %Parameter values for $i_{0}$ and $n$ are presented in table~\ref{tab:FaradaicParams}. These parameters were found by fitting the diode equation to the results shown in figure~\ref{fig:faradaic_currentVsVoltage}.
@@ -561,7 +589,8 @@ Comments to the Author
 {\color{OliveGreen}
     I am sorry to say that the revised version of the paper is still quite unsatisfactory. You have added electrochemical reactions (5)-(9) but do not acknowledge that these all have different reaction potentials, will have different charge transfer coefficients ( alpha in the Butler Volmer equation http://en.wikipedia.org/wiki/Butler\%E2\%80\%93Volmer\_equation), and will by limited by mass transfer to different extents. Therefore the use of diodes in the model is not obviously appropriate.
 
-    {\color{blue}
+    {
+        \color{blue}
         The diodes are there to model the change in current attributed to the first biologically damaging reaction that occurs at the electrode/electrolyte interface. Whatever reaction occurs first in the relevant electrolyte is the reaction that diode aims to mimic. We observe that the current increases near exponentially around this point so we use a diode to mimic that. We expect this reaction may not be the same in-vivo as it is in-vivo but the properties of a diode can be altered to match where this occurs.
 
         If there are secondary reactions occurring at higher potentials then we could add a second pair of diodes with the properties of that specific reaction. The problem here is that we would then need to include memristors (as used in ScottSingle2013) to account for reactant depletion. We don't account for reactant depletion for the same reason we don't account for reactions other than the very first Faradaic reaction to occur. The reason is that we never want biologically damaging reactions to occur due to an implant, so if they happen then something has gone wrong.
@@ -645,7 +674,7 @@ Comments to the Author
         An extra section explaining a bit about the model and the layout of the paper has been added and the section headings have been expanded slightly to include the names of relevant model elements.
     }
 
-    3. The parameters provided in Table II include reference to an unexplained term sigma (σ). I presume this is the conductivity of saline (correct symbol and units for conductivity). For completeness, I recommend the authors explain this term, provide the numeric value (or values) that they used, provide how they adjusted this with concentration, and reference the source of their numeric data.
+    3. The parameters provided in Table II include reference to an unexplained term sigma ($\sigma$). I presume this is the conductivity of saline (correct symbol and units for conductivity). For completeness, I recommend the authors explain this term, provide the numeric value (or values) that they used, provide how they adjusted this with concentration, and reference the source of their numeric data.
 
     4. From the parameters provided in Table II, I can guess how many elements are in the SPICE model arising from these parameters but it would be much more valuable to the reader to have a clear statement of the true size of the associated SPICE model. I recommend the authors provide a clear statement at the end of this section of how many resistors are in their SPICE model as a result of this parameterization.
 
