@@ -12,7 +12,7 @@
 \title{Scaling of Electrode-Electrolyte Interface Model Parameters In Phosphate Buffered Saline}
 
 \author{Mark~H.~Jones and Jonathan~Scott,~\IEEEmembership{Senior Member,~IEEE}
-\thanks{Mark~H.~Jones is with the School of Electronic Engineering, University of Waikato, New Zealand, e-mail: markjones112358@gmail.com.}%
+    \thanks{Mark~H.~Jones is with the School of Electronic Engineering, University of Waikato, New Zealand, e-mail: markjones112358@gmail.com}%
 \thanks{Jonathan Scott is with the School of Electronic Engineering, University of Waikato, New Zealand.}
 }
 
@@ -70,13 +70,13 @@ The electrode used in this work is a commercial linear array of eight platinum e
 %     THIS IS IN THE ABSTRACT
 % }
 
-Six solutions ranging from 1.0X to 0.025X the concentration of a stock PBS solution have been examined.
+Six solutions ranging from 1.0X to 0.025X the concentration of a stock PBS solution (by mass) have been examined.
 The ingredients of that stock solution are given in table~\ref{tab:PBSrecipe}.
 
 {
     \color{blue}
 \section{Compact Non-Linear Electrical Model}
-
+\label{sect:resistorNetwork}
 \begin{figure}
     \begin{center}
         \includegraphics[width=230pt]{graphics/interfaceSchematic_noMemristive}
@@ -85,7 +85,7 @@ The ingredients of that stock solution are given in table~\ref{tab:PBSrecipe}.
     \label{fig:schematic}
 \end{figure}
 
-This manuscript uses an adapted version of the compact non-linear model presented by Scott and Single \cite{ScottSingle2013}. The model is compact in that it is suitable for entering into SPICE, i.e., freely available electrical circuit simulation software. The schematic for the model used here is presented be seen in Figure \ref{fig:schematic}.
+In this manuscript we use an adapted version of the compact non-linear model presented by Scott and Single \cite{ScottSingle2013}. The model is compact in that it is suitable for entering into SPICE, i.e., freely available electrical circuit simulation software. The schematic for the model used here is presented be seen in Figure \ref{fig:schematic}.
 }
 The electrical interface model of \cite{Franks2005} {\color{red} (is this true, I can't see a faradaic part in Franks)} and \cite{ScottSingle2013} has two parts, a displacement branch and a Faradaic branch.
 
@@ -133,7 +133,7 @@ The electrical impedance between two electrodes in an electrolyte arises from tw
 
 In \cite{ScottSingle2013}, a series of transresistance measurements were used in conjunction with a physical description of the electrode geometry to build up a representative network of resistors. The network in that paper was defined using five parameters: $R_{eri}$, $R_{lri}$, $R_{li}$, mesh depth, and edge depth. Readers are referred to \cite{ScottSingle2013} for the interpretation of these model parameters. Repeating that work, a resistor network that connects each of the eight electrodes is constructed, mimicking the resistances due to the solution bulk.
 
-The mesh depth and padding values of five columns and three rows, respectively, has been taken directly from \cite{ScottSingle2013}.
+The mesh depth and padding values of five columns and three rows, respectively, has been taken directly from \cite{ScottSingle2013}. {\color{blue} Using these parameters together with an array of 8 electrodes leads to a resistor network having 205 resistors.}
 A numerical fit was made to the two independent scaling parameters $R_{eri}$ and $R_{li}$
 \footnote{The values of $R_{eri}$ and $R_{sri}$ are defined by the lengths of the electrode and inter-electrode spacers respectively as described in \cite{ScottSingle2013}. The two parameters are proportional to each other by the ratio of their lengths. Hence, we define $R_{sri}$ to be 3/4 that of $R_{eri}$ making it a dependant parameter.}.
 
@@ -161,24 +161,7 @@ The pH level of the stock solution was measured, using a calibrated EDT Instrume
 \end{figure}
 
 \begin{table}
-    \caption{Resistor mesh parameters.\\ Electrolyte conductivity ($\sigma$) is expressed in units of $S/cm$}
-    \label{tab:RESparams}
-    \begin{center}
-        \begin{tabular}{r | l}
-            Parameter & Value \\
-            \hline
-            $R_{eri}$ ($\Omega$)& 0.407/$\sigma\\
-            $R_{sri}$ ($\Omega$)& $R_{eri}\times 3/4\\
-            $R_{li}$ ($\Omega$)& 3.71 / $\sigma$ \\
-            Depth (layers) & 5 \\
-            Padding (layers) & 3 \\
-        \end{tabular}
-    \end{center}
-\end{table}
-
-
-\begin{table}
-    \caption{Measured conductivity of PBS solutions. {\color{red} Should I add this?}}
+    \caption{Measured conductivity of PBS solutions. {\color{red} Should I add this? The meter was uncalibrated}}
     \label{tab:PBSconductivity}
     \begin{center}
         \begin{tabular}{r | l}
@@ -194,11 +177,35 @@ The pH level of the stock solution was measured, using a calibrated EDT Instrume
 \end{table}
 
 
+\begin{table}
+    \caption{Resistor mesh parameters. Electrolyte conductivity ($\sigma$) is expressed in units of $S / cm$}
+    \label{tab:RESparams}
+    \begin{center}
+        \begin{tabular}{r | l}
+            Parameter & Value \\
+            \hline
+            $R_{eri}$ ($\Omega$)& 0.407 / $\sigma$\\
+            $R_{sri}$ ($\Omega$)& $R_{eri}\cdot 3/4$\\
+            $R_{li}$ ($\Omega$)& 3.71 / $\sigma$ \\
+            Depth (layers) & 5 \\
+            Padding (layers) & 3 \\
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=\columnwidth]{graphics/resistorMesh_sideways}
+    \end{center}
+    \caption{Layout of the generated resistor mesh used to connect each of the interface models. The final mesh for an 8 electrode array contains 205 resistors.}
+    \label{fig:mesh}
+\end{figure}
+
 
 
 \section{Displacement Parameters {\color{blue}/ CPE}}
 \label{sect:cpe}
-
+110 elements
 Displacement currents are responsible for capacitive behaviour at interfacial boundaries.
 They are brought about by the redistribution of charge in response to applied fields, i.e. a charged electrode will attract or repel $Cl^{-}$ from its surface and reorientate polar molecules in the surrounding solution.\cite{Merrill05} This capacitive behaviour may also be a result of electrode polarisation in the form of reversible Faradaic reactions at the surface of the electrode.
 Such reactions involving water and platinum, as identified in \cite{Horch2004,Mohtashami2011,Merrill05}, include:
@@ -211,9 +218,12 @@ Such reactions involving water and platinum, as identified in \cite{Horch2004,Mo
 
 This displacement mechanism is capable of transferring charge between electrical and biological systems without damaging electrodes or tissue.\cite{Horch2004}
 This behaviour is modelled by way of a Constant Phase Element (CPE); also known as a fractional capacitor.
-For simulation purposes this element is realised as an array of R-C branches.~\cite{ScottSingle2013,Morrison59,Elwakil10} where the value of each R-C pair is chosen to set the slope of impedance relative to frequency. The placement of R-C pairs within the CPE is determined by Morrison's parameters $m$ and $k$, where $k$ determines the spacing, or density, of R-C branches and $m$ determines the resulting slope.
+For simulation purposes this element is realised as an array of R-C branches.~\cite{ScottSingle2013,Morrison59,Elwakil10} where the value of each R-C pair is chosen to set the slope of impedance relative to frequency. The placement of R-C pairs within the CPE is determined by Morrison's parameters $m$ and $k$, where $k$ determines the spacing, or density, of R-C branches and $m$ determines the resulting slope. {\color{blue} The R-C pairs were generated via Python script for to span 1\thinspace nHz--1\thinspace GHz with a spacing of 3 pairs per decade. The final CPE contains 55 branches i.e. 110 elements are used to create the CPE model.}
+
+
 We measure displacement currents by sweeping the frequency of a sinusoidal stimulus across electrodes 2 and 7 of the Octrode while measuring the voltage between electrodes 2 and 3 (numbering shown in Fig.~\ref{fig:octrode}).
 This allows for the measurement of a single interface impedance in series with the resistance presented by the bulk solution.
+
 \begin{figure}
     \begin{center}
         \includegraphics{graphics/chargeInjectionVsFrequency_magnitude}
@@ -264,7 +274,7 @@ Instead, the constant-phase charge effect must arise from phenomena not associat
 \end{figure}
 
 \begin{table}
-    \caption{Displacement parameter scaling}
+    \caption{Displacement parameter scaling.\\ $conc.$ refers to the mass concentration of PBS.}
     \label{tab:CPEparams}
     \begin{center}
         \begin{tabular}{r | l}
@@ -272,8 +282,8 @@ Instead, the constant-phase charge effect must arise from phenomena not associat
             \hline
             $m$ & $1.34$ \\
             $k$ & $1.773$\\
-            $|Z|\: @\: 1Hz$ $(\Omega)$& $3284 \times concentration^{-0.158}$ \\
-            $R_{S}$ $(\Omega)$& $13.38 \times concentration^{-0.8397} $\\
+            $|Z|\: @\: 1Hz$ $(\Omega)$& $3284 \times conc^{-0.158}$ \\
+            $R_{S}$ $(\Omega)$& $13.38 \times conc^{-0.8397} $\\
         \end{tabular}
     \end{center}
 \end{table}
@@ -404,11 +414,44 @@ In future we hope to extend this model into a diffusion controlled conduction sc
     \caption{Cross section of a sheep spine showing the position of the electrode array relative to the dura. Spotted regions represent cross sectioned vertebrae.}
     \label{fig:sheepSpine}
 \end{figure}
+
 Cogan states the main differences between in-vivo and in-vitro responses come down to temperature, the presence of organic species, tortuous diffusion path for charge carriers, physiological responses of the host to a foreign body, and uncertain concentrations of electrolytes and buffers near the electrode surface.\cite{Cogan2008}
 Nevertheless, electrical engineers use baths of saline as a substitute for in-vivo testing (a ``phantom'') due to its convienience.
 We now test the claim that 0.1X PBS is a reasonable representation of the spine of a living sheep.
 
-The displacement measurements were repeated inside the spinal canal of a live sheep, just outside the dura as shown in figure~\ref{fig:sheepSpine}. The sheep were prepared and anaesthetised using the procedures described in \cite{Parker2013} under the Animal Care and Ethics Committee approval of the Royal North Shore Hospital, Sydney. The study complied with the Australian Code of Practice for the Care and Use of Animals for Scientific Purposes.
+{\color{blue} Each of the model characterisation} measurements were repeated inside the spinal canal of living sheep, just outside the dura as shown in figure~\ref{fig:sheepSpine}. Two sheep were prepared and anaesthetised using the procedures described in \cite{Parker2013} under the Animal Care and Ethics Committee approval of the Royal North Shore Hospital, Sydney. The study complied with the Australian Code of Practice for the Care and Use of Animals for Scientific Purposes.
+
+{
+    \color{blue}
+    Transimpedance measurements in-vivo were done using additional configurations than were carried out in section \ref{sect:resistorNetwork}. The same measurements were captured but a more complete stimulus--measure regieme was tried in order to minimise the effect of nearby bone having too large an effect on a small number of measurements.
+}
+\begin{table}
+    \caption{Model parameters fitted to sheep data}
+    \label{tab:sheepParameters}
+    \begin{center}
+        \begin{tabular}{r | l}
+            Parameter & Value \\
+            \hline
+            $R_{eri}$ & $500\thinspace \Omega$\\
+            $R_{sri}$ & $375\thinspace \Omega$\\
+            $R_{li}$  & $176\thinspace \Omega$\\
+            $m$       & $1.34$\\
+            $k$       & $1.77$\\
+            $|Z|\: @\: 1Hz$& $11300\thinspace \Omega$\\
+            $R_{s}$   & $126\thinspace \Omega$
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\begin{figure}
+    \begin{center}
+        \includegraphics{graphics/sheep_transimpedance}
+    \end{center}
+    \caption{Comparison between in-vivo transresistance measurements (blue dots) and simulation results using fitted mesh parameters (red trace).}
+    \label{fig:transimpedance_sheep}
+\end{figure}
+
+
 Four measurements taken at regular intervals over a period of 30 minutes are presented in figures~\ref{fig:displacement_sheepCPEMagnitude} and~\ref{fig:displacement_sheepCPEPhase} on top of the array of traces for saline taken from figures~\ref{fig:CPE_Magnitude} and~\ref{fig:CPE_Phase}.
 Although it is clear that there are complications in vivo, a 0.25X PBS saline offers a good approximation to the resistive part of the trace.
 The reactive part would be better modelled by a solution of less than 0.025X concentration.
@@ -435,7 +478,6 @@ The reactive part would be better modelled by a solution of less than 0.025X con
 
 \section{Conclusion}
 \label{sect:conclusion}
-\label{sect:faradaic}
 We have used the parameters of a compact electrical model of an implantable electrode as a way of objectively comparing scenarios.
 We have measured how changing the concentration of PBS affects the parameters of this model.
 We have drawn direct relationships with concentration sufficient to predict interface characteristics at arbitrary dilutions of PBS.
@@ -531,6 +573,10 @@ The authors wish to acknowledge the The University of Waikato for financial supp
 
 \end{thebibliography}
 
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{graphics/MarkJones-Aug13.jpg}}]{Mark Jones}
+received the B.Sc. degree in Physics in 2008 and the M.E. degree in Microwave Electronics in 2009 from The University of Waikato, Hamilton, New Zealand.
+He is working towards a Ph.D. in Electrical Engineering, also at The University of Waikato.
+\end{IEEEbiography}
 
 \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{graphics/JBSatNICTA.jpg}}]{Jonathan Scott}
 (M'80--SM'99) is the Foundation Professor in
@@ -546,10 +592,6 @@ publications and holds a number of patents.
 \end{IEEEbiography}
 
 
-\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{graphics/MarkJones-Aug13.jpg}}]{Mark Jones}
-received the B.Sc. degree in Physics in 2008 and the M.E. degree in Microwave Electronics in 2009 from The University of Waikato, Hamilton, New Zealand.
-He is working towards a Ph.D. in Electrical Engineering, also at The University of Waikato.
-\end{IEEEbiography}
 
 \section*{Reviewers' Comments to the Authors:}
 
@@ -631,8 +673,8 @@ Comments to the Author
     3. The maximum charge limit for Pt was given by Brummer \& Turner (IEEE Trans BME, 24, 436-9, 1977) as 320 microcoulombs per cm\^2, and later authors revised this downward. If you really applied the charge density that you show in Fig 4, you exceeded this limit at frequencies below ~50Hz and I would expect that your electrodes would have been gassing. In that case it is surprising that the impedance curves in Figs 5 \& 6 do not show a deviation from pure CPE behaviour. This is an important anomaly.
 
     {
-        \color{blue}
-
+        \color{red}
+        What should I say to this?. We measured what we measured, no visible gas evolution. The results look consistant. We are happy to accept that we may have pushed the electrodes too far in the solution at low frequencies, regardless of this fact we have data here and wish to present it.
     }
 
     4. The time constants seen in Figs 8, 9 \& 11 are interesting. Fig 11 shows that the model does not fit well because its time constant is too short. But is this surprising? Your impedance spectra go down to 0.05Hz (Figs 4-6) and I suppose that you chose RC pairs for your CPE model that go down to that frequency. But that is only to a time constant of ~3s (1/2*pi*f) which is much less that the 250s in Fig 8. It would be interesting to know whether, if you extended the spectrum far enough down, the time constants from step changes to the RC network that approximates the CPE would be similar to those seen in Fig 8.
@@ -650,6 +692,12 @@ Comments to the Author
     }
 
     6. Figs 14 \& 15 are intriguing. For reason given in 3 above, I discount the results below 50Hz, yet it does look as if the slope of the CPE is the same in vivo but with an offset that would correspond to a very weak solution of PBS. As far as I know, there is no satisfactory explanation yet for the CPE so perhaps this is a significant clue.
+
+   {
+       \color{red}
+       HELP, how do I approach this?
+   }
+
 }
 
 \subsection*{Reviewer: 4}
@@ -675,18 +723,52 @@ Comments to the Author
     }
 
     3. The parameters provided in Table II include reference to an unexplained term sigma ($\sigma$). I presume this is the conductivity of saline (correct symbol and units for conductivity). For completeness, I recommend the authors explain this term, provide the numeric value (or values) that they used, provide how they adjusted this with concentration, and reference the source of their numeric data.
+    {
+        \color{blue}
+        This term has been made clearer by adding a line to the table caption and by adding a paragraph near the end of Section \ref{sect:resistorNetwork} explaining where the source of the values.
+    }
 
     4. From the parameters provided in Table II, I can guess how many elements are in the SPICE model arising from these parameters but it would be much more valuable to the reader to have a clear statement of the true size of the associated SPICE model. I recommend the authors provide a clear statement at the end of this section of how many resistors are in their SPICE model as a result of this parameterization.
 
+    {
+        \color{blue}
+        A diagram showing the layout of the resistor mesh has been added along with the total number of resistors in the mesh for an 8 electrode system.
+    }
+
     5. In Section 3, the authors state that the CPE is modeled as an array of R-C branches but at no time do they state the actual number of branches used in their model. I recommend the authors provide a clear statement at the end of this section of how many capacitors and resistors are in their SPICE model because of this parameterization.
+
+    {
+        \color{blue}
+
+    }
 
     6. The parameters provided in Table II include reference to `concentration'. As different readers will have different interpretations (mass concentration=0.9\%, molar concentration = 0.154M), I recommend the authors clearly explain the meaning of this term.
 
+    {
+        \color{blue}
+        Table \ref{tab:CPEparams} has been amended to inclued mention of 'concentration' being that of mass concentration of PBS.
+    }
+
     7. Given the authors details 3 different parts of their model in Sections 2, 3, and 4, I found it surprising that they only chose to characterize CPE in their in vivo experiment. In other words, if the complete model is important to performing simulation studies of a stimulation system, why did they not do such in their in vivo model and how valuable is their conclusion regarding the applicability of using 0.1xPBS as an in vitro of an animal. At minimum, I recommend the authors explain why they only characterized CPE in vivo.
+
+    {
+        \color{blue}
+        That is a very important piece of information we've missed! Thank you for bringing that to our attention.
+
+    }
 
     8. In the conclusions, I recommend the authors provide details on the overall size of their SPICE model. Knowing this information, a reader can compare the compactness of the complete model to that of using a finite element model.
 
+    {
+        \color{blue}
+        The overall size of the spice file that contains all the elements of the 8 electrode model, one element per line, is 370 lines including some unnecessary formatting lines. A standard Dell optiplex workstation can generate that file using the model parameters, simulate the model using ngSPICE, and read the output back from the simulation result in under a second.
+    }
+
     9. In their conclusions, I recommend the authors restate any limitations in their model that they mentioned earlier in the text (e.g., 0.9v limitation) and provide an honest discussion regarding the limits of their model.
+    {
+        \color{blue}
+
+    }
 }
 
 
