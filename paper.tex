@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{url}
+\usepackage{ulem}
 \usepackage[usenames, dvipsnames]{color}
 
 \begin{document}
@@ -415,16 +416,6 @@ In future we hope to extend this model into a diffusion controlled conduction sc
     \label{fig:sheepSpine}
 \end{figure}
 
-Cogan states the main differences between in-vivo and in-vitro responses come down to temperature, the presence of organic species, tortuous diffusion path for charge carriers, physiological responses of the host to a foreign body, and uncertain concentrations of electrolytes and buffers near the electrode surface.\cite{Cogan2008}
-Nevertheless, electrical engineers use baths of saline as a substitute for in-vivo testing (a ``phantom'') due to its convienience.
-We now test the claim that 0.1X PBS is a reasonable representation of the spine of a living sheep.
-
-{\color{blue} Each of the model characterisation} measurements were repeated inside the spinal canal of living sheep, just outside the dura as shown in figure~\ref{fig:sheepSpine}. Two sheep were prepared and anaesthetised using the procedures described in \cite{Parker2013} under the Animal Care and Ethics Committee approval of the Royal North Shore Hospital, Sydney. The study complied with the Australian Code of Practice for the Care and Use of Animals for Scientific Purposes.
-
-{
-    \color{blue}
-    Transimpedance measurements in-vivo were done using additional configurations than were carried out in section \ref{sect:resistorNetwork}. The same measurements were captured but a more complete stimulus--measure regieme was tried in order to minimise the effect of nearby bone having too large an effect on a small number of measurements.
-}
 \begin{table}
     \caption{Model parameters fitted to sheep data}
     \label{tab:sheepParameters}
@@ -445,14 +436,39 @@ We now test the claim that 0.1X PBS is a reasonable representation of the spine 
 
 \begin{figure}
     \begin{center}
-        \includegraphics{graphics/sheep_transimpedance}
+        \includegraphics{graphics/sheep_transimpedance_magnitude}
     \end{center}
-    \caption{Comparison between in-vivo transresistance measurements (blue dots) and simulation results using fitted mesh parameters (red trace).}
-    \label{fig:transimpedance_sheep}
+    \caption{\color{blue} Comparison between the magnitude of in-vivo transresistance measurements (blue dots) and simulation results using fitted mesh parameters (red trace).}
+    \label{fig:transimpedance_sheep_mag}
 \end{figure}
 
+\begin{figure}
+    \begin{center}
+        \includegraphics{graphics/sheep_transimpedance_phase}
+    \end{center}
+    \caption{\color{blue} Comparison between the phase of in-vivo transresistance measurements (blue dots) and simulation results using fitted mesh parameters (red trace). The simulation mesh does not capture any phase relationship due to being purely resistive.}
+    \label{fig:transimpedance_sheep_phase}
+\end{figure}
 
-Four measurements taken at regular intervals over a period of 30 minutes are presented in figures~\ref{fig:displacement_sheepCPEMagnitude} and~\ref{fig:displacement_sheepCPEPhase} on top of the array of traces for saline taken from figures~\ref{fig:CPE_Magnitude} and~\ref{fig:CPE_Phase}.
+Cogan states the main differences between in-vivo and in-vitro responses come down to temperature, the presence of organic species, tortuous diffusion path for charge carriers, physiological responses of the host to a foreign body, and uncertain concentrations of electrolytes and buffers near the electrode surface.\cite{Cogan2008}
+Nevertheless, electrical engineers use baths of saline as a substitute for in-vivo testing (a ``phantom'') due to its convienience.
+We now test the claim that 0.1X PBS is a reasonable representation of the spine of a living sheep.
+
+{\color{blue} Each of the model characterisation} measurements were repeated inside the spinal canal of living sheep, just outside the dura as shown in figure~\ref{fig:sheepSpine}. Two sheep were prepared and anaesthetised using the procedures described in \cite{Parker2013} under the Animal Care and Ethics Committee approval of the Royal North Shore Hospital, Sydney. The study complied with the Australian Code of Practice for the Care and Use of Animals for Scientific Purposes.
+
+{
+    \color{blue}
+    Transimpedance measurements in-vivo were done using additional configurations than were carried out in section \ref{sect:resistorNetwork}. The same measurements were captured but a more complete stimulus--measure regieme was tried in order to minimise the effect of nearby bone having too large an effect on a small number of measurements. Time constraints with the live animal meant only one dataset was obtained for transimpedance, shown in figures~\ref{fig:displacement_sheepCPEMagnitude} and \ref{fig:displacement_sheepCPEPhase} along with results obtained via simulation using fitted parameters.
+}
+
+{\color{blue}
+    Four measurements of displacement current (CPE element in the model) were} taken at regular intervals over a period fo 30 minutes and have been presented in figures~\ref{fig:displacement_sheepCPEMagnitude} and~\ref{fig:displacement_sheepCPEPhase}.
+{\color{blue} These measurements appear on top of the traces taken from figures~\ref{fig:CPE_Magnitude} and~\ref{fig:CPE_Phase} for comparison.}
+
+{
+    \color{blue}
+    The measured transimpedances shown in figure~\ref{fig:displacement_sheepCPEMagnitude} show {\color{red} show what??? Fig 16 shows how much reactance the tissue has which is enormous.} 
+}
 Although it is clear that there are complications in vivo, a 0.25X PBS saline offers a good approximation to the resistive part of the trace.
 The reactive part would be better modelled by a solution of less than 0.025X concentration.
 
@@ -460,7 +476,7 @@ The reactive part would be better modelled by a solution of less than 0.025X con
     \begin{center}
         \includegraphics{graphics/displacement-withSheep_impedanceVsFrequency_magnitude}
     \end{center}
-    \caption{Comparison between the magnitude of CPE in live sheep (blue error bars) against each of the PBS traces from figure~\ref{fig:CPE_Magnitude} (grey lines) and a simulated fit to the sheep data (red trace).}
+    \caption{\color{blue} Comparison between the mean magnitude of measured displacement currents in four live sheep (blue trace), each of the PBS traces from figure~\ref{fig:CPE_Magnitude} (grey lines), and a simulated fit to the sheep data (red trace). Error bars have been placed one standard deviation either side of the mean for measured data.}
     \label{fig:displacement_sheepCPEMagnitude}
 \end{figure}
 
@@ -468,7 +484,7 @@ The reactive part would be better modelled by a solution of less than 0.025X con
     \begin{center}
         \includegraphics{graphics/displacement-withSheep_impedanceVsFrequency_phase}
     \end{center}
-    \caption{Comparison between the phase response of the CPE in live sheep (blue error bars) against each of the PBS traces taken from figure~\ref{fig:CPE_Phase} (grey lines) and a simulated fit to the sheep data (red trace).}
+    \caption{\color{blue} Comparison between the mean phase response of measured displacement currents in four live sheep (blue trace), each of the PBS traces taken from figure~\ref{fig:CPE_Phase} (grey lines), and a simulated fit to the sheep data (red trace). Error bars have been placed one standard deviation either side of the mean for measured data.}
     \label{fig:displacement_sheepCPEPhase}
 \end{figure}
 
@@ -480,12 +496,18 @@ The reactive part would be better modelled by a solution of less than 0.025X con
 \label{sect:conclusion}
 We have used the parameters of a compact electrical model of an implantable electrode as a way of objectively comparing scenarios.
 We have measured how changing the concentration of PBS affects the parameters of this model.
-We have drawn direct relationships with concentration sufficient to predict interface characteristics at arbitrary dilutions of PBS.
+We have drawn direct relationships with concentration {\color{blue} and conductivity} sufficient to predict interface characteristics at arbitrary dilutions of PBS.
 We found that the magnitude of the CPE element moves much more slowly with concentration whereas the resistance moved almost linearly.
-Using DC measurements we conclude that the salinity of the bulk does not affect Faradaic conduction until a threshold voltage is reached. We hypothesise that this is because the double-layer sets the effective concentration of ions in a localised volume surrounding each electrode. In-vivo measurements of platinum electrodes in sheep spine showed that no single concentration of PBS matches both the CPE and the resistive characteristics at once. Nevertheless, 0.1X PBS is a good compromise.
+Using DC measurements we conclude that the {\color{blue} concentration of PBS has no effect on the onset of Faradaic conduction for the range of concentrations investigated.} {\color{Green} \sout{salinity of the bulk does not affect Faradaic conduction until a threshold voltage is reached}}. We hypothesise that this is because the double-layer sets the effective concentration of ions {\color{blue}, those involved in the Faradaic reactions,} in a localised volume surrounding each electrode.
+In-vivo measurements of platinum electrodes in sheep spine show that no single concentration of PBS matches both the CPE and the resistive characteristics at once. {\color{blue} These measurements also reveal a considerable amount of reactance (see transimpedance measurements in-vivo) that is captured neither by PBS {\color{red} [I'm going to have to include phase data for the results in figure \ref{fig:transresistance} aren't I...; which is dangerous because I don't think I've ever looked at it.]} nor the model presented when using a purely resistive spreading resistance mesh.} Nevertheless, {\color{blue}if a single solution of PBS is to be used as a human phantom, a one-tenth concentration solution (by mass)} is a good compromise.
+
+{
+    \color{blue}
+    The model is limited to predicting only the onset of Faradaic current conduction, i.e. it does not model operation in a diffussion limited scenario as it omits the memristors of \cite{ScottSingle2013}.
+}
 
 \section*{Acknowledgment}
-The authors wish to acknowledge the The University of Waikato for financial support and Saluda Medical for the use of facilities and equipment.
+{\color{red} [Can we acknowledge Peter Single's help?]} The authors wish to acknowledge the The University of Waikato for financial support and Saluda Medical for the use of facilities and equipment.
 
 \begin{thebibliography}{99}
 
@@ -518,6 +540,7 @@ The authors wish to acknowledge the The University of Waikato for financial supp
     World Scientific, 2004.
 
 \bibitem{ScottSingle2013}
+{\color{red} HAS THIS BEEN PUBLISHED YET?}
     Jonathan Scott and Peter Single,
     ``Compact Nonlinear Model of an Implantable Electrode Array for Spinal Cord Stimulation (SCS)'',
     to be published in
@@ -712,7 +735,7 @@ Comments to the Author
 
     {
         \color{blue}
-        Of course, thank you.
+        Of course, see amended abstract.
     }
 
     2. Sections 2, 3, and 4 detail the measurement and simulation of measurements of parameters associated with the bulk solution, CPE and Rs, and the diodes of the model in Figure 2. I recommend that the authors expand the introduction to explain this organization to help the reader's understanding. Additionally, I propose that the authors expand the section headings to include this information.
