@@ -88,7 +88,7 @@ The ingredients of that stock solution are given in table~\ref{tab:PBSrecipe}.
 
 In this manuscript we use an adapted version of the compact non-linear model presented by Scott and Single \cite{ScottSingle2013}. The model is compact in that it is suitable for entering into SPICE, i.e., freely available electrical circuit simulation software. The schematic for the model used here is presented be seen in Figure \ref{fig:schematic}.
 }
-The electrical interface model of \cite{Franks2005} {\color{red} (is this true, I can't see a faradaic part in Franks)} and \cite{ScottSingle2013} has two parts, a displacement branch and a Faradaic branch.
+The electrical interface model of \cite{Franks2005} and \cite{ScottSingle2013} has two parts, a displacement branch and a Faradaic branch.
 
 Scott and Single \cite{ScottSingle2013} incorporate memristors into their model. {
     \color{blue}
@@ -107,7 +107,7 @@ It has been suggested that the primary coupling mechanism between platinum elect
 {
     \color{blue}
     The remainder of this manuscript is broken into five sections. Section \ref{sect:resistorMesh} details the measurement of the inter-electrode resistances and the generation of a resistor network to replicate these resistances.
-    Sections \ref{sect:cpe} and \ref{sect:faradaic} are concerned with the measurement and parameter fitting of displacement currents and Faradaic currents, respectively, across the electrolyte interface. Section \ref{sect:in-vivo} compares the results obtained in PBS with measurements in-vivo. Finally, in Section \ref{sect:conclusion} we summarise our findings and give concluding comments. {\color{red} Is this necessary? This is obvious.}
+    Sections \ref{sect:cpe} and \ref{sect:faradaic} are concerned with the measurement and parameter fitting of displacement currents and Faradaic currents, respectively, across the electrolyte interface. Section \ref{sect:in-vivo} compares the results obtained in PBS with measurements in-vivo. Finally, in Section \ref{sect:conclusion} we summarise our findings and give concluding comments.
 }
 
 
@@ -161,21 +161,21 @@ The pH level of the stock solution was measured, using a calibrated EDT Instrume
     \label{fig:transresistance}
 \end{figure}
 
-\begin{table}
-    \caption{Measured conductivity of PBS solutions. {\color{red} Should I add this? The meter was uncalibrated}}
-    \label{tab:PBSconductivity}
-    \begin{center}
-        \begin{tabular}{r | l}
-            Concentration (X-PBS) & Conductivity ($\mu S/cm$)\\
-            \hline
-            1.0 & $15800$ \\
-            0.5 & $4360$\\
-            0.25 & $1860$\\
-            0.05 & $931$\\
-            0.025 & $492$\\
-        \end{tabular}
-    \end{center}
-\end{table}
+% \begin{table}
+%     \caption{Measured conductivity of PBS solutions. {\color{red} Should I add this? The meter was uncalibrated}}
+%     \label{tab:PBSconductivity}
+%     \begin{center}
+%         \begin{tabular}{r | l}
+%             Concentration (X-PBS) & Conductivity ($\mu S/cm$)\\
+%             \hline
+%             1.0 & $15800$ \\
+%             0.5 & $4360$\\
+%             0.25 & $1860$\\
+%             0.05 & $931$\\
+%             0.025 & $492$\\
+%         \end{tabular}
+%     \end{center}
+% \end{table}
 
 
 \begin{table}
@@ -275,7 +275,7 @@ Instead, the constant-phase charge effect must arise from phenomena not associat
 \end{figure}
 
 \begin{table}
-    \caption{Displacement parameter scaling.\\ $conc.$ refers to the mass concentration of PBS.}
+    \caption{Displacement parameter scaling. $conc.$ refers to the mass concentration of PBS.}
     \label{tab:CPEparams}
     \begin{center}
         \begin{tabular}{r | l}
@@ -465,10 +465,6 @@ We now test the claim that 0.1X PBS is a reasonable representation of the spine 
     Four measurements of displacement current (CPE element in the model) were} taken at regular intervals over a period fo 30 minutes and have been presented in figures~\ref{fig:displacement_sheepCPEMagnitude} and~\ref{fig:displacement_sheepCPEPhase}.
 {\color{blue} These measurements appear on top of the traces taken from figures~\ref{fig:CPE_Magnitude} and~\ref{fig:CPE_Phase} for comparison.}
 
-{
-    \color{blue}
-    The measured transimpedances shown in figure~\ref{fig:displacement_sheepCPEMagnitude} show {\color{red} show what??? Fig 16 shows how much reactance the tissue has which is enormous.} 
-}
 Although it is clear that there are complications in vivo, a 0.25X PBS saline offers a good approximation to the resistive part of the trace.
 The reactive part would be better modelled by a solution of less than 0.025X concentration.
 
@@ -499,7 +495,7 @@ We have measured how changing the concentration of PBS affects the parameters of
 We have drawn direct relationships with concentration {\color{blue} and conductivity} sufficient to predict interface characteristics at arbitrary dilutions of PBS.
 We found that the magnitude of the CPE element moves much more slowly with concentration whereas the resistance moved almost linearly.
 Using DC measurements we conclude that the {\color{blue} concentration of PBS has no effect on the onset of Faradaic conduction for the range of concentrations investigated.} {\color{Green} \sout{salinity of the bulk does not affect Faradaic conduction until a threshold voltage is reached}}. We hypothesise that this is because the double-layer sets the effective concentration of ions {\color{blue}, those involved in the Faradaic reactions,} in a localised volume surrounding each electrode.
-In-vivo measurements of platinum electrodes in sheep spine show that no single concentration of PBS matches both the CPE and the resistive characteristics at once. {\color{blue} These measurements also reveal a considerable amount of reactance (see transimpedance measurements in-vivo) that is captured neither by PBS {\color{red} [I'm going to have to include phase data for the results in figure \ref{fig:transresistance} aren't I...; which is dangerous because I don't think I've ever looked at it.]} nor the model presented when using a purely resistive spreading resistance mesh.} Nevertheless, {\color{blue}if a single solution of PBS is to be used as a human phantom, a one-tenth concentration solution (by mass)} is a good compromise.
+In-vivo measurements of platinum electrodes in sheep spine show that no single concentration of PBS matches both the CPE and the resistive characteristics at once. {\color{blue} These measurements also reveal a considerable amount of reactance (see transimpedance measurements in-vivo) that is captured neither by PBS nor the model presented when using a purely resistive spreading resistance mesh.} Nevertheless, {\color{blue}if a single solution of PBS is to be used as a human phantom, a one-tenth concentration solution (by mass)} is a good compromise.
 
 {
     \color{blue}
@@ -507,7 +503,7 @@ In-vivo measurements of platinum electrodes in sheep spine show that no single c
 }
 
 \section*{Acknowledgment}
-{\color{red} [Can we acknowledge Peter Single's help?]} The authors wish to acknowledge the The University of Waikato for financial support and Saluda Medical for the use of facilities and equipment.
+The authors wish to acknowledge the The University of Waikato for financial support and Saluda Medical for the use of facilities and equipment. Thanks are extended to Peter Single for help conducting in-vivo measurements.
 
 \begin{thebibliography}{99}
 
