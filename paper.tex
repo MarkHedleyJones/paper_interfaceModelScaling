@@ -75,10 +75,10 @@ The ingredients of that stock solution are given in Table~\ref{tab:PBSrecipe}.
         \label{fig:schematic}
     \end{figure}
 
-    In this manuscript we use an adapted version of the compact non-linear model presented in \cite{ScottSingle2013}. The model is compact in that it is suitable for {\color{blue} entering into freely available electrical circuit simulation software}. The schematic for the {\color{blue} electrode-electrolyte interface} model used is presented as Fig.~\ref{fig:schematic}.
+    In this manuscript we use an adapted version of the compact non-linear model presented in \cite{ScottSingle2013}. The model is compact in that it is suitable for {\color{blue} entry into freely available electrical circuit simulation software}. The schematic of the {\color{blue} electrode-electrolyte interface} model that we have used is presented as Fig.~\ref{fig:schematic}.
 }
 
-The electrical interface model of \cite{Franks2005} and \cite{ScottSingle2013} has two parts, a displacement branch and a Faradaic branch.
+The electrical interface models of \cite{Franks2005} and \cite{ScottSingle2013} have two parts, a displacement branch and a Faradaic branch.
 {
     \color{blue}
     Scott and Single incorporate memristors into their model, used to mimic a diffusion limited current conduction mode, i.e., their purpose is to throttle electrical current associated with Faradaic reactions. In an implanted setting an electrode should never be operated in a Faradaic conduction mode and certainly never to the point of becoming diffusion limited; for this reason, memristors have been omitted.
@@ -259,7 +259,6 @@ Instead, the constant-phase effect must arise from phenomena not associated with
 \label{sect:faradaic}
 
 With parameters fitted for the scaling of both the CPE and $R_{S}$ with PBS concentration, we turn to Faradaic conduction.
-
 Our model uses two reverse-connected diodes to represent Faradaic current conduction between electrode and electrolyte. Specifically, we use the diodes to model irreversible Faradaic reactions. (Any reversible reactions, those producing reactants bound to the surface of the electrode, are encapsulated by the displacement branch of the model.)
 Possible irreversible Faradaic reactions for platinum electrodes {\color{blue}(each with differing reaction potentials)} in saline are:
 
@@ -420,12 +419,12 @@ We now test the claim that 0.1X PBS is a reasonable representation of the spine 
 
 {
     \color{blue}
-    Transimpedance measurements in-vivo were {\color{blue} conducted with} additional configurations than were carried out in Section \ref{sect:resistorMesh}. The same measurements were captured {\color{blue} except this time using} a more complete stimulus--measure regime in order to minimise the effect of nearby bone. Time constraints with the live animal meant only {\color{blue} a single} dataset was obtained for transimpedance. {\color{blue} This data is} shown in Figs.~\ref{fig:displacement_sheepCPEMagnitude} and \ref{fig:displacement_sheepCPEPhase} along with results obtained {\color{blue} from} simulation {\color{blue} with} fitted parameters.
+    Transimpedance measurements in-vivo were {\color{blue} conducted with} additional configurations than were carried out in Section \ref{sect:resistorMesh}. The same measurements were captured {\color{blue} except this time using a larger number of stimulus--measure configurations} in order to minimise the effect of nearby bone. Time constraints with the live animal meant only {\color{blue} a single} dataset was obtained for transimpedance. {\color{blue} This data is} shown in Figs.~\ref{fig:displacement_sheepCPEMagnitude} and \ref{fig:displacement_sheepCPEPhase} along with results obtained {\color{blue} from} simulation {\color{blue} with} fitted parameters.
 }
 {\color{blue} In these measurements a phase deviation of approximately 30 degrees is observed, visible in Fig.~\ref{fig:transimpedance_sheep_phase}. There was no measurable phase deviation for these measurements in PBS. These results indicate that the sheep itself presents a significant reactive component.}
 
 {\color{blue}
-    Four measurements of displacement currents (CPE element in the model) were} taken at regular intervals over a period of 30 minutes and have been presented in Figs.~\ref{fig:displacement_sheepCPEMagnitude} and~\ref{fig:displacement_sheepCPEPhase}.
+    Four measurements of displacement current (CPE element in the model) were} taken at regular intervals over a period of 30 minutes, {\color{blue} the mean response is presented} in Figs.~\ref{fig:displacement_sheepCPEMagnitude} and~\ref{fig:displacement_sheepCPEPhase}.
 {\color{blue} These measurements appear on top of the traces taken from Figs.~\ref{fig:CPE_Magnitude} and~\ref{fig:CPE_Phase} for comparison.}
 
 Although it is clear that there are complications in vivo, a 0.25X PBS {\color{blue} solution} offers a good approximation to the resistive part of the  trace.
@@ -473,7 +472,7 @@ In-vivo measurements of platinum electrodes in sheep spine show that no single c
 }
 
 \section*{Acknowledgement}
-The authors acknowledge The University of Waikato for financial support and Saluda Medical for the use of facilities and equipment. {\color{blue}Special thanks are expressed to Peter Single of Saluda Medical for help conducting in-vivo measurements.}
+The authors acknowledge The University of Waikato for financial support and Saluda Medical for the use of facilities and equipment. {\color{blue}Special thanks are expressed to Peter Single of Saluda Medical for help conducting in-vivo measurements and to the anonymous reviewer whose detailed comments lead to a much more rigorous manuscript.}
 
 \begin{thebibliography}{99}
 
@@ -664,7 +663,7 @@ Comments to the Author
 
     {
         \color{blue}
-        That is interesting and definitely important to our modelling work. We had presented the charge injected in terms of the geometric surface area of each electrode which we know is less than the real (or effective) surface area, estimated to be $14\thinspace mm^{2}$. Calculating the charge injection using the effective surface area is more relevant here and gives results consistent with Brummer \& Roblee (Annals New York Academy of Sciences, 159-171, 1983), who also express their values in terms of ``real'' area. 
+        That is interesting and definitely important to our modelling work, thank you for picking that up. We had presented the charge injected in terms of the geometric surface area of each electrode which we know is less than the real (or effective) surface area, estimated to be $14\thinspace mm^{2}$. Calculating the charge injection using the effective surface area is more relevant here and gives results consistent with Brummer \& Roblee (Annals New York Academy of Sciences, 159-171, 1983), who also express their values in terms of ``real'' area. 
 
     }
 
@@ -673,7 +672,7 @@ Comments to the Author
     {
         \color{blue}
         The RC pairs are generated via a Python script for a given frequency range. The frequency range supplied for all simulations in this manuscript was 1.0 nHz to 1.0 GHz with R-C pairs spaced 3 per decade. Adding more pairs than necessary came at negligible computation cost and having the circuit generated in an automated fashion adds no extra work. Extending the CPE's R-C pairs into the lower frequency area did not improve the fit. We suspect there is another mechanism at play here.
-        We would also like to note that the effect of the CPE is far from that of a simple capacitor, i.e. far from being exponential. This is part of the reason they are so difficult to simulate in a compact circuit simulator.
+        We would also like to note that the effect of the CPE is far from that of a simple capacitor, i.e. far from being exponential. This is part of the reason they are so difficult to simulate in a compact circuit simulator. The CPE is an imperfect model of the interface, as can be seen from the phase deviation at very low frequencies between measured and simulated data.
     }
 
     5. p 6, col 1, line 11. ``rate dependent on the log'' should be ``rate varies exponentially''. i.e. Tafel equation.
@@ -689,7 +688,7 @@ Comments to the Author
         \color{blue}
         Yes you are quite right. We think the results of the CPE in-vivo vs. PBS are intriguing in light of what the previous literature would have you expect. We also know of no satisfactory explanation of what the CPE actually is. One of the authors came up against this uncertainty while writing \cite{ScottSingle2013}.
 
-        We feel that the in-vivo results will be affected by the significant inhomogeneity of real spine by proximity of bone, change in fluid at dura, etc. Perhaps you may know of a way to clarify this issue?
+        We feel that the in-vivo results will be affected by the significant inhomogeneity of real spine by proximity of bone, change in fluid at dura, etc. Perhaps you may know a way that we might use to clarify this issue in the future?
     }
 
 }
