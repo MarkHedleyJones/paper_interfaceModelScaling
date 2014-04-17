@@ -59,7 +59,7 @@ Having a compact model of an electrode in the appropriate electrolyte allows cir
 
 Electrodes in the laboratory are typically tested in a saline solution selected to mimic the circumstances in which they will operate when implanted. In an implanted setting there is no reference electrode and many of the well established electrochemical measurement regimes do not apply. Here we measure the behaviour in an electrode-electrolyte situation as it would be seen from an implant device.
 
-The electrode used in this work is a commercial linear array of eight platinum electrodes, called an ``Octrode'', intended for Spinal Cord Stimulator (SCS) implantation.~\cite{StJudeOctrode} A picture of an Octrode is presented in figure~\ref{fig:octrode}. A solution of phosphate buffered saline (PBS) diluted to one-tenth concentration (0.1X) is commonly {\color{blue}used as a crude phantom} in the case of SCS, while full concentration (1.0X) PBS is considered more representative of the situation in blood.
+The electrode used in this work is a commercial linear array of eight platinum electrodes, called an ``Octrode'', intended for Spinal Cord Stimulator (SCS) implantation.~\cite{StJudeOctrode} A picture of an Octrode is presented in Fig.~\ref{fig:octrode}. A solution of phosphate buffered saline (PBS) diluted to one-tenth concentration (0.1X) is commonly {\color{blue}used as a crude phantom} in the case of SCS, while full concentration (1.0X) PBS is considered more representative of the situation in blood.
 
 Six solutions ranging from 1.0X to 0.025X the concentration (by mass) of a stock PBS solution have been examined.
 The ingredients of that stock solution are given in Table~\ref{tab:PBSrecipe}.
@@ -75,7 +75,7 @@ The ingredients of that stock solution are given in Table~\ref{tab:PBSrecipe}.
         \label{fig:schematic}
     \end{figure}
 
-    In this manuscript we use an adapted version of the compact non-linear model presented in \cite{ScottSingle2013}. The model is compact in that it is suitable for {\color{blue} entering into freely available electrical circuit simulation software}. The schematic for the {\color{blue} electrode-electrolyte interface} model used is presented as Figure \ref{fig:schematic}.
+    In this manuscript we use an adapted version of the compact non-linear model presented in \cite{ScottSingle2013}. The model is compact in that it is suitable for {\color{blue} entering into freely available electrical circuit simulation software}. The schematic for the {\color{blue} electrode-electrolyte interface} model used is presented as Fig.~\ref{fig:schematic}.
 }
 
 The electrical interface model of \cite{Franks2005} and \cite{ScottSingle2013} has two parts, a displacement branch and a Faradaic branch.
@@ -116,10 +116,10 @@ The electrical impedance between two electrodes in an electrolyte arises from tw
 
 In \cite{ScottSingle2013}, a series of transresistance measurements were used in conjunction with a physical description of the electrode geometry to build up a representative network of resistors. That resistor network was defined using five parameters: $R_{eri}$, $R_{sri}$, $R_{li}$, mesh depth, and edge depth. Readers are referred to \cite{ScottSingle2013} for the interpretation of these model parameters. Repeating that work, we created a network of resistors that mimic the resistances due to the solution's bulk conductivity.
 
-The mesh depth and padding values of five columns and three rows, respectively, has been taken directly from \cite{ScottSingle2013}. {\color{blue} These parameters, together with an array of 8 electrodes, leads to a generated network of 205 resistors, the layout of which is presented in figure \ref{fig:mesh}.}
+The mesh depth and padding values of five columns and three rows, respectively, has been taken directly from \cite{ScottSingle2013}. {\color{blue} These parameters, together with an array of 8 electrodes, leads to a generated network of 205 resistors, the layout of which is presented in Fig.~\ref{fig:mesh}.}
 
 A numerical fit {\color{blue} has been} made to the two independent scaling parameters $R_{eri}$ and $R_{li}$\footnote{The values of $R_{eri}$ and $R_{sri}$ are defined by the lengths of the electrode and inter-electrode spacers respectively as described in \cite{ScottSingle2013}. The two parameters are proportional to each other by the ratio of their lengths. Hence, we define $R_{sri}$ to be 3/4 that of $R_{eri}$ making it a dependant parameter.}.
-The resulting fit and parameter values are presented in figure~\ref{fig:transresistance} and Table~\ref{tab:RESparams}.
+The resulting fit and parameter values are presented in Fig.~\ref{fig:transresistance} and Table~\ref{tab:RESparams}.
 
 Measurements of the inter-electrode impedance {\color{blue} were made using} a Tektronix TPS2014 DSO with four fully isolated and floating channels; an Agilent 33220A Function Generator; and a desktop PC {\color{blue} running Python 2.7 for instrumentation control and result processing.} The pH level of the stock solution was measured using a calibrated EDT Instruments BA-350 pH meter. It had a pH of 7.4 and no pH adjustments were made to the derived solutions. {\color{blue} The conductivity of solutions was measured using an EDT Instruments RE 388 Tx conductivity meter.}
 
@@ -181,14 +181,14 @@ This behaviour is modelled by way of a constant phase element (CPE), also known 
 For simulation purposes this element is realised as an array of R-C branches~\cite{ScottSingle2013,Morrison59,Elwakil10} where the value of each R-C pair is chosen to set the slope of impedance relative to frequency. The placement of R-C pairs within the CPE is determined by Morrison's parameters $m$ and $k$, where $k$ determines the spacing, or density, of R-C branches and $m$ determines the resulting slope. {\color{blue} R-C pairs were generated using a Python script to span 1\thinspace nHz --1\thinspace GHz with a spacing of 3 pairs per decade. The CPE contains 55 branches i.e. 110 {\color{blue}electrical} elements are used to represent the CPE.}
 
 
-We measure displacement currents by sweeping the frequency of a sinusoidal stimulus across electrodes 2 and 7 of the Octrode while measuring the voltage between electrodes 2 and 3 (numbering shown in figure~\ref{fig:octrode}).
+We measure displacement currents by sweeping the frequency of a sinusoidal stimulus across electrodes 2 and 7 of the Octrode while measuring the voltage between electrodes 2 and 3 (numbering shown in Fig.~\ref{fig:octrode}).
 This allows for the measurement of a single interface impedance in series with the resistance presented by the bulk solution.
 
 
 {
     \color{blue}
     Current density during measurements, calculated using an effective surface area of $14\thinspace mm^{2}$, peaked at $161\thinspace \mu A/cm^{2}$ at 10\thinspace kHz in 1.0X PBS and fell as low as $197\thinspace nA/cm^{2}$ at 50\thinspace mHz in 0.025X PBS.
-}Charge injection per phase is shown in figure~\ref{fig:chargeInjectionVsFrequency} for each solution.
+}Charge injection per phase is shown in Fig.~\ref{fig:chargeInjectionVsFrequency} for each solution.
 The stimulus waveform was set at 300\thinspace mV (peak) at each measurement point. The measurement instruments used are the same as those used to measure the inter-electrode resistance in the previous section.
 
 \begin{figure}
@@ -200,15 +200,15 @@ The stimulus waveform was set at 300\thinspace mV (peak) at each measurement poi
 \end{figure}
 
 
-Figure~\ref{fig:CPE_Magnitude} shows the magnitude of the measured response {\color{blue}for each concentration of PBS} accompanied by simulation results. Figure~\ref{fig:CPE_Phase} shows the phase response for the same measurements, again with the simulated response at each concentration. The simulated responses are generated using fitted parameter values for {\color{blue} $m$, $k$, $|Z|\thinspace @\thinspace 1Hz$, and $R_S$, which are} presented in Table~\ref{tab:CPEparams}.
+Fig.~\ref{fig:CPE_Magnitude} shows the magnitude of the measured response {\color{blue}for each concentration of PBS} accompanied by simulation results. Fig.~\ref{fig:CPE_Phase} shows the phase response for the same measurements, again with the simulated response at each concentration. The simulated responses are generated using fitted parameter values for {\color{blue} $m$, $k$, $|Z|\thinspace @\thinspace 1Hz$, and $R_S$, which are} presented in Table~\ref{tab:CPEparams}.
 
-As shown in the interface model schematic (figure~\ref{fig:schematic}), the interface contains its own internal series resistance ($R_{S}$). The resistance seen in series with the CPE will therefore be the sum of both the resistance due to the bulk resistivity of the fluid and $R_{S}$, to which we will refer as $R_{S+bulk}$.
-In figure~\ref{fig:CPE_Magnitude}, the slope and magnitude of the CPE are visible below 1\thinspace Hz whereas $R_{S+bulk}$  dominates above 1\thinspace kHz; it is clear that the two do not scale similarly.
+As shown in the interface model schematic (Fig.~\ref{fig:schematic}), the interface contains its own internal series resistance ($R_{S}$). The resistance seen in series with the CPE will therefore be the sum of both the resistance due to the bulk resistivity of the fluid and $R_{S}$, to which we will refer as $R_{S+bulk}$.
+In Fig.~\ref{fig:CPE_Magnitude}, the slope and magnitude of the CPE are visible below 1\thinspace Hz whereas $R_{S+bulk}$  dominates above 1\thinspace kHz; it is clear that the two do not scale similarly.
 As the impedance of the CPE and $R_{S+bulk}$ are separable with frequency, these measurements can be used to determine the CPE parameters and $R_{S}$.
 
-Figure~\ref{fig:CPE_Scaling} shows measured data and the corresponding fits for both the CPE magnitude at 0.05\thinspace Hz and $R_{S+bulk}$. Here we express the CPE offset parameter as $|Z|\thinspace @ \thinspace 1Hz$, but the fits used $|Z|\thinspace @ \thinspace 0.05Hz$, as data points at this frequency are outside the transitional zone where the impedance of the CPE and that of $R_{S+bulk}$ overlap.
+Fig.~\ref{fig:CPE_Scaling} shows measured data and the corresponding fits for both the CPE magnitude at 0.05\thinspace Hz and $R_{S+bulk}$. Here we express the CPE offset parameter as $|Z|\thinspace @ \thinspace 1Hz$, but the fits used $|Z|\thinspace @ \thinspace 0.05Hz$, as data points at this frequency are outside the transitional zone where the impedance of the CPE and that of $R_{S+bulk}$ overlap.
 
-The data presented in figure~\ref{fig:CPE_Magnitude} shows a large, linear, relative shift of $|Z|$ with salinity at higher frequencies, where the resistive component of the solution dominates.
+The data presented in Fig.~\ref{fig:CPE_Magnitude} shows a large, linear, relative shift of $|Z|$ with salinity at higher frequencies, where the resistive component of the solution dominates.
 Conversely, at lower frequencies where $|Z|$ changes with frequency, the relative change is closer to being logarithmic. It is this region that is modelled by the CPE.
 This suggests that the CPE does not chiefly rely on the added salt ions, but they do have some effect.
 Instead, the constant-phase effect must arise from phenomena not associated with the salt ions.
@@ -293,7 +293,7 @@ A single measurement run involved stepping the voltage across the electrodes fro
 
 In \cite{Greatbatch1969} it is shown that the stirring of an air-saturated solution of physiological saline reduces the settling time of platinum electrodes to stimulus transients; with both situations eventually settling to the same impedance.
 
-In \cite{Cogan2008} it has been noted that results obtained using cyclic voltammetry are dependant on, among other factors, the measurement sweep rate. This indicates a lack of isolation between displacement and Faradaic mechanisms. Our measurements were repeated using wait-times of 4, 16, 32 and 64 seconds between voltage increments, allowing us to determine the effect of sweep rate. From these measurements and those of a separate investigation\footnote{We took measurements of the interface's response to voltage steps when left to settle for 10 000 seconds, of which the first 250\thinspace seconds are shown in figure~\ref{fig:CPE_currentVsTime}. Those measurements show a trend of decreasing current stabilisation time as the overpotential steps increase. Sixty four seconds after stepping from 0.64\thinspace V to 0.72\thinspace V, the current has stabilised to $95\%$ of its value at 10\,000 seconds. At overpotential steps for higher voltages, the settling time is further reduced. These measurements were made in still solution and we expect stirring will further reduce settling time.} we concluded that a wait-time of 64 seconds is sufficient.
+In \cite{Cogan2008} it has been noted that results obtained using cyclic voltammetry are dependant on, among other factors, the measurement sweep rate. This indicates a lack of isolation between displacement and Faradaic mechanisms. Our measurements were repeated using wait-times of 4, 16, 32 and 64 seconds between voltage increments, allowing us to determine the effect of sweep rate. From these measurements and those of a separate investigation\footnote{We took measurements of the interface's response to voltage steps when left to settle for 10 000 seconds, of which the first 250\thinspace seconds are shown in Fig.~\ref{fig:CPE_currentVsTime}. Those measurements show a trend of decreasing current stabilisation time as the overpotential steps increase. Sixty four seconds after stepping from 0.64\thinspace V to 0.72\thinspace V, the current has stabilised to $95\%$ of its value at 10\,000 seconds. At overpotential steps for higher voltages, the settling time is further reduced. These measurements were made in still solution and we expect stirring will further reduce settling time.} we concluded that a wait-time of 64 seconds is sufficient.
 
 \begin{figure}
     \begin{center}
@@ -303,11 +303,11 @@ In \cite{Cogan2008} it has been noted that results obtained using cyclic voltamm
     \label{fig:CPE_currentVsTime}
 \end{figure}
 
-In figure~\ref{fig:StepResponse_Faradaic}, electrical current measurements (solid lines) are plotted against time. Each spike marks the point at which the voltage is incremented by 50\thinspace mV. Note that the amount of charge absorbed by the CPE increases with concentration of PBS, but the current for each concentration converges to approximately the same value. Dotted lines have been added that link the electrical current measurements taken 10 seconds after each increment for 0.125X PBS (lower trace) and 1.0X PBS (upper trace). These dotted traces show results typical of cyclic {\color{blue} measurement} methods, where the electrode overpotential is never constant. This illustrates the benefit of using DC measurements when measuring Faradaic currents.
+In Fig.~\ref{fig:StepResponse_Faradaic}, electrical current measurements (solid lines) are plotted against time. Each spike marks the point at which the voltage is incremented by 50\thinspace mV. Note that the amount of charge absorbed by the CPE increases with concentration of PBS, but the current for each concentration converges to approximately the same value. Dotted lines have been added that link the electrical current measurements taken 10 seconds after each increment for 0.125X PBS (lower trace) and 1.0X PBS (upper trace). These dotted traces show results typical of cyclic {\color{blue} measurement} methods, where the electrode overpotential is never constant. This illustrates the benefit of using DC measurements when measuring Faradaic currents.
 
-Figure~\ref{fig:faradaic_logCurrentVsVoltage} shows the settled currents plotted on a log scale, versus the voltage applied across the electrode {\color{blue} pair}. This uses the same data as the previous figure but has been processed so that each point represents the average of the final 24 current measurements at each step. Below 0.9\thinspace V it appears that the concentration of the solution had no identifiable effect on Faradaic conduction as there is overlap between each trace and the mean values are not monotonic with concentration in this region.  Between 0.9\thinspace V and 1.05\thinspace V a transition occurs which results in current conduction becoming dependent on solution concentration.
+Fig.~\ref{fig:faradaic_logCurrentVsVoltage} shows the settled currents plotted on a log scale, versus the voltage applied across the electrode {\color{blue} pair}. This uses the same data as the previous figure but has been processed so that each point represents the average of the final 24 current measurements at each step. Below 0.9\thinspace V it appears that the concentration of the solution had no identifiable effect on Faradaic conduction as there is overlap between each trace and the mean values are not monotonic with concentration in this region.  Between 0.9\thinspace V and 1.05\thinspace V a transition occurs which results in current conduction becoming dependent on solution concentration.
 Above 1.05\thinspace V the traces diverge showing clear dependence upon concentration.
-The point at which this transition occurs is determined by the concentration of saline, with lower concentrations transitioning earlier. A concentration of 0.0625X PBS causes a transition at around 0.95\thinspace V whereas electrodes in the 1.0X PBS solution transition somewhere between 1.0\thinspace V and 1.05\thinspace V. The effect of transition can be seen in the green trace at 1.0\thinspace V where the error bar is wide due to the current shift being captured in the measurement at that voltage. Part of a transition with respect to time is visible in figure~\ref{fig:StepResponse_Faradaic} where the red trace drops uncharacteristically after the increment at around 600 seconds.
+The point at which this transition occurs is determined by the concentration of saline, with lower concentrations transitioning earlier. A concentration of 0.0625X PBS causes a transition at around 0.95\thinspace V whereas electrodes in the 1.0X PBS solution transition somewhere between 1.0\thinspace V and 1.05\thinspace V. The effect of transition can be seen in the green trace at 1.0\thinspace V where the error bar is wide due to the current shift being captured in the measurement at that voltage. Part of a transition with respect to time is visible in Fig.~\ref{fig:StepResponse_Faradaic} where the red trace drops uncharacteristically after the increment at around 600 seconds.
 
 \begin{figure}
     \begin{center}
@@ -360,10 +360,10 @@ We hypothesise that the charging of the CPE draws available ions to the electrod
 For the purposes of our model, we are content with placing a limit of 0.9\thinspace V across the pair of interfaces and using the assumption that Faradaic conduction does not change with concentration. {\color{blue} As we are primarily interested with capturing only the onset of Faradaic conduction, this limitation does not degrade the usefulness of the model for implant modelling purposes.}
 
 
-    Figure~\ref{fig:faradaic_currentVsTime} shows a subset of the data used in figure~\ref{fig:StepResponse_Faradaic} (the 1.0X PBS trace) to show the fit between simulated and measured data in the time domain. Here the simulation contains fitted diode parameters, shown in Table~\ref{tab:FaradaicParams}, which give rise to the exponentially increasing steady state current.
-It is apparent from this trace that the temporal response of the CPE does not match the transient decay curves seen in the Faradaic measurements, something the CPE should predict. These transient decay curves appear to have a time-constant\footnote{We use the term ``time-constant'' although a CPE does not have a simple exponential time-domain response.} that decreases with each subsequent measurement. This variable time-constant phenomena is especially clear when looking at figure~\ref{fig:CPE_currentVsTime}. Although the Faradaic response transients appear to approach the time-constant predicted by the CPE, there is still behaviour not completely described by the CPE.
+    Fig.~\ref{fig:faradaic_currentVsTime} shows a subset of the data used in Fig.~\ref{fig:StepResponse_Faradaic} (the 1.0X PBS trace) to show the fit between simulated and measured data in the time domain. Here the simulation contains fitted diode parameters, shown in Table~\ref{tab:FaradaicParams}, which give rise to the exponentially increasing steady state current.
+It is apparent from this trace that the temporal response of the CPE does not match the transient decay curves seen in the Faradaic measurements, something the CPE should predict. These transient decay curves appear to have a time-constant\footnote{We use the term ``time-constant'' although a CPE does not have a simple exponential time-domain response.} that decreases with each subsequent measurement. This variable time-constant phenomena is especially clear when looking at Fig.~\ref{fig:CPE_currentVsTime}. Although the Faradaic response transients appear to approach the time-constant predicted by the CPE, there is still behaviour not completely described by the CPE.
 
-The match between fitted diode parameters ($n$ and $i_{0}$) and the measurement data 64 seconds after each voltage increment has been plotted in figure~\ref{fig:faradaic_currentVsVoltage}.
+The match between fitted diode parameters ($n$ and $i_{0}$) and the measurement data 64 seconds after each voltage increment has been plotted in Fig.~\ref{fig:faradaic_currentVsVoltage}.
 
 In future we hope to extend this model into a diffusion controlled conduction scenario and extend the CPE element to better reproduce the time domain response.
 
@@ -416,17 +416,17 @@ Cogan states the main differences between in-vivo and in-vitro responses come do
 Nevertheless, electrical engineers use baths of saline as a substitute for in-vivo testing (a ``phantom'') due to its convenience.
 We now test the claim that 0.1X PBS is a reasonable representation of the spine of a living sheep.
 
-{\color{blue} Each of the model characterisation} measurements were repeated inside the spinal canal of living sheep, just outside the dura as shown in figure~\ref{fig:sheepSpine}. Two sheep were prepared and anaesthetised using the procedures described in \cite{Parker2013} under the Animal Care and Ethics Committee approval of the Royal North Shore Hospital, Sydney. The study complied with the Australian Code of Practice for the Care and Use of Animals for Scientific Purposes.
+{\color{blue} Each of the model characterisation} measurements were repeated inside the spinal canal of living sheep, just outside the dura as shown in Fig.~\ref{fig:sheepSpine}. Two sheep were prepared and anaesthetised using the procedures described in \cite{Parker2013} under the Animal Care and Ethics Committee approval of the Royal North Shore Hospital, Sydney. The study complied with the Australian Code of Practice for the Care and Use of Animals for Scientific Purposes.
 
 {
     \color{blue}
-    Transimpedance measurements in-vivo were {\color{blue} conducted with} additional configurations than were carried out in Section \ref{sect:resistorMesh}. The same measurements were captured {\color{blue} except this time using} a more complete stimulus--measure regime in order to minimise the effect of nearby bone. Time constraints with the live animal meant only {\color{blue} a single} dataset was obtained for transimpedance. {\color{blue} This data is} shown in figures~\ref{fig:displacement_sheepCPEMagnitude} and \ref{fig:displacement_sheepCPEPhase} along with results obtained {\color{blue} from} simulation {\color{blue} with} fitted parameters.
+    Transimpedance measurements in-vivo were {\color{blue} conducted with} additional configurations than were carried out in Section \ref{sect:resistorMesh}. The same measurements were captured {\color{blue} except this time using} a more complete stimulus--measure regime in order to minimise the effect of nearby bone. Time constraints with the live animal meant only {\color{blue} a single} dataset was obtained for transimpedance. {\color{blue} This data is} shown in Figs.~\ref{fig:displacement_sheepCPEMagnitude} and \ref{fig:displacement_sheepCPEPhase} along with results obtained {\color{blue} from} simulation {\color{blue} with} fitted parameters.
 }
-{\color{blue} In these measurements a phase deviation of approximately 30 degrees is observed, visible in figure~\ref{fig:transimpedance_sheep_phase}. There was no measurable phase deviation for these measurements in PBS. These results indicate that the sheep itself presents a significant reactive component.}
+{\color{blue} In these measurements a phase deviation of approximately 30 degrees is observed, visible in Fig.~\ref{fig:transimpedance_sheep_phase}. There was no measurable phase deviation for these measurements in PBS. These results indicate that the sheep itself presents a significant reactive component.}
 
 {\color{blue}
-    Four measurements of displacement currents (CPE element in the model) were} taken at regular intervals over a period of 30 minutes and have been presented in figures~\ref{fig:displacement_sheepCPEMagnitude} and~\ref{fig:displacement_sheepCPEPhase}.
-{\color{blue} These measurements appear on top of the traces taken from figures~\ref{fig:CPE_Magnitude} and~\ref{fig:CPE_Phase} for comparison.}
+    Four measurements of displacement currents (CPE element in the model) were} taken at regular intervals over a period of 30 minutes and have been presented in Figs.~\ref{fig:displacement_sheepCPEMagnitude} and~\ref{fig:displacement_sheepCPEPhase}.
+{\color{blue} These measurements appear on top of the traces taken from Figs.~\ref{fig:CPE_Magnitude} and~\ref{fig:CPE_Phase} for comparison.}
 
 Although it is clear that there are complications in vivo, a 0.25X PBS {\color{blue} solution} offers a good approximation to the resistive part of the  trace.
 The reactive part {\color{blue} (that of the CPE)} would be better modelled by a solution of less than 0.025X concentration.  
@@ -439,7 +439,7 @@ The reactive part {\color{blue} (that of the CPE)} would be better modelled by a
     \begin{center}
         \includegraphics{graphics/displacement-withSheep_impedanceVsFrequency_magnitude}
     \end{center}
-    \caption{\color{blue} Comparison between the mean magnitude of measured displacement currents in four live sheep (blue trace), each of the PBS traces from figure~\ref{fig:CPE_Magnitude} (grey lines), and a simulated fit to the sheep data (red trace). Error bars have been placed one standard deviation either side of the mean for measured data.}
+    \caption{\color{blue} Comparison between the mean magnitude of measured displacement currents in four live sheep (blue trace), each of the PBS traces from Fig.~\ref{fig:CPE_Magnitude} (grey lines), and a simulated fit to the sheep data (red trace). Error bars have been placed one standard deviation either side of the mean for measured data.}
     \label{fig:displacement_sheepCPEMagnitude}
 \end{figure}
 
@@ -447,7 +447,7 @@ The reactive part {\color{blue} (that of the CPE)} would be better modelled by a
     \begin{center}
         \includegraphics{graphics/displacement-withSheep_impedanceVsFrequency_phase}
     \end{center}
-    \caption{{\color{blue} Comparison of the mean phase response of measured displacement currents in live sheep (blue trace), each of the PBS traces taken from figure~\ref{fig:CPE_Phase} (grey lines), and a simulated fit to the sheep data (red trace). Error bars have been placed one standard deviation either side of the mean for measured data.}}
+    \caption{{\color{blue} Comparison of the mean phase response of measured displacement currents in live sheep (blue trace), each of the PBS traces taken from Fig.~\ref{fig:CPE_Phase} (grey lines), and a simulated fit to the sheep data (red trace). Error bars have been placed one standard deviation either side of the mean for measured data.}}
     \label{fig:displacement_sheepCPEPhase}
 \end{figure}
 
