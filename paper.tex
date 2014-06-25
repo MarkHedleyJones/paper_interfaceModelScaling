@@ -1,6 +1,6 @@
 \documentclass[journal, a4paper]{IEEEtran}
 
-
+\usepackage[utf8]{inputenc}
 \usepackage{cite}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -42,10 +42,24 @@ We compare objective measurements made in saline to those made in the spinal cav
 
 \IEEEPARstart{T}{here} is considerable interest in the electrical modelling of electrodes. \cite{Cogan2008,Brown2008,Guo2012,Troy2006}
 In \cite{Franks2005} a linearised model was presented, and in \cite{ScottSingle2013} a non-linear model
-suitable for use with the SPICE circuit simulator was presented. The SPICE model usefully characterises an electrode in a given electrolyte with a small number of parameters.
-One major reason for the interest in the electrical impedance of electrodes concerns the design of electronics intended for integration into pacemakers, cochlear implants, spinal cord stimulators, etc. The design of successful circuits depends upon a good understanding of external load impedance, while maximisation of battery life is linked to the use of electrodes whose impedance is well understood.
+suitable for use with the SPICE circuit simulator was presented.
+The SPICE model usefully characterises an electrode in a given electrolyte with a small number of parameters.
+One major reason for the interest in the electrical impedance of electrodes concerns the design of electronics intended for integration into pacemakers, cochlear implants, spinal cord stimulators, etc.
+The design of successful circuits depends upon a good understanding of external load impedance, while maximisation of battery life is linked to the use of electrodes whose impedance is well understood.
 
-Having a compact model of an electrode in the appropriate electrolyte allows circuit designers to simulate their designs with valid loads. Knowing the effect upon the model of changes in the electrode or electrolyte would allow designers to anticipate circumstances that will affect the load seen by their circuits. Another appeal of a compact model stems from the fact that electrode characteristics are succinctly and objectively represented by the model parameters. These parameters enable direct comparison of different electrodes, or the change in electrode properties over time. For example, in \cite{Kane13} changes in chronically-implanted electrodes are observed but there is no standard quantitative way of presenting the changes. Similarly, while there is a good understanding of what represents safe exposure, a compact model with parameters permits the prediction of the safety of any given stimulus regime.~\cite{Merrill05}
+Having a compact model of an electrode in the appropriate electrolyte allows circuit designers to simulate their designs with valid loads.
+{
+    \color{blue}
+For example, the authors of \cite{Ethier2011} are concerned with the impedance presented by their electrode loads, and calculate power efficiency of their circuits.
+This value is affected by the load impedance assumed.
+Nevertheless, it is clear that they do not have a good idea of, nor a good way to simulate with, the load truly presented by an electrode in vivo or in vitro.
+}
+Knowing the effect upon the model of changes in the electrode or electrolyte would allow designers to anticipate circumstances that will affect the load seen by their circuits. 
+
+Another appeal of a compact model stems from the fact that electrode characteristics are succinctly and objectively represented by the model parameters.
+These parameters enable direct comparison of different electrodes, or the change in electrode properties over time.
+For example, in \cite{Kane13} changes in chronically-implanted electrodes are observed but there is no standard quantitative way of presenting the changes.
+Similarly, while there is a good understanding of what represents safe exposure, a compact model with parameters permits the prediction of the safety of any given stimulus regime.~\cite{Merrill05}
 
 \begin{figure}
     \begin{center}
@@ -435,13 +449,15 @@ We have used the parameters of a compact electrical model of an implantable elec
 We have measured how changing the concentration of PBS affects the parameters of this model.
 We have drawn direct relationships with concentration and conductivity sufficient to predict interface characteristics at arbitrary dilutions of PBS.
 We found that the magnitude of the CPE element moves much more slowly with concentration whereas the resistance moved almost linearly.
-Using DC measurements we conclude that the concentration of PBS has no effect on the onset of Faradaic conduction for the range of concentrations measured. We hypothesise that this is because the double-layer sets the effective concentration of ions those involved in the Faradaic reactions, in a localised volume surrounding each electrode.
+Using DC measurements we conclude that the concentration of PBS has no effect on the onset of Faradaic conduction for the range of concentrations measured. We hypothesise that this is because the double-layer sets the effective concentration of the species involved in the Faradaic reactions, in a localised volume surrounding each electrode.
 
-In-vivo measurements of platinum electrodes in sheep spine show that no single concentration of PBS matches both the CPE and the resistive characteristics at once. These measurements also reveal a considerable amount of reactance (see transimpedance measurements in vivo) that is captured neither by PBS nor the model presented when using a purely resistive spreading resistance. Nevertheless, a single solution of PBS is to be used as a human phantom, a one-tenth concentration solution (by mass) is a good compromise.
+In-vivo measurements of platinum electrodes in sheep spine show that no single concentration of PBS matches both the CPE and the resistive characteristics at once.
+These measurements also reveal a considerable amount of reactance (see transimpedance measurements in vivo) that is captured neither by PBS nor the model presented when using a purely resistive spreading resistance.
+Nevertheless, a single solution of PBS is to be used as a human phantom, a one-tenth concentration solution (by mass) is a good compromise.
 
-    While the model used is limited to predicting only the onset of Faradaic current conduction, it usefully captures the transition into this biologically destructive stimulus regime sufficient for it to be avoided. 
+While the model used is limited to predicting only the onset of Faradaic current conduction, it usefully captures the transition into this biologically destructive stimulus regime sufficient for it to be avoided. 
     
-final model, including 205 lines of resistive mesh, is represented by a SPICE netlist comprised of 348 lines. Simulation of this model, using the freely available ngSpice circuit simulator, at 1000 frequencies takes approximately 1 second on a modern CPU.
+The final model, including 205 lines of resistive mesh, is represented by a SPICE netlist comprised of 348 lines. Simulation of this model, using the freely available ngSpice circuit simulator, at 1000 frequencies takes approximately 1 second on a modern CPU.
 
 \section*{Acknowledgement}
 The authors acknowledge The University of Waikato for financial support and Saluda Medical for the use of facilities and equipment. Special thanks are expressed to Peter Single of Saluda Medical for help conducting in-vivo measurements and to the anonymous reviewer whose detailed comments lead to a much more rigorous manuscript.
@@ -481,8 +497,15 @@ The authors acknowledge The University of Waikato for financial support and Salu
     Jonathan Scott and Peter Single,
     ``Compact Nonlinear Model of an Implantable Electrode Array for Spinal Cord Stimulation (SCS)'',
     to be published in
-    {\em IEEE Transactions on Biomedical Circuits and Systems},
+    \emph{IEEE Transactions on Biomedical Circuits and Systems},
     DOI: 10.1109/TBCAS.2013.2270179, 2013.
+
+\bibitem{Ethier2011}
+    Sébastien Ethier and Mohamad Sawan,
+    ``Exponential Current Pulse Generation for Efficient Very High-Impedance Multisite Stimulation'',
+    \emph{IEEE Transactions on Biomedical Circuits and Systems},
+    vol.~5 no.~1, February 2011, pp30--38.
+
 
 \bibitem{Kane13}
     Sheryl~R.~Kane, Stuart~F.~Cogan, Julia~Ehrlich, Timothy~D.~Plante, Douglas~B.~McCreery and Philip~R.~Troyk,
