@@ -40,20 +40,16 @@ We compare objective measurements made in saline to those made in the spinal cav
 
 \section{Introduction}
 
-\IEEEPARstart{T}{here} is considerable interest in the electrical modelling of electrodes. \cite{Cogan2008,Brown2008,Guo2012,Troy2006}
-In \cite{Franks2005} a linearised model was presented, and in \cite{ScottSingle2013} a non-linear model
-suitable for use with the SPICE circuit simulator was presented.
+\IEEEPARstart{T}{here} is considerable interest in the electrical modelling of electrodes.~\cite{Cogan2008,Brown2008,Guo2012,Troy2006}
+In \cite{Franks2005} a linearised model was presented, and in \cite{ScottSingle2013} a non-linear model suitable for use with the SPICE circuit simulator was presented.
 The SPICE model usefully characterises an electrode in a given electrolyte with a small number of parameters.
 One major reason for the interest in the electrical impedance of electrodes concerns the design of electronics intended for integration into pacemakers, cochlear implants, spinal cord stimulators, etc.
 The design of successful circuits depends upon a good understanding of external load impedance, while maximisation of battery life is linked to the use of electrodes whose impedance is well understood.
 
 Having a compact model of an electrode in the appropriate electrolyte allows circuit designers to simulate their designs with valid loads.
-{
-    \color{blue}
 For example, the authors of \cite{Ethier2011} are concerned with the impedance presented by their electrode loads, and calculate power efficiency of their circuits.
 This value is affected by the load impedance assumed.
 Nevertheless, it is clear that they do not have a good idea of, nor a good way to simulate with, the load truly presented by an electrode in vivo or in vitro.
-}
 Knowing the effect upon the model of changes in the electrode or electrolyte would allow designers to anticipate circumstances that will affect the load seen by their circuits. 
 
 Another appeal of a compact model stems from the fact that electrode characteristics are succinctly and objectively represented by the model parameters.
@@ -69,9 +65,13 @@ Similarly, while there is a good understanding of what represents safe exposure,
     \label{fig:octrode}
 \end{figure}
 
-Electrodes in the laboratory are typically tested in a saline solution selected to mimic the circumstances in which they will operate when implanted. In an implanted setting there is no reference electrode and many of the well established electrochemical measurement regimes do not apply. Here we measure the behaviour in an electrode-electrolyte situation as it would be seen from an implant device.
+Electrodes in the laboratory are typically tested in a saline solution selected to mimic the circumstances in which they will operate when implanted.
+In an implanted setting there is no reference electrode and many of the well established electrochemical measurement regimes do not apply.
+Here we measure the behaviour in an electrode-electrolyte situation as it would be seen from an implant device.
 
-The electrode used in this work is a commercial linear array of eight platinum electrodes, called an ``Octrode'', intended for Spinal Cord Stimulator (SCS) implantation.~\cite{StJudeOctrode} A picture of an Octrode is presented in Fig.~\ref{fig:octrode}. A solution of phosphate buffered saline (PBS) diluted to one-tenth concentration (0.1X) is commonly used as a crude phantom in the case of SCS, while full concentration (1.0X) PBS is considered more representative of the situation in blood.
+The electrode used in this work is a commercial linear array of eight platinum electrodes, called an ``Octrode'', intended for Spinal Cord Stimulator (SCS) implantation.~\cite{StJudeOctrode}
+A picture of an Octrode is presented in Fig.~\ref{fig:octrode}.
+A solution of phosphate buffered saline (PBS) diluted to one-tenth concentration (0.1X) is commonly used as a crude phantom in the case of SCS, while full concentration (1.0X) PBS is considered more representative of the situation in blood.
 
 Six solutions ranging from 1.0X to 0.025X the concentration (by mass) of a stock PBS solution have been examined.
 The ingredients of that stock solution are given in Table~\ref{tab:PBSrecipe}.
@@ -84,16 +84,24 @@ The ingredients of that stock solution are given in Table~\ref{tab:PBSrecipe}.
     \label{fig:schematic}
 \end{figure}
 
-    In this manuscript we use an adapted version of the compact non-linear model presented in \cite{ScottSingle2013}. The model is compact in that it is suitable for entry into freely available electrical circuit simulation software. The schematic of the electrode-electrolyte interface model that we have used is presented as Fig.~\ref{fig:schematic}.
+In this manuscript we use an adapted version of the compact non-linear model presented in \cite{ScottSingle2013}.
+The model is compact in that it is suitable for entry into freely available electrical circuit simulation software.
+The schematic of the electrode-electrolyte interface model that we have used is presented as Fig.~\ref{fig:schematic}.
 
 The electrical interface models of \cite{Franks2005} and \cite{ScottSingle2013} have two parts, a displacement branch and a Faradaic branch.
-    Scott and Single incorporate memristors into their model, used to mimic a diffusion limited current conduction mode, i.e., their purpose is to throttle electrical current associated with Faradaic reactions. In an implanted setting an electrode should never be operated in a Faradaic conduction mode and certainly never to the point of becoming diffusion limited; for this reason, memristors have been omitted.
+Scott and Single incorporate memristors into their model, used to mimic a diffusion limited current conduction mode, i.e., their purpose is to throttle electrical current associated with Faradaic reactions.
+In an implanted setting an electrode should never be operated in a Faradaic conduction mode and certainly never to the point of becoming diffusion limited; for this reason, memristors have been omitted.
 
-It has been suggested that the primary coupling mechanism between platinum electrodes and physiological saline is the reversible evolution of gas, probably oxygen, at the platinum surface, which dissolves without bubble formation.\cite{Greatbatch1969} Understanding the exact mechanism of displacement or Faradaic charge transfer at the electrode surface is beyond the scope of this work. Rather, we wish to characterise the electrode-electrolyte interface using a small number of parameters that can be fed into an electrical model.
+It has been suggested that the primary coupling mechanism between platinum electrodes and physiological saline is the reversible evolution of gas, probably oxygen, at the platinum surface, which dissolves without bubble formation.~\cite{Greatbatch1969}
+Understanding the exact mechanism of displacement or Faradaic charge transfer at the electrode surface is beyond the scope of this work.
+Rather, we wish to characterise the electrode-electrolyte interface using a small number of parameters that can be fed into an electrical model.
 
-The remainder of this manuscript is broken into five sections. Section \ref{sect:resistorMesh} details the measurement of the inter-electrode resistances (arising from the bulk resistance of the solution) and the generation of a resistor network to replicate these resistances.
+The remainder of this manuscript is broken into five sections.
+Section \ref{sect:resistorMesh} details the measurement of the inter-electrode resistances (arising from the bulk resistance of the solution) and the generation of a resistor network to replicate these resistances.
 
-Sections \ref{sect:cpe} and \ref{sect:faradaic} are concerned with the measurement and parameter fitting of displacement currents and Faradaic currents, respectively, across the electrolyte interface. Section \ref{sect:in-vivo} compares the results obtained for PBS with measurements made in-vivo. Finally, in Section \ref{sect:conclusion} we summarise our findings and give concluding comments.
+Sections \ref{sect:cpe} and \ref{sect:faradaic} are concerned with the measurement and parameter fitting of displacement currents and Faradaic currents, respectively, across the electrolyte interface.
+Section \ref{sect:in-vivo} compares the results obtained for PBS with measurements made in-vivo.
+Finally, in Section \ref{sect:conclusion} we summarise our findings and give concluding comments.
 
 
 \section{Bulk Resistivity / Resistor Network }
@@ -115,18 +123,33 @@ Sections \ref{sect:cpe} and \ref{sect:faradaic} are concerned with the measureme
     \end{center}
 \end{table}
 
-The electrical impedance between two electrodes in an electrolyte arises from two interface impedances in series with the resistance due to the bulk of the electrolyte itself. To quantify the impedance presented by a single interface we first need to determine inter-electrode resistance presented by the electrolyte bulk. Finding these resistances allows us to quantify the series resistance of the interface ($R_{S}$) via subtraction. As there are always two interface impedances between any two electrodes, inter-electrode resistances cannot be measured in isolation.
+The electrical impedance between two electrodes in an electrolyte arises from two interface impedances in series with the resistance due to the bulk of the electrolyte itself.
+To quantify the impedance presented by a single interface we first need to determine inter-electrode resistance presented by the electrolyte bulk.
+Finding these resistances allows us to quantify the series resistance of the interface ($R_{S}$) via subtraction.
+As there are always two interface impedances between any two electrodes, inter-electrode resistances cannot be measured in isolation.
 
-In \cite{ScottSingle2013}, a series of transresistance measurements were used in conjunction with a physical description of the electrode geometry to build up a representative network of resistors. That resistor network was defined using five parameters: $R_{eri}$, $R_{sri}$, $R_{li}$, mesh depth, and edge depth. Readers are referred to \cite{ScottSingle2013} for the interpretation of these model parameters. Repeating that work, we created a network of resistors that mimic the resistances due to the solution's bulk conductivity.
+In \cite{ScottSingle2013}, a series of transresistance measurements were used in conjunction with a physical description of the electrode geometry to build up a representative network of resistors.
+That resistor network was defined using five parameters: $R_{eri}$, $R_{sri}$, $R_{li}$, mesh depth, and edge depth.
+Readers are referred to \cite{ScottSingle2013} for the interpretation of these model parameters.
+Repeating that work, we created a network of resistors that mimic the resistances due to the solution's bulk conductivity.
 
-The mesh depth and padding values of five columns and three rows, respectively, has been taken directly from \cite{ScottSingle2013}. These parameters, together with an array of 8 electrodes, leads to a generated network of 205 resistors, the layout of which is presented in Fig.~\ref{fig:mesh}.
+The mesh depth and padding values of five columns and three rows, respectively, has been taken directly from \cite{ScottSingle2013}.
+These parameters, together with an array of 8 electrodes, leads to a generated network of 205 resistors, the layout of which is presented in Fig.~\ref{fig:mesh}.
 
-A numerical fit has been made to the two independent scaling parameters $R_{eri}$ and $R_{li}$\footnote{The values of $R_{eri}$ and $R_{sri}$ are defined by the lengths of the electrode and inter-electrode spacers respectively as described in \cite{ScottSingle2013}. The two parameters are proportional to each other by the ratio of their lengths. Hence, we define $R_{sri}$ to be 3/4 that of $R_{eri}$ making it a dependant parameter.}.
+A numerical fit has been made to the two independent scaling parameters $R_{eri}$ and $R_{li}$\footnote{The values of $R_{eri}$ and $R_{sri}$ are defined by the lengths of the electrode and inter-electrode spacers respectively as described in \cite{ScottSingle2013}.
+The two parameters are proportional to each other by the ratio of their lengths.
+Hence, we define $R_{sri}$ to be 3/4 that of $R_{eri}$ making it a dependant parameter.}.
 The resulting fit and parameter values are presented in Fig.~\ref{fig:transresistance} and Table~\ref{tab:RESparams}.
 
-Measurements of the inter-electrode impedance were made using a Tektronix TPS2014 DSO with four fully isolated and floating channels; an Agilent 33220A Function Generator; and a desktop PC running Python 2.7 for instrumentation control and result processing. The pH level of the stock solution was measured using a calibrated EDT Instruments BA-350 pH meter. It had a pH of 7.4 and no pH adjustments were made to the derived solutions. The conductivity of solutions was measured using an EDT Instruments RE 388 Tx conductivity meter.
+Measurements of the inter-electrode impedance were made using a Tektronix TPS2014 DSO with four fully isolated and floating channels; an Agilent 33220A Function Generator; and a desktop PC running Python 2.7 for instrumentation control and result processing.
+The pH level of the stock solution was measured using a calibrated EDT Instruments BA-350 pH meter.
+It had a pH of 7.4 and no pH adjustments were made to the derived solutions.
+The conductivity of solutions was measured using an EDT Instruments RE 388 Tx conductivity meter.
 
-To be clear, the resistive mesh created in this step models \textit{only} the resistivity of the solution bulk. No contribution from the interface itself appears in these measurements. This measurement is possible because voltages are always measured across pairs of non-driven electrodes and the measurements are of suitably high impedance. We determine the resistive component of the interface, $R_{S}$, in the following section.
+To be clear, the resistive mesh created in this step models \textit{only} the resistivity of the solution bulk.
+No contribution from the interface itself appears in these measurements.
+This measurement is possible because voltages are always measured across pairs of non-driven electrodes and the measurements are of suitably high impedance.
+We determine the resistive component of the interface, $R_{S}$, in the following section.
 
 \begin{figure}
     \begin{center}
@@ -166,7 +189,8 @@ To be clear, the resistive mesh created in this step models \textit{only} the re
 \section{Displacement Parameters / CPE}
 \label{sect:cpe}
 Displacement currents are responsible for capacitive behaviour at interfacial boundaries.
-They are brought about by the redistribution of charge in response to applied fields, e.g., a charged electrode will attract or repel $Cl^{-}$ from its surface and reorientate polar molecules in the surrounding solution.\cite{Merrill05} This capacitive behaviour may also be the result of electrode polarisation in the form of reversible Faradaic reactions at the surface of the electrode.
+They are brought about by the redistribution of charge in response to applied fields, e.g., a charged electrode will attract or repel $Cl^{-}$ from its surface and reorientate polar molecules in the surrounding solution. \cite{Merrill05}
+This capacitive behaviour may also be the result of electrode polarisation in the form of reversible Faradaic reactions at the surface of the electrode.
 Such reactions involving water and platinum, as identified in \cite{Horch2004,Mohtashami2011,Merrill05}, include:
 \begin{eqnarray}
     Pt + H_{2}O &\Leftrightarrow& PtO + 2 H^{+} + 2 e^{-}\\
@@ -449,15 +473,17 @@ We have used the parameters of a compact electrical model of an implantable elec
 We have measured how changing the concentration of PBS affects the parameters of this model.
 We have drawn direct relationships with concentration and conductivity sufficient to predict interface characteristics at arbitrary dilutions of PBS.
 We found that the magnitude of the CPE element moves much more slowly with concentration whereas the resistance moved almost linearly.
-Using DC measurements we conclude that the concentration of PBS has no effect on the onset of Faradaic conduction for the range of concentrations measured. We hypothesise that this is because the double-layer sets the effective concentration of the species involved in the Faradaic reactions, in a localised volume surrounding each electrode.
+Using DC measurements we conclude that the concentration of PBS has no effect on the onset of Faradaic conduction for the range of concentrations measured.
+We hypothesise that this is because the double-layer sets the concentration of species involved in the Faradaic reactions within a volume surrounding each electrode.
 
-In-vivo measurements of platinum electrodes in sheep spine show that no single concentration of PBS matches both the CPE and the resistive characteristics at once.
+In-vivo measurements using platinum electrodes in sheep spine show that no single concentration of PBS matches both the CPE and the resistive characteristics at once.
 These measurements also reveal a considerable amount of reactance (see transimpedance measurements in vivo) that is captured neither by PBS nor the model presented when using a purely resistive spreading resistance.
-Nevertheless, a single solution of PBS is to be used as a human phantom, a one-tenth concentration solution (by mass) is a good compromise.
+Nevertheless, if a single solution of PBS is to be used as a human phantom, a one-tenth concentration solution (by mass) is a good compromise.
 
 While the model used is limited to predicting only the onset of Faradaic current conduction, it usefully captures the transition into this biologically destructive stimulus regime sufficient for it to be avoided. 
     
-The final model, including 205 lines of resistive mesh, is represented by a SPICE netlist comprised of 348 lines. Simulation of this model, using the freely available ngSpice circuit simulator, at 1000 frequencies takes approximately 1 second on a modern CPU.
+The final model, including 205 lines of resistive mesh, is represented by a SPICE netlist comprised of 348 lines.
+A simulation of this model, using the freely available ngSpice circuit simulator, at 1000 frequencies takes approximately 1 second on a modern CPU.
 
 \section*{Acknowledgement}
 The authors acknowledge The University of Waikato for financial support and Saluda Medical for the use of facilities and equipment. Special thanks are expressed to Peter Single of Saluda Medical for help conducting in-vivo measurements and to the anonymous reviewer whose detailed comments lead to a much more rigorous manuscript.
@@ -555,14 +581,6 @@ The authors acknowledge The University of Waikato for financial support and Salu
     Parker J.L., Karantonis D.M., Single P.S., Obradovic M., Laird J., Gorman R.B., Ladd L.A., Cousins M.J.,
     ``Electrically Evoked Compound Action Potentials Recorded From the Sheep Spinal Cord'',
     Neuromodulation 2013; 16: 295--303.
-
-%\bibitem{Weiland2000}
-%    Weiland~James~D. and Anderson~David~J.,
-%    ``Chronic Neural Stimulation with Thin-Film, Iridium Oxide Electrodes'',
-%    {\em IEEE Transactions on Biomedical Circuits and Systems},
-%    vol.~47 no.~7, July 2000, pp911--918
-
-
 
 
 \end{thebibliography}
